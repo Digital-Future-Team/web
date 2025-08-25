@@ -1,0 +1,151 @@
+/* Dark Theme Styles */
+
+:root {
+    /* Colors - Dark Theme */
+    --primary: #60a5fa; /* blue-400 - slightly lighter for dark mode */
+    --primary-dark: #3b82f6; /* blue-500 */
+    --secondary: #a78bfa; /* purple-400 - slightly lighter for dark mode */
+    --secondary-dark: #8b5cf6; /* purple-500 */
+    --accent: #22d3ee; /* cyan-400 - slightly lighter for dark mode */
+    --accent-dark: #06b6d4; /* cyan-500 */
+    
+    /* Text Colors - Dark Theme */
+    --text-primary: #f9fafb; /* gray-50 */
+    --text-secondary: #e5e7eb; /* gray-200 */
+    --text-light: #9ca3af; /* gray-400 */
+    
+    /* Background Colors - Dark Theme */
+    --bg-primary: #111827; /* gray-900 */
+    --bg-secondary: #1f2937; /* gray-800 */
+    --bg-tertiary: #374151; /* gray-700 */
+    
+    /* Border & Shadow - Dark Theme */
+    --border-color: #4b5563; /* gray-600 */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark Theme Specific Styles */
+
+/* Navbar */
+.navbar {
+    background-color: rgba(17, 24, 39, 0.8); /* gray-900 with opacity */
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow);
+}
+
+/* Cards */
+.card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: var(--bg-primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.btn-secondary {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    color: var(--bg-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-dark);
+    border-color: var(--secondary-dark);
+}
+
+.btn-outline-primary {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary);
+    color: var(--bg-primary);
+}
+
+/* Form Controls */
+input, select, textarea {
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 0.2rem rgba(96, 165, 250, 0.25);
+}
+
+/* Footer */
+footer {
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+}
+
+/* Glassmorphism Effect - Dark Theme */
+.glass-effect {
+    background: rgba(17, 24, 39, 0.7); /* gray-900 with opacity */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Theme Toggle Icon */
+.theme-toggle-icon .sun {
+    display: inline-block;
+}
+
+.theme-toggle-icon .moon {
+    display: none;
+}
+
+/* Code Blocks */
+pre, code {
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+/* Tables */
+table {
+    border-color: var(--border-color);
+}
+
+table th {
+    background-color: var(--bg-tertiary);
+}
+
+table tr:nth-child(even) {
+    background-color: var(--bg-secondary);
+}
+
+table tr:hover {
+    background-color: var(--bg-tertiary);
+}
+
+/* Scrollbar - Dark Theme */
+::-webkit-scrollbar-track {
+    background: var(--bg-tertiary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
