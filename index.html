@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIGITAL FUTURE – Qalyubia, Egypt | مستقبل رقمي - القليوبية، مصر</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <!-- AOS for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/rtl.css" id="direction-style">
+    <link rel="stylesheet" href="css/light-theme.css" id="theme-style">
+</head>
+<body class="font-sans bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-all duration-300">
+    <!-- Language & Theme Toggle - Fixed Position -->
+    <div class="fixed top-4 end-4 z-50 flex gap-3">
+        <button id="language-toggle" class="bg-white dark:bg-gray-800 p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center min-w-[80px]" aria-label="Toggle Language">
+            <span class="lang-en hidden">عربي</span>
+            <span class="lang-ar">English</span>
+        </button>
+        <button id="theme-toggle" class="bg-white dark:bg-gray-800 p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300" aria-label="Toggle Theme">
+            <i class="fa-solid fa-moon dark:hidden"></i>
+            <i class="fa-solid fa-sun hidden dark:block"></i>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg shadow-md z-40 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-2 navbar-brand">
+                    <img src="assets/images/light_theme_image.jpg" alt="DIGITAL FUTURE Logo" class="h-10 light-logo">
+                    <img src="assets/images/dark_theme_image.jpg" alt="DIGITAL FUTURE Logo" class="h-10 dark-logo hidden">
+                    <div>
+                        <h1 class="text-lg font-bold text-blue-600 dark:text-blue-400 lang-ar">مستقبل رقمي</h1>
+                        <h1 class="text-lg font-bold text-blue-600 dark:text-blue-400 lang-en hidden">DIGITAL FUTURE</h1>
+                    </div>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="index.html" class="text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-all">
+                        <span class="lang-ar">الرئيسية</span>
+                        <span class="lang-en hidden">Home</span>
+                    </a>
+                    <a href="pages/about.html" class="text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-all">
+                        <span class="lang-ar">من نحن</span>
+                        <span class="lang-en hidden">About Us</span>
+                    </a>
+                    <a href="pages/departments.html" class="text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-all">
+                        <span class="lang-ar">الأقسام</span>
+                        <span class="lang-en hidden">Departments</span>
+                    </a>
+                    <a href="pages/members.html" class="text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-all">
+                        <span class="lang-ar">الأعضاء</span>
+                        <span class="lang-en hidden">Members</span>
+                    </a>
+                    <a href="pages/projects.html" class="text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-all">
+                        <span class="lang-ar">المشاريع</span>
+                        <span class="lang-en hidden">Projects</span>
+                    </a>
+                    <a href="pages/news.html" class="text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-all">
+                        <span class="lang-ar">الأخبار والفعاليات</span>
+                        <span class="lang-en hidden">News & Events</span>
+                    </a>
+                    <a href="pages/contact.html" class="text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-all">
+                        <span class="lang-ar">اتصل بنا</span>
+                        <span class="lang-en hidden">Contact Us</span>
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-800 dark:text-white focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden pt-4 pb-2">
+                <a href="index.html" class="block py-2 text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-all">
+                    <span class="lang-ar">الرئيسية</span>
+                    <span class="lang-en hidden">Home</span>
+                </a>
+                <a href="pages/about.html" class="block py-2 text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-all">
+                    <span class="lang-ar">من نحن</span>
+                    <span class="lang-en hidden">About Us</span>
+                </a>
+                <a href="pages/departments.html" class="block py-2 text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-all">
+                    <span class="lang-ar">الأقسام</span>
+                    <span class="lang-en hidden">Departments</span>
+                </a>
+                <a href="pages/members.html" class="block py-2 text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-all">
+                    <span class="lang-ar">الأعضاء</span>
+                    <span class="lang-en hidden">Members</span>
+                </a>
+                <a href="pages/projects.html" class="block py-2 text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-all">
+                    <span class="lang-ar">المشاريع</span>
+                    <span class="lang-en hidden">Projects</span>
+                </a>
+                <a href="pages/news.html" class="block py-2 text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-all">
+                    <span class="lang-ar">الأخبار والفعاليات</span>
+                    <span class="lang-en hidden">News & Events</span>
+                </a>
+                <a href="pages/contact.html" class="block py-2 text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-all">
+                    <span class="lang-ar">اتصل بنا</span>
+                    <span class="lang-en hidden">Contact Us</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex items-center overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 dark:from-blue-900/30 dark:to-purple-900/30 z-0"></div>
+        <div class="container mx-auto px-4 py-20 relative z-10">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2" data-aos="fade-right" data-aos-duration="1000">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+                        <span class="lang-ar">مستقبل رقمي</span>
+                        <span class="lang-en hidden">DIGITAL FUTURE</span>
+                    </h1>
+                    <h2 class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8">
+                        <span class="lang-ar">فريق طلابي للتكنولوجيا - القليوبية، مصر</span>
+                        <span class="lang-en hidden">Student Technology Team - Qalyubia, Egypt</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
+                        <span class="lang-ar">نحن فريق من الطلاب المبدعين نسعى لبناء مستقبل رقمي أفضل من خلال الابتكار والتعلم المستمر في مجالات البرمجة والذكاء الاصطناعي والتصميم.</span>
+                        <span class="lang-en hidden">We are a team of creative students striving to build a better digital future through innovation and continuous learning in programming, artificial intelligence, and design.</span>
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="pages/about.html" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                            <span class="lang-ar">تعرف علينا</span>
+                            <span class="lang-en hidden">Learn About Us</span>
+                        </a>
+                        <a href="pages/projects.html" class="px-6 py-3 bg-transparent border-2 border-blue-600 text-blue-600 dark:text-blue-400 hover:bg-blue-600/10 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                            <span class="lang-ar">استكشف مشاريعنا</span>
+                            <span class="lang-en hidden">Explore Our Projects</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="relative w-full max-w-md aspect-square">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full opacity-20 blur-3xl"></div>
+                        <img src="assets/images/hero_image.png" alt="Digital Future Team" class="relative z-10 w-full h-full object-contain">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-0 transform rotate-180">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-16 md:h-24">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-white dark:fill-gray-800"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    <span class="lang-ar">رؤيتنا ورسالتنا</span>
+                    <span class="lang-en hidden">Our Vision & Mission</span>
+                </h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center justify-center w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full mb-6 mx-auto">
+                        <i class="fa-solid fa-eye text-2xl text-blue-600 dark:text-blue-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white text-center mb-4">
+                        <span class="lang-ar">رؤيتنا</span>
+                        <span class="lang-en hidden">Our Vision</span>
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-center">
+                        <span class="lang-ar">أن نكون رواداً في تمكين الطلاب من خلال التكنولوجيا، وبناء جيل قادر على قيادة التحول الرقمي في مصر والعالم العربي.</span>
+                        <span class="lang-en hidden">To be pioneers in empowering students through technology, building a generation capable of leading digital transformation in Egypt and the Arab world.</span>
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center justify-center w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full mb-6 mx-auto">
+                        <i class="fa-solid fa-bullseye text-2xl text-purple-600 dark:text-purple-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white text-center mb-4">
+                        <span class="lang-ar">رسالتنا</span>
+                        <span class="lang-en hidden">Our Mission</span>
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-center">
+                        <span class="lang-ar">توفير بيئة تعليمية محفزة للإبداع والابتكار في مجالات التكنولوجيا المختلفة، وتطوير مهارات الطلاب العملية من خلال مشاريع حقيقية تخدم المجتمع.</span>
+                        <span class="lang-en hidden">Providing a stimulating educational environment for creativity and innovation in various technology fields, and developing students' practical skills through real projects that serve the community.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Departments Preview Section -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    <span class="lang-ar">أقسامنا</span>
+                    <span class="lang-en hidden">Our Departments</span>
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    <span class="lang-ar">نعمل من خلال أقسام متخصصة تتكامل معاً لتحقيق أهدافنا</span>
+                    <span class="lang-en hidden">We work through specialized departments that integrate together to achieve our goals</span>
+                </p>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Programming Department -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-3 bg-blue-600 w-full"></div>
+                    <div class="p-6">
+                        <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fa-solid fa-code text-2xl text-blue-600 dark:text-blue-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                            <span class="lang-ar">قسم البرمجة</span>
+                            <span class="lang-en hidden">Programming Department</span>
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            <span class="lang-ar">تطوير تطبيقات الويب والموبايل وحلول البرمجيات المبتكرة</span>
+                            <span class="lang-en hidden">Developing web and mobile applications and innovative software solutions</span>
+                        </p>
+                        <a href="pages/departments.html#programming" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-all inline-flex items-center gap-1">
+                            <span class="lang-ar">اكتشف المزيد</span>
+                            <span class="lang-en hidden">Learn More</span>
+                            <i class="fa-solid fa-arrow-left lang-ar"></i>
+                            <i class="fa-solid fa-arrow-right lang-en hidden"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- AI Department -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-3 bg-purple-600 w-full"></div>
+                    <div class="p-6">
+                        <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fa-solid fa-brain text-2xl text-purple-600 dark:text-purple-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                            <span class="lang-ar">قسم الذكاء الاصطناعي</span>
+                            <span class="lang-en hidden">AI Department</span>
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            <span class="lang-ar">بناء نماذج التعلم الآلي وتطبيقات الذكاء الاصطناعي المبتكرة</span>
+                            <span class="lang-en hidden">Building machine learning models and innovative AI applications</span>
+                        </p>
+                        <a href="pages/departments.html#ai" class="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-all inline-flex items-center gap-1">
+                            <span class="lang-ar">اكتشف المزيد</span>
+                            <span class="lang-en hidden">Learn More</span>
+                            <i class="fa-solid fa-arrow-left lang-ar"></i>
+                            <i class="fa-solid fa-arrow-right lang-en hidden"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Training Department -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-3 bg-cyan-600 w-full"></div>
+                    <div class="p-6">
+                        <div class="w-16 h-16 bg-cyan-100 dark:bg-cyan-900 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fa-solid fa-graduation-cap text-2xl text-cyan-600 dark:text-cyan-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                            <span class="lang-ar">قسم التدريب</span>
+                            <span class="lang-en hidden">Training Department</span>
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            <span class="lang-ar">تنظيم ورش عمل ودورات تدريبية في مختلف مجالات التكنولوجيا</span>
+                            <span class="lang-en hidden">Organizing workshops and training courses in various technology fields</span>
+                        </p>
+                        <a href="pages/departments.html#training" class="text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 transition-all inline-flex items-center gap-1">
+                            <span class="lang-ar">اكتشف المزيد</span>
+                            <span class="lang-en hidden">Learn More</span>
+                            <i class="fa-solid fa-arrow-left lang-ar"></i>
+                            <i class="fa-solid fa-arrow-right lang-en hidden"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="pages/departments.html" class="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                    <span class="lang-ar">عرض جميع الأقسام</span>
+                    <span class="lang-en hidden">View All Departments</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Counter Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-900 dark:to-purple-900 relative overflow-hidden">
+        <div class="absolute inset-0 bg-pattern opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-2">
+                        <span class="counter" data-target="20">0</span>+
+                    </div>
+                    <p class="text-blue-100">
+                        <span class="lang-ar">عضو</span>
+                        <span class="lang-en hidden">Members</span>
+                    </p>
+                </div>
+                
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-2">
+                        <span class="counter" data-target="6">0</span>
+                    </div>
+                    <p class="text-blue-100">
+                        <span class="lang-ar">أقسام</span>
+                        <span class="lang-en hidden">Departments</span>
+                    </p>
+                </div>
+                
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-2">
+                        <span class="counter" data-target="15">0</span>+
+                    </div>
+                    <p class="text-blue-100">
+                        <span class="lang-ar">مشروع</span>
+                        <span class="lang-en hidden">Projects</span>
+                    </p>
+                </div>
+                
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-2">
+                        <span class="counter" data-target="10">0</span>+
+                    </div>
+                    <p class="text-blue-100">
+                        <span class="lang-ar">ورشة عمل</span>
+                        <span class="lang-en hidden">Workshops</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    <span class="lang-ar">مشاريعنا المميزة</span>
+                    <span class="lang-en hidden">Featured Projects</span>
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    <span class="lang-ar">نفخر بتقديم مشاريع مبتكرة تعكس مهارات وإبداع فريقنا</span>
+                    <span class="lang-en hidden">We are proud to present innovative projects that reflect our team's skills and creativity</span>
+                </p>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="aspect-video bg-gray-200 dark:bg-gray-600 overflow-hidden">
+                        <img src="assets/images/project1.jpg" alt="Project 1" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                            <span class="lang-ar">تطبيق ذكي للتعلم</span>
+                            <span class="lang-en hidden">Smart Learning App</span>
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            <span class="lang-ar">منصة تعليمية تفاعلية مدعومة بالذكاء الاصطناعي لتحسين تجربة التعلم</span>
+                            <span class="lang-en hidden">An interactive educational platform powered by AI to enhance the learning experience</span>
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 rounded-full text-sm">React</span>
+                            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-400 rounded-full text-sm">TensorFlow</span>
+                            <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400 rounded-full text-sm">Node.js</span>
+                        </div>
+                        <a href="pages/projects.html#project1" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-all inline-flex items-center gap-1">
+                            <span class="lang-ar">عرض التفاصيل</span>
+                            <span class="lang-en hidden">View Details</span>
+                            <i class="fa-solid fa-arrow-left lang-ar"></i>
+                            <i class="fa-solid fa-arrow-right lang-en hidden"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="aspect-video bg-gray-200 dark:bg-gray-600 overflow-hidden">
+                        <img src="assets/images/project2.jpg" alt="Project 2" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                            <span class="lang-ar">نظام إدارة المشاريع</span>
+                            <span class="lang-en hidden">Project Management System</span>
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            <span class="lang-ar">منصة متكاملة لإدارة المشاريع وتتبع المهام وتعزيز التعاون بين أعضاء الفريق</span>
+                            <span class="lang-en hidden">An integrated platform for project management, task tracking, and enhancing team collaboration</span>
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 rounded-full text-sm">Vue.js</span>
+                            <span class="px-3 py-1 bg-red-100 dark:bg-red-900 text-red-600 dark:text-red-400 rounded-full text-sm">Laravel</span>
+                            <span class="px-3 py-1 bg-cyan-100 dark:bg-cyan-900 text-cyan-600 dark:text-cyan-400 rounded-full text-sm">MySQL</span>
+                        </div>
+                        <a href="pages/projects.html#project2" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-all inline-flex items-center gap-1">
+                            <span class="lang-ar">عرض التفاصيل</span>
+                            <span class="lang-en hidden">View Details</span>
+                            <i class="fa-solid fa-arrow-left lang-ar"></i>
+                            <i class="fa-solid fa-arrow-right lang-en hidden"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <div class="aspect-video bg-gray-200 dark:bg-gray-600 overflow-hidden">
+                        <img src="assets/images/project3.jpg" alt="Project 3" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                            <span class="lang-ar">روبوت المساعدة الذكي</span>
+                            <span class="lang-en hidden">Smart Assistant Robot</span>
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            <span class="lang-ar">روبوت مبتكر يستخدم الذكاء الاصطناعي لمساعدة الطلاب في المهام اليومية</span>
+                            <span class="lang-en hidden">An innovative robot that uses AI to assist students in daily tasks</span>
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-600 dark:text-yellow-400 rounded-full text-sm">Python</span>
+                            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-400 rounded-full text-sm">TensorFlow</span>
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400 rounded-full text-sm">Raspberry Pi</span>
+                        </div>
+                        <a href="pages/projects.html#project3" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-all inline-flex items-center gap-1">
+                            <span class="lang-ar">عرض التفاصيل</span>
+                            <span class="lang-en hidden">View Details</span>
+                            <i class="fa-solid fa-arrow-left lang-ar"></i>
+                            <i class="fa-solid fa-arrow-right lang-en hidden"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="pages/projects.html" class="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                    <span class="lang-ar">عرض جميع المشاريع</span>
+                    <span class="lang-en hidden">View All Projects</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News Section -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    <span class="lang-ar">آخر الأخبار والفعاليات</span>
+                    <span class="lang-en hidden">Latest News & Events</span>
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    <span class="lang-ar">تابع آخر أنشطتنا وفعالياتنا والأخبار المتعلقة بفريقنا</span>
+                    <span class="lang-en hidden">Follow our latest activities, events, and news related to our team</span>
+                </p>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- News 1 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="aspect-video bg-gray-200 dark:bg-gray-600 overflow-hidden">
+                        <img src="assets/images/news1.jpg" alt="News 1" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">
+                                <i class="fa-regular fa-calendar me-1"></i>
+                                <span class="lang-ar">15 يونيو 2025</span>
+                                <span class="lang-en hidden">June 15, 2025</span>
+                            </span>
+                            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 rounded-full text-sm">
+                                <span class="lang-ar">فعالية</span>
+                                <span class="lang-en hidden">Event</span>
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                            <span class="lang-ar">هاكاثون الابتكار التقني</span>
+                            <span class="lang-en hidden">Tech Innovation Hackathon</span>
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            <span class="lang-ar">انضم إلينا في هاكاثون الابتكار التقني لمدة 48 ساعة لتطوير حلول مبتكرة للتحديات المجتمعية</span>
+                            <span class="lang-en hidden">Join us for a 48-hour Tech Innovation Hackathon to develop innovative solutions for community challenges</span>
+                        </p>
+                        <a href="pages/news.html#news1" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-all inline-flex items-center gap-1">
+                            <span class="lang-ar">اقرأ المزيد</span>
+                            <span class="lang-en hidden">Read More</span>
+                            <i class="fa-solid fa-arrow-left lang-ar"></i>
+                            <i class="fa-solid fa-arrow-right lang-en hidden"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- News 2 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="aspect-video bg-gray-200 dark:bg-gray-600 overflow-hidden">
+                        <img src="assets/images/news2.jpg" alt="News 2" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">
+                                <i class="fa-regular fa-calendar me-1"></i>
+                                <span class="lang-ar">10 يونيو 2025</span>
+                                <span class="lang-en hidden">June 10, 2025</span>
+                            </span>
+                            <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400 rounded-full text-sm">
+                                <span class="lang-ar">إنجاز</span>
+                                <span class="lang-en hidden">Achievement</span>
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                            <span class="lang-ar">فوز فريقنا بمسابقة الابتكار الوطنية</span>
+                            <span class="lang-en hidden">Our Team Wins National Innovation Competition</span>
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            <span class="lang-ar">حصل فريقنا على المركز الأول في مسابقة الابتكار الوطنية عن مشروع "روبوت المساعدة الذكي"</span>
+                            <span class="lang-en hidden">Our team won first place in the National Innovation Competition for the "Smart Assistant Robot" project</span>
+                        </p>
+                        <a href="pages/news.html#news2" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-all inline-flex items-center gap-1">
+                            <span class="lang-ar">اقرأ المزيد</span>
+                            <span class="lang-en hidden">Read More</span>
+                            <i class="fa-solid fa-arrow-left lang-ar"></i>
+                            <i class="fa-solid fa-arrow-right lang-en hidden"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- News 3 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <div class="aspect-video bg-gray-200 dark:bg-gray-600 overflow-hidden">
+                        <img src="assets/images/news3.jpg" alt="News 3" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">
+                                <i class="fa-regular fa-calendar me-1"></i>
+                                <span class="lang-ar">5 يونيو 2025</span>
+                                <span class="lang-en hidden">June 5, 2025</span>
+                            </span>
+                            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-400 rounded-full text-sm">
+                                <span class="lang-ar">ورشة عمل</span>
+                                <span class="lang-en hidden">Workshop</span>
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                            <span class="lang-ar">ورشة عمل: أساسيات الذكاء الاصطناعي</span>
+                            <span class="lang-en hidden">Workshop: AI Fundamentals</span>
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            <span class="lang-ar">انضم إلينا في ورشة عمل تفاعلية حول أساسيات الذكاء الاصطناعي وتطبيقاته العملية</span>
+                            <span class="lang-en hidden">Join us for an interactive workshop on AI fundamentals and its practical applications</span>
+                        </p>
+                        <a href="pages/news.html#news3" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-all inline-flex items-center gap-1">
+                            <span class="lang-ar">اقرأ المزيد</span>
+                            <span class="lang-en hidden">Read More</span>
+                            <i class="fa-solid fa-arrow-left lang-ar"></i>
+                            <i class="fa-solid fa-arrow-right lang-en hidden"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="pages/news.html" class="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                    <span class="lang-ar">عرض جميع الأخبار</span>
+                    <span class="lang-en hidden">View All News</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-900 dark:to-purple-900 relative overflow-hidden">
+        <div class="absolute inset-0 bg-pattern opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6" data-aos="fade-up">
+                <span class="lang-ar">هل أنت مستعد للانضمام إلى مستقبل رقمي؟</span>
+                <span class="lang-en hidden">Ready to Join Digital Future?</span>
+            </h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                <span class="lang-ar">انضم إلى فريقنا وكن جزءاً من رحلة الابتكار والإبداع في عالم التكنولوجيا</span>
+                <span class="lang-en hidden">Join our team and be part of the journey of innovation and creativity in the world of technology</span>
+            </p>
+            <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+                <a href="pages/contact.html" class="px-6 py-3 bg-white text-blue-600 hover:bg-blue-50 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                    <span class="lang-ar">تواصل معنا</span>
+                    <span class="lang-en hidden">Contact Us</span>
+                </a>
+                <a href="pages/about.html" class="px-6 py-3 bg-transparent border-2 border-white text-white hover:bg-white/10 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                    <span class="lang-ar">تعرف علينا أكثر</span>
+                    <span class="lang-en hidden">Learn More About Us</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- About Column -->
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <img src="assets/images/logo.svg" alt="DIGITAL FUTURE Logo" class="h-10">
+                        <div>
+                            <h2 class="text-lg font-bold text-blue-400 lang-ar">مستقبل رقمي</h2>
+                            <h2 class="text-lg font-bold text-blue-400 lang-en hidden">DIGITAL FUTURE</h2>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        <span class="lang-ar">فريق طلابي للتكنولوجيا يسعى لبناء مستقبل رقمي أفضل من خلال الابتكار والتعلم المستمر.</span>
+                        <span class="lang-en hidden">A student technology team striving to build a better digital future through innovation and continuous learning.</span>
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="md:col-span-1">
+                    <h3 class="text-lg font-bold mb-4">
+                        <span class="lang-ar">روابط سريعة</span>
+                        <span class="lang-en hidden">Quick Links</span>
+                    </h3>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="index.html" class="text-gray-400 hover:text-blue-400 transition-colors">
+                                <span class="lang-ar">الرئيسية</span>
+                                <span class="lang-en hidden">Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="pages/about.html" class="text-gray-400 hover:text-blue-400 transition-colors">
+                                <span class="lang-ar">من نحن</span>
+                                <span class="lang-en hidden">About Us</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="pages/departments.html" class="text-gray-400 hover:text-blue-400 transition-colors">
+                                <span class="lang-ar">الأقسام</span>
+                                <span class="lang-en hidden">Departments</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="pages/members.html" class="text-gray-400 hover:text-blue-400 transition-colors">
+                                <span class="lang-ar">الأعضاء</span>
+                                <span class="lang-en hidden">Members</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="pages/projects.html" class="text-gray-400 hover:text-blue-400 transition-colors">
+                                <span class="lang-ar">المشاريع</span>
+                                <span class="lang-en hidden">Projects</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="md:col-span-1">
+                    <h3 class="text-lg font-bold mb-4">
+                        <span class="lang-ar">معلومات الاتصال</span>
+                        <span class="lang-en hidden">Contact Info</span>
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-blue-400"></i>
+                            <span class="text-gray-400">
+                                <span class="lang-ar">القليوبية، مصر</span>
+                                <span class="lang-en hidden">Qalyubia, Egypt</span>
+                            </span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-blue-400"></i>
+                            <a href="mailto:info@digitalfuture.eg" class="text-gray-400 hover:text-blue-400 transition-colors">info@digitalfuture.eg</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-blue-400"></i>
+                            <a href="tel:+201234567890" class="text-gray-400 hover:text-blue-400 transition-colors">+20 123 456 7890</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="md:col-span-1">
+                    <h3 class="text-lg font-bold mb-4">
+                        <span class="lang-ar">النشرة الإخبارية</span>
+                        <span class="lang-en hidden">Newsletter</span>
+                    </h3>
+                    <p class="text-gray-400 mb-4">
+                        <span class="lang-ar">اشترك في نشرتنا الإخبارية للحصول على آخر التحديثات</span>
+                        <span class="lang-en hidden">Subscribe to our newsletter for the latest updates</span>
+                    </p>
+                    <form class="flex">
+                        <input type="email" placeholder="البريد الإلكتروني" class="lang-ar px-4 py-2 bg-gray-800 text-white rounded-s-lg focus:outline-none focus:ring-2 focus:ring-blue-400 w-full">
+                        <input type="email" placeholder="Email Address" class="lang-en hidden px-4 py-2 bg-gray-800 text-white rounded-s-lg focus:outline-none focus:ring-2 focus:ring-blue-400 w-full">
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-e-lg transition-colors">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+                <p>
+                    <span class="lang-ar">© 2025 مستقبل رقمي. جميع الحقوق محفوظة.</span>
+                    <span class="lang-en hidden">© 2025 DIGITAL FUTURE. All Rights Reserved.</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
