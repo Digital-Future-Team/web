@@ -45,88 +45,166 @@ document.addEventListener('DOMContentLoaded', function() {
         lucide.createIcons();
     }
 
-    // Mobile menu toggle
+    // Mobile sidebar functionality
     const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    if (mobileMenuButton && mobileMenu) {
+    const mobileSidebar = document.getElementById('mobile-sidebar');
+    const closeSidebarButton = document.getElementById('close-sidebar');
+    
+    // Create overlay for mobile sidebar
+    const sidebarOverlay = document.createElement('div');
+    sidebarOverlay.className = 'sidebar-overlay';
+    document.body.appendChild(sidebarOverlay);
+    
+    // Open mobile sidebar
+    if (mobileMenuButton) {
         mobileMenuButton.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
+            if (mobileSidebar) {
+                mobileSidebar.classList.add('active');
+                sidebarOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    }
+    
+    // Close mobile sidebar
+    function closeMobileSidebar() {
+        if (mobileSidebar) {
+            mobileSidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+    
+    if (closeSidebarButton) {
+        closeSidebarButton.addEventListener('click', closeMobileSidebar);
+    }
+    
+    // Close sidebar when clicking overlay
+    sidebarOverlay.addEventListener('click', closeMobileSidebar);
+    
+    // Close sidebar when clicking on a link
+    const sidebarLinks = document.querySelectorAll('#mobile-sidebar .nav-link');
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', closeMobileSidebar);
+    });
+    
+    // Enhanced mobile language and theme toggles
+    const mobileLanguageToggle = document.getElementById('mobile-language-toggle');
+    const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+    
+    if (mobileLanguageToggle) {
+        mobileLanguageToggle.addEventListener('click', function() {
+            toggleLanguage();
+        });
+    }
+    
+    if (mobileThemeToggle) {
+        mobileThemeToggle.addEventListener('click', function() {
+            toggleTheme();
         });
     }
 
-    // Language toggle functionality
+    // Enhanced Language toggle functionality
     const languageToggle = document.getElementById('language-toggle');
     const htmlElement = document.documentElement;
     
-    if (languageToggle) {
-        languageToggle.addEventListener('click', function() {
-            // Toggle language classes
-            document.querySelectorAll('.lang-ar, .lang-en').forEach(el => {
-                el.classList.toggle('hidden');
-            });
-            
-            // Toggle HTML direction attribute
-            if (htmlElement.getAttribute('dir') === 'rtl') {
-                htmlElement.setAttribute('dir', 'ltr');
-                htmlElement.setAttribute('lang', 'en');
-            } else {
-                htmlElement.setAttribute('dir', 'rtl');
-                htmlElement.setAttribute('lang', 'ar');
-            }
-            
-            // Toggle direction stylesheet
-            const directionStyle = document.getElementById('direction-style');
-            if (directionStyle) {
-                if (directionStyle.getAttribute('href') === 'css/rtl.css') {
-                    directionStyle.setAttribute('href', 'css/ltr.css');
-                } else {
-                    directionStyle.setAttribute('href', 'css/rtl.css');
-                }
-            }
-            
-            // Save language preference
-            const currentLang = htmlElement.getAttribute('lang');
-            localStorage.setItem('preferredLanguage', currentLang);
+    function toggleLanguage() {
+        // Toggle language classes with smooth animation
+        document.querySelectorAll('.lang-ar, .lang-en').forEach(el => {
+            el.classList.toggle('hidden');
         });
+        
+        // Toggle HTML direction attribute
+        if (htmlElement.getAttribute('dir') === 'rtl') {
+            htmlElement.setAttribute('dir', 'ltr');
+            htmlElement.setAttribute('lang', 'en');
+        } else {
+            htmlElement.setAttribute('dir', 'rtl');
+            htmlElement.setAttribute('lang', 'ar');
+        }
+        
+        // Toggle direction stylesheet
+        const directionStylesheet = document.getElementById('direction-stylesheet');
+        if (directionStylesheet) {
+            if (directionStylesheet.getAttribute('href').includes('rtl.css')) {
+                directionStylesheet.setAttribute('href', directionStylesheet.getAttribute('href').replace('rtl.css', 'ltr.css'));
+            } else {
+                directionStylesheet.setAttribute('href', directionStylesheet.getAttribute('href').replace('ltr.css', 'rtl.css'));
+            }
+        }
+        
+        // Save language preference
+        const currentLang = htmlElement.getAttribute('lang');
+        localStorage.setItem('preferredLanguage', currentLang);
+        
+        // Add visual feedback
+        const allLanguageButtons = document.querySelectorAll('#language-toggle, #mobile-language-toggle');
+        allLanguageButtons.forEach(btn => {
+            btn.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                btn.style.transform = 'scale(1)';
+            }, 150);
+        });
+    }
+    
+    if (languageToggle) {
+        languageToggle.addEventListener('click', toggleLanguage);
     }
 
-    // Theme toggle functionality
+    // Enhanced Theme toggle functionality
     const themeToggle = document.getElementById('theme-toggle');
     
-    if (themeToggle) {
-        themeToggle.addEventListener('click', function() {
-            // Toggle dark class on html element
-            document.documentElement.classList.toggle('dark');
+    function toggleTheme() {
+        // Toggle dark class on html element with smooth transition
+        document.documentElement.classList.toggle('dark');
+        
+        // Toggle theme stylesheet
+        const themeStylesheet = document.getElementById('theme-stylesheet');
+        if (themeStylesheet) {
+            const currentPath = themeStylesheet.getAttribute('href');
+            const isRootPath = !currentPath.includes('/');
+            const cssPrefix = isRootPath ? 'css/' : '../css/';
             
-            // Toggle theme stylesheet
-            const themeStyle = document.getElementById('theme-style');
-            if (themeStyle) {
-                const currentPath = themeStyle.getAttribute('href');
-                const isRootPath = !currentPath.includes('/');
-                const cssPrefix = isRootPath ? 'css/' : '../css/';
-                
-                if (currentPath.includes('light-theme.css')) {
-                    themeStyle.setAttribute('href', cssPrefix + 'dark-theme.css');
-                } else {
-                    themeStyle.setAttribute('href', cssPrefix + 'light-theme.css');
-                }
+            if (currentPath.includes('light-theme.css')) {
+                themeStylesheet.setAttribute('href', cssPrefix + 'dark-theme.css');
+            } else {
+                themeStylesheet.setAttribute('href', cssPrefix + 'light-theme.css');
             }
-            
-            // Toggle logo visibility
-            const lightLogo = document.querySelector('.navbar-brand img.light-logo');
-            const darkLogo = document.querySelector('.navbar-brand img.dark-logo');
-            
-            if (lightLogo && darkLogo) {
-                lightLogo.classList.toggle('hidden');
-                darkLogo.classList.toggle('hidden');
-            }
-            
-            // Save theme preference
-            const isDarkMode = document.documentElement.classList.contains('dark');
-            localStorage.setItem('darkMode', isDarkMode ? 'true' : 'false');
+        }
+        
+        // Toggle logo visibility with smooth transition
+        const lightLogos = document.querySelectorAll('.light-logo');
+        const darkLogos = document.querySelectorAll('.dark-logo');
+        
+        lightLogos.forEach(logo => {
+            logo.style.transition = 'opacity 0.3s ease';
+            logo.classList.toggle('hidden');
+        });
+        
+        darkLogos.forEach(logo => {
+            logo.style.transition = 'opacity 0.3s ease';
+            logo.classList.toggle('hidden');
+        });
+        
+        // Save theme preference
+        const isDarkMode = document.documentElement.classList.contains('dark');
+        localStorage.setItem('darkMode', isDarkMode ? 'true' : 'false');
+        
+        // Add visual feedback to theme buttons
+        const allThemeButtons = document.querySelectorAll('#theme-toggle, #mobile-theme-toggle');
+        allThemeButtons.forEach(btn => {
+            btn.style.transform = 'scale(0.95) rotate(180deg)';
+            setTimeout(() => {
+                btn.style.transform = 'scale(1) rotate(0deg)';
+            }, 300);
         });
     }
+    
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
+    
+    // Mobile theme toggle functionality is already handled above
 
     // Apply saved preferences on page load
     function applyUserPreferences() {
@@ -149,22 +227,37 @@ document.addEventListener('DOMContentLoaded', function() {
             const currentIsDarkMode = document.documentElement.classList.contains('dark');
             
             if (isDarkMode !== currentIsDarkMode) {
-                // Trigger theme toggle if current theme doesn't match saved preference
-                if (themeToggle) {
-                    themeToggle.click();
+                // Apply theme without triggering click event to avoid animation on load
+                document.documentElement.classList.toggle('dark', isDarkMode);
+                
+                // Update theme stylesheet
+                const themeStylesheet = document.getElementById('theme-stylesheet');
+                if (themeStylesheet) {
+                    const currentPath = themeStylesheet.getAttribute('href');
+                    const isRootPath = !currentPath.includes('/');
+                    const cssPrefix = isRootPath ? 'css/' : '../css/';
+                    
+                    if (isDarkMode && currentPath.includes('light-theme.css')) {
+                        themeStylesheet.setAttribute('href', cssPrefix + 'dark-theme.css');
+                    } else if (!isDarkMode && currentPath.includes('dark-theme.css')) {
+                        themeStylesheet.setAttribute('href', cssPrefix + 'light-theme.css');
+                    }
                 }
             }
         }
         
-        // Set correct logo visibility based on theme
+        // Set correct logo visibility based on current theme
         const isDarkMode = document.documentElement.classList.contains('dark');
-        const lightLogo = document.querySelector('.navbar-brand img.light-logo');
-        const darkLogo = document.querySelector('.navbar-brand img.dark-logo');
+        const lightLogos = document.querySelectorAll('.light-logo');
+        const darkLogos = document.querySelectorAll('.dark-logo');
         
-        if (lightLogo && darkLogo) {
-            lightLogo.classList.toggle('hidden', isDarkMode);
-            darkLogo.classList.toggle('hidden', !isDarkMode);
-        }
+        lightLogos.forEach(logo => {
+            logo.classList.toggle('hidden', isDarkMode);
+        });
+        
+        darkLogos.forEach(logo => {
+            logo.classList.toggle('hidden', !isDarkMode);
+        });
     }
     
     // Apply user preferences after a short delay to avoid flash of incorrect theme/language

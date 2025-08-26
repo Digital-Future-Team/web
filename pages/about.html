@@ -33,7 +33,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/style.css">
     <link id="direction-style" rel="stylesheet" href="../css/rtl.css">
-    <link id="theme-style" rel="stylesheet" href="../css/light-theme.css">
+    <link id="theme-stylesheet" rel="stylesheet" href="../css/light-theme.css">
 </head>
 <body class="bg-pattern">
     <!-- Navigation Bar -->
@@ -41,18 +41,14 @@
         <div class="container">
             <!-- Logo -->
             <a class="navbar-brand" href="../index.html">
-                <span class="lang-ar">مستقبل رقمي</span>
-                <span class="lang-en hidden">Digital Future</span>
+                <img src="../assets/images/light_theme_image.jpg" alt="DIGITAL FUTURE Logo" class="h-10 light-logo">
+                <img src="../assets/images/dark_theme_image.jpg" alt="DIGITAL FUTURE Logo" class="h-10 dark-logo hidden">
             </a>
             
-            <!-- Mobile Toggle Button -->
-            <button id="mobile-menu-button" class="navbar-toggler" type="button">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            
-            <!-- Navigation Links -->
-            <div id="mobile-menu" class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <!-- Desktop Menu -->
+            <div class="d-none d-lg-flex align-items-center">
+                <!-- Navigation Links -->
+                <ul class="navbar-nav me-4">
                     <li class="nav-item">
                         <a class="nav-link" href="../index.html">
                             <span class="lang-ar">الرئيسية</span>
@@ -98,8 +94,8 @@
                 </ul>
                 
                 <!-- Language & Theme Toggle -->
-                <div class="d-flex align-items-center ms-lg-4 mt-3 mt-lg-0">
-                    <button id="language-toggle" class="btn btn-sm btn-outline-primary me-2">
+                <div class="d-flex align-items-center gap-3">
+                    <button id="language-toggle" class="btn btn-sm btn-outline-primary">
                         <span class="lang-ar">EN</span>
                         <span class="lang-en hidden">AR</span>
                     </button>
@@ -109,45 +105,126 @@
                     </button>
                 </div>
             </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="btn btn-outline-primary d-lg-none" type="button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </div>
     </nav>
+    
+    <!-- Mobile Sidebar -->
+    <div id="mobile-sidebar" class="mobile-sidebar d-lg-none">
+        <div class="mobile-sidebar-content">
+            <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
+                <h5 class="mb-0">
+                    <span class="lang-ar">القائمة</span>
+                    <span class="lang-en hidden">Menu</span>
+                </h5>
+                <button id="close-sidebar" class="btn btn-sm btn-outline-secondary">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            <div class="p-3">
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a href="../index.html" class="text-decoration-none">
+                            <span class="lang-ar">الرئيسية</span>
+                            <span class="lang-en hidden">Home</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="text-decoration-none fw-bold text-primary">
+                            <span class="lang-ar">عن الفريق</span>
+                            <span class="lang-en hidden">About Us</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="departments.html" class="text-decoration-none">
+                            <span class="lang-ar">الأقسام</span>
+                            <span class="lang-en hidden">Departments</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="members.html" class="text-decoration-none">
+                            <span class="lang-ar">الأعضاء</span>
+                            <span class="lang-en hidden">Members</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="projects.html" class="text-decoration-none">
+                            <span class="lang-ar">المشاريع</span>
+                            <span class="lang-en hidden">Projects</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="news.html" class="text-decoration-none">
+                            <span class="lang-ar">الأخبار والفعاليات</span>
+                            <span class="lang-en hidden">News & Events</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="contact.html" class="text-decoration-none">
+                            <span class="lang-ar">اتصل بنا</span>
+                            <span class="lang-en hidden">Contact</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <!-- Mobile Language & Theme Toggle -->
+                <div class="d-flex gap-2 mt-3">
+                    <button id="mobile-language-toggle" class="btn btn-sm btn-outline-primary flex-fill">
+                        <span class="lang-ar">English</span>
+                        <span class="lang-en hidden">عربي</span>
+                    </button>
+                    <button id="mobile-theme-toggle" class="btn btn-sm btn-outline-primary theme-toggle-icon">
+                        <i class="fa-solid fa-moon moon"></i>
+                        <i class="fa-solid fa-sun sun"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Hero Section -->
-    <section class="py-5">
-        <div class="container">
+    <section class="py-5 bg-gradient">
+        <div class="container py-5">
             <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <h1 class="display-4 fw-bold mb-4">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h1 class="display-4 fw-bold mb-4" data-aos="fade-up">
                         <span class="lang-ar">من نحن</span>
                         <span class="lang-en hidden">About Us</span>
                     </h1>
-                    <p class="lead mb-4">
+                    <h2 class="h4 mb-4" data-aos="fade-up" data-aos-delay="100">
+<span class="lang-ar">فريق طلابي للتكنولوجيا - مركز التطوير التكنولوجي، القليوبية</span>
+<span class="lang-en hidden">Student Technology Team - Technology Development Center, Qalyubia</span>
+
+                    </h2>
+                    <p class="lead mb-4" data-aos="fade-up" data-aos-delay="200">
                         <span class="lang-ar">فريق مستقبل رقمي هو فريق طلابي تقني متخصص في مجالات البرمجة والذكاء الاصطناعي والتدريب والإعلام، نسعى لبناء جيل من الشباب المبدع القادر على مواكبة التطور التكنولوجي وصناعة المستقبل.</span>
                         <span class="lang-en hidden">Digital Future Team is a student technology team specialized in programming, artificial intelligence, training, and media. We aim to build a generation of creative youth capable of keeping pace with technological development and creating the future.</span>
                     </p>
-                    <div class="d-flex gap-3">
-                        <a href="#team-story" class="btn btn-primary">
+                    <div class="d-flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="300">
+                        <a href="#team-story" class="btn btn-primary btn-lg">
                             <span class="lang-ar">قصة الفريق</span>
                             <span class="lang-en hidden">Our Story</span>
                         </a>
-                        <a href="#leadership" class="btn btn-outline-primary">
+                        <a href="#leadership" class="btn btn-outline-primary btn-lg">
                             <span class="lang-ar">قيادة الفريق</span>
                             <span class="lang-en hidden">Leadership</span>
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="position-relative">
-                        <div class="bg-primary opacity-10 position-absolute top-0 end-0 w-75 h-75 rounded-4"></div>
-                        <img src="../assets/images/about-hero.svg" alt="About Digital Future" class="img-fluid rounded-4 shadow-lg position-relative">
-                    </div>
+                <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-delay="400">
+                    <img src="../assets/images/hero_image.png" alt="About Digital Future" class="img-fluid">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Team Story Section -->
-    <section id="team-story" class="py-5 bg-secondary bg-opacity-5">
+    <section id="team-story" class="py-5">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center" data-aos="fade-up">
@@ -248,7 +325,7 @@
                 <div class="col-md-4" data-aos="fade-up">
                     <div class="card h-100 border-0 shadow-sm text-center p-4">
                         <div class="mx-auto mb-4 rounded-circle overflow-hidden" style="width: 150px; height: 150px;">
-                            <img src="../assets/images/supervisor-1.svg" alt="Mr. Ayman Yehia" class="img-fluid">
+                            <img src="../assets/images/Ayman_yehya.jpg" alt="Mr. Ayman Yehia" class="img-fluid">
                         </div>
                         <h4 class="fw-bold">
                             <span class="lang-ar">أ. أيمن يحيى</span>
@@ -311,7 +388,7 @@
     </section>
 
     <!-- Leadership Section -->
-    <section id="leadership" class="py-5 bg-primary bg-opacity-5">
+    <section id="leadership" class="py-5">
         <div class="container">
             <h2 class="text-center fw-bold mb-5" data-aos="fade-up">
                 <span class="lang-ar">قيادة الفريق</span>
@@ -323,15 +400,19 @@
                 <div class="col-lg-3 col-md-6" data-aos="fade-up">
                     <div class="card h-100 border-0 shadow-sm text-center p-3">
                         <div class="mx-auto mb-3 rounded-circle overflow-hidden" style="width: 120px; height: 120px;">
-                            <img src="../assets/images/leader-1.svg" alt="Team Leader" class="img-fluid">
+                            <img src="../assets/images/hussein.jpg" alt="Team Leader" class="img-fluid">
                         </div>
                         <h5 class="fw-bold">
-                            <span class="lang-ar">أحمد محمود</span>
-                            <span class="lang-en hidden">Ahmed Mahmoud</span>
+                            <span class="lang-ar">حسين يحيى حسين احمد</span>
+                            <span class="lang-en hidden">Hussein Yehya Hussein Ahmed</span>
                         </h5>
                         <p class="text-muted mb-2">
                             <span class="lang-ar">قائد الفريق</span>
                             <span class="lang-en hidden">Team Leader</span>
+                        </p>
+                        <p class="small text-muted mb-3">
+                            <span class="lang-ar">قائد ومؤسس فريق Digital Future، يقود الرؤية الاستراتيجية ويشرف على جميع العمليات والمشاريع</span>
+                            <span class="lang-en hidden">Leader and founder of Digital Future team, leads strategic vision and oversees all operations and projects</span>
                         </p>
                         <div class="d-flex justify-content-center gap-2 mt-2">
                             <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
@@ -351,71 +432,19 @@
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="card h-100 border-0 shadow-sm text-center p-3">
                         <div class="mx-auto mb-3 rounded-circle overflow-hidden" style="width: 120px; height: 120px;">
-                            <img src="../assets/images/leader-2.svg" alt="Deputy Team Leader" class="img-fluid">
+                            <img src="../assets/images/Ahmed_abdelalim.jpg" alt="Deputy Team Leader" class="img-fluid">
                         </div>
                         <h5 class="fw-bold">
-                            <span class="lang-ar">سارة أحمد</span>
-                            <span class="lang-en hidden">Sara Ahmed</span>
+                            <span class="lang-ar">أحمد محمد عبد العليم شفيق</span>
+                            <span class="lang-en hidden">Ahmed Mohamed Abdel Aleem Shafiq</span>
                         </h5>
                         <p class="text-muted mb-2">
-                            <span class="lang-ar">نائب قائد الفريق</span>
-                            <span class="lang-en hidden">Deputy Team Leader</span>
+                            <span class="lang-ar">نائب القائد</span>
+                            <span class="lang-en hidden">Deputy Leader</span>
                         </p>
-                        <div class="d-flex justify-content-center gap-2 mt-2">
-                            <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Leader 3 -->
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card h-100 border-0 shadow-sm text-center p-3">
-                        <div class="mx-auto mb-3 rounded-circle overflow-hidden" style="width: 120px; height: 120px;">
-                            <img src="../assets/images/leader-3.svg" alt="HR Manager" class="img-fluid">
-                        </div>
-                        <h5 class="fw-bold">
-                            <span class="lang-ar">محمد علي</span>
-                            <span class="lang-en hidden">Mohamed Ali</span>
-                        </h5>
-                        <p class="text-muted mb-2">
-                            <span class="lang-ar">مدير الموارد البشرية</span>
-                            <span class="lang-en hidden">HR Manager</span>
-                        </p>
-                        <div class="d-flex justify-content-center gap-2 mt-2">
-                            <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Leader 4 -->
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card h-100 border-0 shadow-sm text-center p-3">
-                        <div class="mx-auto mb-3 rounded-circle overflow-hidden" style="width: 120px; height: 120px;">
-                            <img src="../assets/images/leader-4.svg" alt="Technical Manager" class="img-fluid">
-                        </div>
-                        <h5 class="fw-bold">
-                            <span class="lang-ar">نورا حسن</span>
-                            <span class="lang-en hidden">Noura Hassan</span>
-                        </h5>
-                        <p class="text-muted mb-2">
-                            <span class="lang-ar">المدير التقني</span>
-                            <span class="lang-en hidden">Technical Manager</span>
+                        <p class="small text-muted mb-3">
+                            <span class="lang-ar">تساعد في قيادة الفريق وتنسيق العمليات اليومية وإدارة المشاريع الاستراتيجية</span>
+                            <span class="lang-en hidden">Assists in team leadership, coordinates daily operations and manages strategic projects</span>
                         </p>
                         <div class="d-flex justify-content-center gap-2 mt-2">
                             <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
@@ -471,7 +500,7 @@
     </section>
 
     <!-- Values Section -->
-    <section class="py-5 bg-secondary bg-opacity-5">
+    <section class="py-5">
         <div class="container">
             <h2 class="text-center fw-bold mb-5" data-aos="fade-up">
                 <span class="lang-ar">قيمنا</span>

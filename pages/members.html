@@ -33,7 +33,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/style.css">
     <link id="direction-style" rel="stylesheet" href="../css/rtl.css">
-    <link id="theme-style" rel="stylesheet" href="../css/light-theme.css">
+    <link id="theme-stylesheet" rel="stylesheet" href="../css/light-theme.css">
 </head>
 <body class="bg-pattern">
     <!-- Navigation Bar -->
@@ -41,25 +41,14 @@
         <div class="container">
             <!-- Logo -->
             <a class="navbar-brand" href="../index.html">
-                <div class="d-flex align-items-center">
-                    <div class="rounded-circle overflow-hidden me-2" style="width: 40px; height: 40px; background: transparent;">
-                        <img src="../assets/images/favicon.svg" alt="Digital Future Logo" class="img-fluid" style="width: 100%; height: 100%; object-fit: contain;">
-                    </div>
-                    <div>
-                        <span class="lang-ar">مستقبل رقمي</span>
-                        <span class="lang-en hidden">Digital Future</span>
-                    </div>
-                </div>
+                <img src="../assets/images/light_theme_image.jpg" alt="DIGITAL FUTURE Logo" class="h-10 light-logo">
+                <img src="../assets/images/dark_theme_image.jpg" alt="DIGITAL FUTURE Logo" class="h-10 dark-logo hidden">
             </a>
             
-            <!-- Mobile Toggle Button -->
-            <button id="mobile-menu-button" class="navbar-toggler" type="button">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            
-            <!-- Navigation Links -->
-            <div id="mobile-menu" class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <!-- Desktop Menu -->
+            <div class="d-none d-lg-flex align-items-center">
+                <!-- Navigation Links -->
+                <ul class="navbar-nav me-4">
                     <li class="nav-item">
                         <a class="nav-link" href="../index.html">
                             <span class="lang-ar">الرئيسية</span>
@@ -105,8 +94,8 @@
                 </ul>
                 
                 <!-- Language & Theme Toggle -->
-                <div class="d-flex align-items-center ms-lg-4 mt-3 mt-lg-0">
-                    <button id="language-toggle" class="btn btn-sm btn-outline-primary me-2">
+                <div class="d-flex align-items-center gap-3">
+                    <button id="language-toggle" class="btn btn-sm btn-outline-primary">
                         <span class="lang-ar">EN</span>
                         <span class="lang-en hidden">AR</span>
                     </button>
@@ -116,305 +105,268 @@
                     </button>
                 </div>
             </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="btn btn-outline-primary d-lg-none" type="button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </div>
+        
+    </nav>
+    
+    <!-- Mobile Sidebar -->
+    <div id="mobile-sidebar" class="mobile-sidebar d-lg-none">
+        <div class="mobile-sidebar-content">
+            <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
+                <h5 class="mb-0">
+                    <span class="lang-ar">القائمة</span>
+                    <span class="lang-en hidden">Menu</span>
+                </h5>
+                <button id="close-sidebar" class="btn btn-sm btn-outline-secondary">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            <div class="p-3">
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a href="../index.html" class="text-decoration-none">
+                            <span class="lang-ar">الرئيسية</span>
+                            <span class="lang-en hidden">Home</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="about.html" class="text-decoration-none">
+                            <span class="lang-ar">عن الفريق</span>
+                            <span class="lang-en hidden">About Us</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="departments.html" class="text-decoration-none">
+                            <span class="lang-ar">الأقسام</span>
+                            <span class="lang-en hidden">Departments</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="text-decoration-none fw-bold text-primary">
+                            <span class="lang-ar">الأعضاء</span>
+                            <span class="lang-en hidden">Members</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="projects.html" class="text-decoration-none">
+                            <span class="lang-ar">المشاريع</span>
+                            <span class="lang-en hidden">Projects</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="news.html" class="text-decoration-none">
+                            <span class="lang-ar">الأخبار والفعاليات</span>
+                            <span class="lang-en hidden">News & Events</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="contact.html" class="text-decoration-none">
+                            <span class="lang-ar">اتصل بنا</span>
+                            <span class="lang-en hidden">Contact</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <!-- Mobile Language & Theme Toggle -->
+                <div class="d-flex gap-2 mt-3">
+                    <button id="mobile-language-toggle" class="btn btn-sm btn-outline-primary flex-fill">
+                        <span class="lang-ar">English</span>
+                        <span class="lang-en hidden">عربي</span>
+                    </button>
+                    <button id="mobile-theme-toggle" class="btn btn-sm btn-outline-primary theme-toggle-icon">
+                        <i class="fa-solid fa-moon moon"></i>
+                        <i class="fa-solid fa-sun sun"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="py-5">
-        <div class="container">
+    <section class="py-5 bg-gradient">
+        <div class="container py-5">
             <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <h1 class="display-4 fw-bold mb-4">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h1 class="display-4 fw-bold mb-4" data-aos="fade-up">
                         <span class="lang-ar">أعضاء الفريق</span>
                         <span class="lang-en hidden">Team Members</span>
                     </h1>
-                    <p class="lead mb-4">
+                    <h2 class="h4 mb-4" data-aos="fade-up" data-aos-delay="100">
+<span class="lang-ar">فريق طلابي للتكنولوجيا - مركز التطوير التكنولوجي، القليوبية</span>
+<span class="lang-en hidden">Student Technology Team - Technology Development Center, Qalyubia</span>
+
+                    </h2>
+                    <p class="lead mb-4" data-aos="fade-up" data-aos-delay="200">
                         <span class="lang-ar">تعرف على فريقنا المتميز من المبرمجين ومهندسي الذكاء الاصطناعي والمدربين والمصممين وخبراء التقييم ومديري الأرشيف.</span>
                         <span class="lang-en hidden">Meet our distinguished team of programmers, AI engineers, trainers, designers, evaluation experts, and archive managers.</span>
                     </p>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="position-relative">
-                        <div class="rounded-circle overflow-hidden shadow-lg position-relative" style="width: 350px; height: 350px; margin: 0 auto;">
-                            <img src="../assets/images/hero_image.png" alt="Digital Future Team" class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
+                    <div class="d-flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="300">
+                        <a href="#members-grid" class="btn btn-primary btn-lg">
+                            <span class="lang-ar">تصفح الأعضاء</span>
+                            <span class="lang-en hidden">Browse Members</span>
+                        </a>
+                        <a href="contact.html" class="btn btn-outline-primary btn-lg">
+                            <span class="lang-ar">انضم إلينا</span>
+                            <span class="lang-en hidden">Join Us</span>
+                        </a>
                     </div>
+                </div>
+                <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-delay="400">
+                    <img src="../assets/images/hero_image.png" alt="Digital Future Team" class="img-fluid">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Members Filter Section -->
-    <section class="py-4 bg-secondary bg-opacity-5">
-        <div class="container">
-            <div class="row g-3 align-items-center">
-                <!-- Search Input -->
-                <div class="col-md-6">
-                    <div class="input-group">
-                        <span class="input-group-text bg-white border-end-0">
-                            <i class="fa-solid fa-search text-muted"></i>
-                        </span>
-                        <input type="text" id="member-search" class="form-control border-start-0" placeholder="بحث عن عضو..." aria-label="Search members">
-                    </div>
-                </div>
-                
-                <!-- Member 19 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 member-card" data-department="media">
-                    <div class="card h-100 border-0 shadow-sm" data-aos="fade-up">
-                        <div class="position-relative">
-                            <div class="bg-success opacity-10 position-absolute top-0 start-0 w-100 h-100"></div>
-                            <img src="https://randomuser.me/api/portraits/women/10.jpg" class="card-img-top" alt="دينا رامي">
-                            <span class="badge bg-success position-absolute top-0 end-0 m-2">
-                                <span class="lang-ar">الإعلام</span>
-                                <span class="lang-en hidden">Media</span>
-                            </span>
-                        </div>
-                        <div class="card-body p-4">
-                            <h5 class="card-title fw-bold mb-1">
-                                <span class="lang-ar">دينا رامي</span>
-                                <span class="lang-en hidden">Dina Ramy</span>
-                            </h5>
-                            <p class="text-muted small mb-3">
-                                <span class="lang-ar">مصممة فيديو</span>
-                                <span class="lang-en hidden">Video Designer</span>
-                            </p>
-                            <p class="card-text">
-                                <span class="lang-ar">متخصصة في تصميم وإنتاج الفيديو، مع خبرة في المونتاج والموشن جرافيك وإنتاج المحتوى المرئي للمنصات الرقمية.</span>
-                                <span class="lang-en hidden">Specializes in video design and production, with experience in editing, motion graphics, and producing visual content for digital platforms.</span>
-                            </p>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pt-0 pb-4 px-4">
-                            <div class="d-flex gap-2">
-                                <a href="#" class="btn btn-sm btn-outline-success rounded-circle">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-success rounded-circle">
-                                    <i class="fab fa-vimeo-v"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-success rounded-circle">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Member 20 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 member-card" data-department="training">
-                    <div class="card h-100 border-0 shadow-sm" data-aos="fade-up" data-aos-delay="100">
-                        <div class="position-relative">
-                            <div class="bg-info opacity-10 position-absolute top-0 start-0 w-100 h-100"></div>
-                            <img src="https://randomuser.me/api/portraits/men/10.jpg" class="card-img-top" alt="أمير سامح">
-                            <span class="badge bg-info position-absolute top-0 end-0 m-2">
-                                <span class="lang-ar">التدريب</span>
-                                <span class="lang-en hidden">Training</span>
-                            </span>
-                        </div>
-                        <div class="card-body p-4">
-                            <h5 class="card-title fw-bold mb-1">
-                                <span class="lang-ar">أمير سامح</span>
-                                <span class="lang-en hidden">Amir Sameh</span>
-                            </h5>
-                            <p class="text-muted small mb-3">
-                                <span class="lang-ar">مدرب تقنيات الذكاء الاصطناعي</span>
-                                <span class="lang-en hidden">AI Technologies Trainer</span>
-                            </p>
-                            <p class="card-text">
-                                <span class="lang-ar">متخصص في تدريب تقنيات الذكاء الاصطناعي وتعلم الآلة، مع خبرة في إعداد المناهج التدريبية وتنظيم ورش العمل التطبيقية.</span>
-                                <span class="lang-en hidden">Specializes in training AI and machine learning technologies, with experience in preparing training curricula and organizing practical workshops.</span>
-                            </p>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pt-0 pb-4 px-4">
-                            <div class="d-flex gap-2">
-                                <a href="#" class="btn btn-sm btn-outline-info rounded-circle">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-info rounded-circle">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-info rounded-circle">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-
-    <!-- No Results Message -->
-    <div id="no-results" class="container text-center py-5 d-none">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="p-4 glass-effect rounded-4">
-                    <i class="fa-solid fa-search fa-3x text-muted mb-3"></i>
-                    <h4 class="mb-3">
-                        <span class="lang-ar">لم يتم العثور على نتائج</span>
-                        <span class="lang-en hidden">No results found</span>
-                    </h4>
-                    <p class="text-muted">
-                        <span class="lang-ar">حاول استخدام كلمات بحث مختلفة أو تصفية بقسم آخر</span>
-                        <span class="lang-en hidden">Try using different search terms or filter by another department</span>
-                    </p>
-                    <button id="reset-filters" class="btn btn-primary mt-2">
-                        <span class="lang-ar">إعادة تعيين الفلاتر</span>
-                        <span class="lang-en hidden">Reset Filters</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Call to Action Section -->
-    <section class="py-5 bg-gradient">
-        <div class="container">
-            <div class="row justify-content-center text-center">
-                <div class="col-lg-8">
-                    <h2 class="display-5 fw-bold mb-4">
-                        <span class="lang-ar">انضم إلى فريقنا</span>
-                        <span class="lang-en hidden">Join Our Team</span>
-                    </h2>
-                    <p class="lead mb-4">
-                        <span class="lang-ar">هل أنت مهتم بالانضمام إلى فريق مستقبل رقمي؟ نحن دائمًا نبحث عن مواهب جديدة ومتحمسة للانضمام إلى فريقنا.</span>
-                        <span class="lang-en hidden">Are you interested in joining Digital Future team? We are always looking for new and enthusiastic talents to join our team.</span>
-                    </p>
-                    <a href="contact.html" class="btn btn-lg btn-primary">
-                        <span class="lang-ar">تواصل معنا</span>
-                        <span class="lang-en hidden">Contact Us</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-                    <div class="d-flex flex-wrap gap-2 justify-content-md-end">
-                        <button class="btn btn-sm btn-primary filter-btn active" data-filter="all">
-                            <span class="lang-ar">الكل</span>
-                            <span class="lang-en hidden">All</span>
-                        </button>
-                        <button class="btn btn-sm btn-outline-primary filter-btn" data-filter="programming">
-                            <span class="lang-ar">البرمجة</span>
-                            <span class="lang-en hidden">Programming</span>
-                        </button>
-                        <button class="btn btn-sm btn-outline-primary filter-btn" data-filter="ai">
-                            <span class="lang-ar">الذكاء الاصطناعي</span>
-                            <span class="lang-en hidden">AI</span>
-                        </button>
-                        <button class="btn btn-sm btn-outline-primary filter-btn" data-filter="training">
-                            <span class="lang-ar">التدريب</span>
-                            <span class="lang-en hidden">Training</span>
-                        </button>
-                        <button class="btn btn-sm btn-outline-primary filter-btn" data-filter="media">
-                            <span class="lang-ar">الإعلام</span>
-                            <span class="lang-en hidden">Media</span>
-                        </button>
-                        <button class="btn btn-sm btn-outline-primary filter-btn" data-filter="evaluation">
-                            <span class="lang-ar">التقييم</span>
-                            <span class="lang-en hidden">Evaluation</span>
-                        </button>
-                        <button class="btn btn-sm btn-outline-primary filter-btn" data-filter="archive">
-                            <span class="lang-ar">الأرشيف</span>
-                            <span class="lang-en hidden">Archive</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Board Members Section -->
     <section class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center mb-5">
-                <span class="lang-ar">مجلس الإدارة</span>
-                <span class="lang-en hidden">Board Members</span>
-            </h2>
-            <div class="row g-4 justify-content-center" id="board-members">
-                <!-- Leader -->
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="row g-3">
+                        <!-- Search Input -->
+                        <div class="col-md-6">
+                            <div class="position-relative">
+                                <input type="text" id="member-search" class="form-control form-control-lg ps-5" placeholder="بحث عن عضو..." aria-label="Search members">
+                                <i class="fas fa-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+                            </div>
+                        </div>
+                        <!-- Department Filter -->
+                        <div class="col-md-6">
+                            <select id="departmentFilter" class="form-select form-select-lg">
+                                <option value="all">
+                                    <span class="lang-ar">جميع الأقسام</span>
+                                    <span class="lang-en hidden">All Departments</span>
+                                </option>
+                                <option value="programming">
+                                    <span class="lang-ar">البرمجة</span>
+                                    <span class="lang-en hidden">Programming</span>
+                                </option>
+                                <option value="ai">
+                                    <span class="lang-ar">الذكاء الاصطناعي</span>
+                                    <span class="lang-en hidden">Artificial Intelligence</span>
+                                </option>
+                                <option value="training">
+                                    <span class="lang-ar">التدريب</span>
+                                    <span class="lang-en hidden">Training</span>
+                                </option>
+                                <option value="design">
+                                    <span class="lang-ar">التصميم</span>
+                                    <span class="lang-en hidden">Design</span>
+                                </option>
+                                <option value="evaluation">
+                                    <span class="lang-ar">التقييم</span>
+                                    <span class="lang-en hidden">Evaluation</span>
+                                </option>
+                                <option value="archive">
+                                    <span class="lang-ar">الأرشيف</span>
+                                    <span class="lang-en hidden">Archive</span>
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Members Grid Section -->
+    <section id="members-grid" class="py-5">
+        <div class="container py-5">
+            <!-- Leadership Section -->
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-4">
+                    <span class="lang-ar">القيادة العليا</span>
+                    <span class="lang-en hidden">Leadership</span>
+                </h2>
+                <p class="lead text-muted">
+                    <span class="lang-ar">قيادة الفريق والرؤية الاستراتيجية</span>
+                    <span class="lang-en hidden">Team leadership and strategic vision</span>
+                </p>
+            </div>
+            
+            <!-- Leader and Deputy Leader -->
+            <div class="row g-4 justify-content-center mb-5">
+                <!-- Team Leader -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 border-0 shadow" data-aos="fade-up">
+                    <div class="card h-100 border-0 shadow-lg member-card leadership-card" data-department="leadership" data-aos="fade-up">
                         <div class="position-relative">
-                            <div class="bg-dark opacity-10 position-absolute top-0 start-0 w-100 h-100"></div>
-                            <img src="https://randomuser.me/api/portraits/men/41.jpg" class="card-img-top" alt="محمد إبراهيم">
-                            <span class="badge bg-dark position-absolute top-0 end-0 m-2">
-                                <span class="lang-ar">القائد</span>
-                                <span class="lang-en hidden">Leader</span>
+                            <img src="../assets/images/hussein.jpg" alt="قائد الفريق" class="card-img-top" style="height: 300px; object-fit: cover;">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 bg-warning opacity-10"></div>
+                            <span class="badge bg-warning text-dark m-2 position-absolute top-0 end-0 fs-6">
+                                <i class="fas fa-crown me-1"></i>
+                                <span class="lang-ar">قائد الفريق</span>
+                                <span class="lang-en d-none">Team Leader</span>
                             </span>
                         </div>
-                        <div class="card-body p-4 text-center">
-                            <h4 class="card-title fw-bold mb-1">
-                                <span class="lang-ar">محمد إبراهيم</span>
-                                <span class="lang-en hidden">Mohamed Ibrahim</span>
+                        <div class="card-body text-center">
+                            <h4 class="card-title fw-bold text-warning">
+                                <span class="lang-ar">حسين يحيى حسين احمد</span>
+                                <span class="lang-en d-none">Hussein Yehya Hussein Ahmed</span>
                             </h4>
-                            <p class="text-muted mb-3">
-                                <span class="lang-ar">مؤسس ورئيس الفريق</span>
-                                <span class="lang-en hidden">Founder & Team Leader</span>
+                            <p class="text-warning fw-semibold mb-3">
+                                <span class="lang-ar">قائد الفريق</span>
+                                <span class="lang-en d-none">Team Leader</span>
                             </p>
-                            <p class="card-text">
-                                <span class="lang-ar">مهندس برمجيات ذو خبرة واسعة في قيادة فرق التطوير التقني وإدارة المشاريع الرقمية المبتكرة.</span>
-                                <span class="lang-en hidden">Experienced software engineer with extensive expertise in leading technical development teams and managing innovative digital projects.</span>
+                            <p class="card-text text-muted small mb-4">
+                                <span class="lang-ar">قائد ومؤسس فريق Digital Future، يقود الرؤية الاستراتيجية ويشرف على جميع العمليات والمشاريع</span>
+                                <span class="lang-en d-none">Leader and founder of Digital Future team, leads strategic vision and oversees all operations and projects</span>
                             </p>
-                            <button class="btn btn-dark mt-3" data-bs-toggle="modal" data-bs-target="#memberModal1">
-                                <span class="lang-ar">عرض التفاصيل</span>
-                                <span class="lang-en hidden">View Details</span>
-                            </button>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pt-0 pb-4 px-4 text-center">
                             <div class="d-flex gap-2 justify-content-center">
-                                <a href="#" class="btn btn-sm btn-outline-dark rounded-circle">
+                                <a href="#" class="btn btn-warning btn-sm rounded-circle" style="width: 45px; height: 45px;">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
-                                <a href="#" class="btn btn-sm btn-outline-dark rounded-circle">
+                                <a href="#" class="btn btn-outline-warning btn-sm rounded-circle" style="width: 45px; height: 45px;">
                                     <i class="fab fa-github"></i>
                                 </a>
-                                <a href="#" class="btn btn-sm btn-outline-dark rounded-circle">
-                                    <i class="fa-solid fa-envelope"></i>
+                                <a href="#" class="btn btn-outline-warning btn-sm rounded-circle" style="width: 45px; height: 45px;">
+                                    <i class="fas fa-envelope"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Vice Leader -->
+                <!-- Deputy Leader -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 border-0 shadow" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100 border-0 shadow-lg member-card leadership-card" data-department="leadership" data-aos="fade-up" data-aos-delay="100">
                         <div class="position-relative">
-                            <div class="bg-secondary opacity-10 position-absolute top-0 start-0 w-100 h-100"></div>
-                            <img src="https://randomuser.me/api/portraits/women/41.jpg" class="card-img-top" alt="سارة محمود">
-                            <span class="badge bg-secondary position-absolute top-0 end-0 m-2">
+                            <img src="../assets/images/Ahmed_abdelalim.jpg" alt="نائب قائد الفريق" class="card-img-top" style="height: 300px; object-fit: cover;">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 bg-info opacity-10"></div>
+                            <span class="badge bg-info m-2 position-absolute top-0 end-0 fs-6">
+                                <i class="fas fa-star me-1"></i>
                                 <span class="lang-ar">نائب القائد</span>
-                                <span class="lang-en hidden">Vice Leader</span>
+                                <span class="lang-en d-none">Deputy Leader</span>
                             </span>
                         </div>
-                        <div class="card-body p-4 text-center">
-                            <h4 class="card-title fw-bold mb-1">
-                                <span class="lang-ar">سارة محمود</span>
-                                <span class="lang-en hidden">Sara Mahmoud</span>
+                        <div class="card-body text-center">
+                            <h4 class="card-title fw-bold text-info">
+                                <span class="lang-ar">أحمد محمد عبد العليم شفيق</span>
+                                <span class="lang-en d-none">Ahmed Mohamed Abdel Aleem Shafiq</span>
                             </h4>
-                            <p class="text-muted mb-3">
-                                <span class="lang-ar">نائب رئيس الفريق</span>
-                                <span class="lang-en hidden">Deputy Team Leader</span>
+                            <p class="text-info fw-semibold mb-3">
+                                <span class="lang-ar">نائب القائد</span>
+                                <span class="lang-en d-none">Deputy Leader</span>
                             </p>
-                            <p class="card-text">
-                                <span class="lang-ar">خبيرة في إدارة المشاريع التقنية وتطوير استراتيجيات النمو الرقمي، مع خلفية قوية في الذكاء الاصطناعي.</span>
-                                <span class="lang-en hidden">Expert in technical project management and digital growth strategies, with a strong background in artificial intelligence.</span>
+                            <p class="card-text text-muted small mb-4">
+                                <span class="lang-ar">تساعد في قيادة الفريق وتنسيق العمليات اليومية وإدارة المشاريع الاستراتيجية</span>
+                                <span class="lang-en d-none">Assists in team leadership, coordinates daily operations and manages strategic projects</span>
                             </p>
-                            <button class="btn btn-secondary mt-3" data-bs-toggle="modal" data-bs-target="#memberModal2">
-                                <span class="lang-ar">عرض التفاصيل</span>
-                                <span class="lang-en hidden">View Details</span>
-                            </button>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pt-0 pb-4 px-4 text-center">
                             <div class="d-flex gap-2 justify-content-center">
-                                <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
+                                <a href="#" class="btn btn-info btn-sm rounded-circle" style="width: 45px; height: 45px;">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
-                                <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
+                                <a href="#" class="btn btn-outline-info btn-sm rounded-circle" style="width: 45px; height: 45px;">
                                     <i class="fab fa-github"></i>
                                 </a>
-                                <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
-                                    <i class="fa-solid fa-envelope"></i>
+                                <a href="#" class="btn btn-outline-info btn-sm rounded-circle" style="width: 45px; height: 45px;">
+                                    <i class="fas fa-envelope"></i>
                                 </a>
                             </div>
                         </div>
@@ -422,46 +374,54 @@
                 </div>
             </div>
             
-            <div class="row g-4 mt-3 justify-content-center">
+            <!-- Founding Members Section -->
+            <div class="text-center mb-5">
+                <h2 class="display-6 fw-bold mb-4">
+                    <span class="lang-ar">الأعضاء المؤسسين</span>
+                    <span class="lang-en hidden">Founding Members</span>
+                </h2>
+                <p class="lead text-muted">
+                    <span class="lang-ar">الأعضاء المؤسسين الذين ساهموا في إنشاء الفريق</span>
+                    <span class="lang-en hidden">Founding members who contributed to establishing the team</span>
+                </p>
+            </div>
+            
+            <!-- Board Members -->
+            <div class="row g-4 mb-5">
                 <!-- Board Member 1 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 border-0 shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-lg member-card board-card" data-department="board" data-aos="fade-up">
                         <div class="position-relative">
-                            <div class="bg-info opacity-10 position-absolute top-0 start-0 w-100 h-100"></div>
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="card-img-top" alt="أحمد سمير">
-                            <span class="badge bg-info position-absolute top-0 end-0 m-2">
-                                <span class="lang-ar">عضو مجلس إدارة</span>
+                            <img src="../assets/images/yousseif_Sayad.jpg" alt="عضو مجلس الإدارة" class="card-img-top" style="height: 250px; object-fit: cover;">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 bg-success opacity-10"></div>
+                            <span class="badge bg-success m-2 position-absolute top-0 end-0">
+                                <i class="fas fa-users me-1"></i>
+                                <span class="lang-ar">مجلس الإدارة</span>
                                 <span class="lang-en hidden">Board Member</span>
                             </span>
                         </div>
-                        <div class="card-body p-4 text-center">
-                            <h4 class="card-title fw-bold mb-1">
-                                <span class="lang-ar">أحمد سمير</span>
-                                <span class="lang-en hidden">Ahmed Samir</span>
-                            </h4>
-                            <p class="text-muted mb-3">
-                                <span class="lang-ar">مدير قسم البرمجة</span>
-                                <span class="lang-en hidden">Programming Department Manager</span>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">
+                                <span class="lang-ar">يوسف محمد حازم صياد</span>
+                                <span class="lang-en hidden">Youssef Mohamed Hazem Sayad</span>
+                            </h5>
+                            <p class="text-success fw-semibold small mb-2">
+                                <span class="lang-ar">عضو مؤسس</span>
+                                <span class="lang-en hidden">Founding Member</span>
                             </p>
-                            <p class="card-text">
-                                <span class="lang-ar">مطور برمجيات متمرس مع خبرة واسعة في تطوير تطبيقات الويب والموبايل وإدارة فرق المطورين.</span>
-                                <span class="lang-en hidden">Seasoned software developer with extensive experience in web and mobile application development and managing developer teams.</span>
+                            <p class="card-text text-muted small">
+                                <span class="lang-ar">عضو مؤسس في فريق Digital Future ومساهم في وضع الأسس والرؤية</span>
+                                <span class="lang-en hidden">Founding member of Digital Future team and contributor to establishing foundations and vision</span>
                             </p>
-                            <button class="btn btn-info mt-3" data-bs-toggle="modal" data-bs-target="#memberModal3">
-                                <span class="lang-ar">عرض التفاصيل</span>
-                                <span class="lang-en hidden">View Details</span>
-                            </button>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pt-0 pb-4 px-4 text-center">
-                            <div class="d-flex gap-2 justify-content-center">
-                                <a href="#" class="btn btn-sm btn-outline-info rounded-circle">
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-sm btn-outline-success rounded-circle">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
-                                <a href="#" class="btn btn-sm btn-outline-info rounded-circle">
+                                <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
                                     <i class="fab fa-github"></i>
                                 </a>
-                                <a href="#" class="btn btn-sm btn-outline-info rounded-circle">
-                                    <i class="fa-solid fa-envelope"></i>
+                                <a href="#" class="btn btn-sm btn-outline-success rounded-circle">
+                                    <i class="fas fa-envelope"></i>
                                 </a>
                             </div>
                         </div>
@@ -469,89 +429,348 @@
                 </div>
                 
                 <!-- Board Member 2 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 border-0 shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-lg member-card board-card" data-department="board" data-aos="fade-up" data-aos-delay="100">
                         <div class="position-relative">
-                            <div class="bg-success opacity-10 position-absolute top-0 start-0 w-100 h-100"></div>
-                            <img src="https://randomuser.me/api/portraits/women/32.jpg" class="card-img-top" alt="هدى كريم">
-                            <span class="badge bg-success position-absolute top-0 end-0 m-2">
-                                <span class="lang-ar">عضو مجلس إدارة</span>
+                            <img src="../assets/images/ahmed_fayez.jpg" alt="عضو مجلس الإدارة" class="card-img-top" style="height: 250px; object-fit: cover;">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 bg-success opacity-10"></div>
+                            <span class="badge bg-success m-2 position-absolute top-0 end-0">
+                                <i class="fas fa-users me-1"></i>
+                                <span class="lang-ar">مجلس الإدارة</span>
                                 <span class="lang-en hidden">Board Member</span>
                             </span>
                         </div>
-                        <div class="card-body p-4 text-center">
-                            <h4 class="card-title fw-bold mb-1">
-                                <span class="lang-ar">هدى كريم</span>
-                                <span class="lang-en hidden">Hoda Kareem</span>
-                            </h4>
-                            <p class="text-muted mb-3">
-                                <span class="lang-ar">مديرة قسم الإعلام</span>
-                                <span class="lang-en hidden">Media Department Manager</span>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">
+                                <span class="lang-ar">أحمد فايز حسان</span>
+                                <span class="lang-en hidden">Ahmed Fayez Hassan</span>
+                            </h5>
+                            <p class="text-success fw-semibold small mb-2">
+                                <span class="lang-ar">عضو مؤسس</span>
+                                <span class="lang-en hidden">Founding Member</span>
                             </p>
-                            <p class="card-text">
-                                <span class="lang-ar">خبيرة في التسويق الرقمي وإدارة المحتوى مع خلفية قوية في التصميم الجرافيكي وإنتاج الفيديو.</span>
-                                <span class="lang-en hidden">Expert in digital marketing and content management with a strong background in graphic design and video production.</span>
+                            <p class="card-text text-muted small">
+                                <span class="lang-ar">عضو مؤسس في فريق Digital Future ومساهم في وضع الأسس والرؤية</span>
+                                <span class="lang-en hidden">Founding member of Digital Future team and contributor to establishing foundations and vision</span>
                             </p>
-                            <button class="btn btn-success mt-3" data-bs-toggle="modal" data-bs-target="#memberModal4">
-                                <span class="lang-ar">عرض التفاصيل</span>
-                                <span class="lang-en hidden">View Details</span>
-                            </button>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pt-0 pb-4 px-4 text-center">
-                            <div class="d-flex gap-2 justify-content-center">
+                            <div class="d-flex gap-2">
                                 <a href="#" class="btn btn-sm btn-outline-success rounded-circle">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
-                                <a href="#" class="btn btn-sm btn-outline-success rounded-circle">
-                                    <i class="fab fa-behance"></i>
+                                <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
+                                    <i class="fab fa-github"></i>
                                 </a>
                                 <a href="#" class="btn btn-sm btn-outline-success rounded-circle">
-                                    <i class="fa-solid fa-envelope"></i>
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                                <!-- Board Member 3 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-lg member-card board-card" data-department="board" data-aos="fade-up" data-aos-delay="200">
+                        <div class="position-relative">
+                            <img src="../assets/images/yassein_sayad.jpg" alt="عضو مؤسس" class="card-img-top" style="height: 250px; object-fit: cover;">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 bg-success opacity-10"></div>
+                            <span class="badge bg-success m-2 position-absolute top-0 end-0">
+                                <i class="fas fa-users me-1"></i>
+                                <span class="lang-ar">عضو مؤسس</span>
+                                <span class="lang-en hidden">Founding Member</span>
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">
+                                <span class="lang-ar">يس محمد حازم</span>
+                                <span class="lang-en hidden">Yas Mohamed Hazem</span>
+                            </h5>
+                            <p class="text-success fw-semibold small mb-2">
+                                <span class="lang-ar">عضو مؤسس</span>
+                                <span class="lang-en hidden">Founding Member</span>
+                            </p>
+                            <p class="card-text text-muted small">
+                                <span class="lang-ar">عضو مؤسس في فريق Digital Future ومساهم في وضع الأسس والرؤية</span>
+                                <span class="lang-en hidden">Founding member of Digital Future team and contributor to establishing foundations and vision</span>
+                            </p>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-sm btn-outline-success rounded-circle">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="btn btn-sm btn-outline-success rounded-circle">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Department Heads Section -->
+            <div class="text-center mb-5">
+                <h2 class="display-6 fw-bold mb-4">
+                    <span class="lang-ar">قادة الأقسام</span>
+                    <span class="lang-en hidden">Department Heads</span>
+                </h2>
+                <p class="lead text-muted">
+                    <span class="lang-ar">قيادة الأقسام التخصصية والإشراف التقني</span>
+                    <span class="lang-en hidden">Leading specialized departments and technical supervision</span>
+                </p>
+            </div>
+            
+            <div class="row g-4 mb-5">
+                <!-- Programming Department Head -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-lg member-card dept-head-card" data-department="programming" data-aos="fade-up">
+                        <div class="position-relative">
+                            <img src="../assets/images/yousseif_Sayad.jpg" alt="قائد قسم البرمجة" class="card-img-top" style="height: 250px; object-fit: cover;">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 bg-primary opacity-10"></div>
+                            <span class="badge bg-primary m-2 position-absolute top-0 end-0">
+                                <i class="fas fa-code me-1"></i>
+                                <span class="lang-ar">قائد البرمجة</span>
+                                <span class="lang-en hidden">Programming Head</span>
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">
+                                <span class="lang-ar">يوسف محمد حازم صياد</span>
+                                <span class="lang-en hidden">Yousseif Mohamed Hazem Sayad</span>
+                            </h5>
+                            <p class="text-primary fw-semibold small mb-2">
+                                <span class="lang-ar">قائد قسم البرمجة</span>
+                                <span class="lang-en hidden">Programming Department Head</span>
+                            </p>
+                            <p class="card-text text-muted small">
+                                <span class="lang-ar">يقود فريق المطورين ويشرف على جميع مشاريع التطوير التقني</span>
+                                <span class="lang-en hidden">Leads the development team and oversees all technical development projects</span>
+                            </p>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
+                                    <i class="fas fa-envelope"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Board Member 3 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 border-0 shadow-sm" data-aos="fade-up" data-aos-delay="400">
+
+                <!-- Archive Department Head -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-lg member-card dept-head-card" data-department="archive" data-aos="fade-up" data-aos-delay="400">
                         <div class="position-relative">
-                            <div class="bg-warning opacity-10 position-absolute top-0 start-0 w-100 h-100"></div>
-                            <img src="https://randomuser.me/api/portraits/men/22.jpg" class="card-img-top" alt="كريم فؤاد">
-                            <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-2">
-                                <span class="lang-ar">عضو مجلس إدارة</span>
-                                <span class="lang-en hidden">Board Member</span>
+                            <img src="../assets/images/ahmed_fayez.jpg" alt="قائد قسم الأرشيف" class="card-img-top" style="height: 250px; object-fit: cover;">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 bg-warning opacity-10"></div>
+                            <span class="badge bg-warning m-2 position-absolute top-0 end-0">
+                                <i class="fas fa-archive me-1"></i>
+                                <span class="lang-ar">قائد الأرشيف</span>
+                                <span class="lang-en hidden">Archive Head</span>
                             </span>
                         </div>
-                        <div class="card-body p-4 text-center">
-                            <h4 class="card-title fw-bold mb-1">
-                                <span class="lang-ar">كريم فؤاد</span>
-                                <span class="lang-en hidden">Kareem Fouad</span>
-                            </h4>
-                            <p class="text-muted mb-3">
-                                <span class="lang-ar">مدير قسم الذكاء الاصطناعي</span>
-                                <span class="lang-en hidden">AI Department Manager</span>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">
+                                <span class="lang-ar">احمد فايز حسان</span>
+                                <span class="lang-en hidden">Ahmed Fayez Hassan</span>
+                            </h5>
+                            <p class="text-warning fw-semibold small mb-2">
+                                <span class="lang-ar">قائد قسم الأرشيف</span>
+                                <span class="lang-en hidden">Archive Department Head</span>
                             </p>
-                            <p class="card-text">
-                                <span class="lang-ar">باحث ومطور في مجال الذكاء الاصطناعي وتعلم الآلة، مع خبرة في تطبيق تقنيات الذكاء الاصطناعي في حل المشكلات العملية.</span>
-                                <span class="lang-en hidden">Researcher and developer in the field of artificial intelligence and machine learning, with experience in applying AI techniques to solve practical problems.</span>
+                            <p class="card-text text-muted small">
+                                <span class="lang-ar">يدير نظام الأرشيف الرقمي ويحافظ على البيانات والمستندات</span>
+                                <span class="lang-en hidden">Manages digital archive system and maintains data and documents</span>
                             </p>
-                            <button class="btn btn-warning mt-3" data-bs-toggle="modal" data-bs-target="#memberModal5">
-                                <span class="lang-ar">عرض التفاصيل</span>
-                                <span class="lang-en hidden">View Details</span>
-                            </button>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pt-0 pb-4 px-4 text-center">
-                            <div class="d-flex gap-2 justify-content-center">
+                            <div class="d-flex gap-2">
                                 <a href="#" class="btn btn-sm btn-outline-warning rounded-circle">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
-                                <a href="#" class="btn btn-sm btn-outline-warning rounded-circle">
+                                <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
                                     <i class="fab fa-github"></i>
                                 </a>
                                 <a href="#" class="btn btn-sm btn-outline-warning rounded-circle">
-                                    <i class="fa-solid fa-envelope"></i>
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Regular Members Section -->
+    <section class="py-20 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold mb-3" data-aos="fade-up">
+                    <span class="lang-ar">الأعضاء</span>
+                    <span class="lang-en hidden">Members</span>
+                </h2>
+                <p class="lead text-muted" data-aos="fade-up" data-aos-delay="100">
+                    <span class="lang-ar">فريق متميز من المطورين والمصممين والمتخصصين</span>
+                    <span class="lang-en hidden">A distinguished team of developers, designers, and specialists</span>
+                </p>
+            </div>
+            <div class="row g-4">
+                <!-- Regular Member 1 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm member-card" data-department="programming" data-aos="fade-up">
+                        <div class="position-relative">
+                            <img src="../assets/images/hero_image.png" alt="عمر خالد" class="card-img-top" style="height: 250px; object-fit: cover;">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 bg-primary opacity-10"></div>
+                            <span class="badge bg-primary m-2 position-absolute top-0 end-0">
+                                <span class="lang-ar">البرمجة</span>
+                                <span class="lang-en hidden">Programming</span>
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">
+                                <span class="lang-ar">عمر خالد</span>
+                                <span class="lang-en hidden">Omar Khaled</span>
+                            </h5>
+                            <p class="text-primary fw-semibold small mb-2">
+                                <span class="lang-ar">مطور واجهات أمامية</span>
+                                <span class="lang-en hidden">Frontend Developer</span>
+                            </p>
+                            <p class="card-text text-muted small">
+                                <span class="lang-ar">متخصص في تطوير واجهات المستخدم باستخدام React</span>
+                                <span class="lang-en hidden">Specializes in developing user interfaces using React</span>
+                            </p>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Regular Member 2 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm member-card" data-department="programming" data-aos="fade-up" data-aos-delay="100">
+                        <div class="position-relative">
+                            <img src="../assets/images/hero_image.png" alt="نورا أحمد" class="card-img-top" style="height: 250px; object-fit: cover;">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 bg-primary opacity-10"></div>
+                            <span class="badge bg-primary m-2 position-absolute top-0 end-0">
+                                <span class="lang-ar">البرمجة</span>
+                                <span class="lang-en hidden">Programming</span>
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">
+                                <span class="lang-ar">نورا أحمد</span>
+                                <span class="lang-en hidden">Noura Ahmed</span>
+                            </h5>
+                            <p class="text-primary fw-semibold small mb-2">
+                                <span class="lang-ar">مطورة واجهات خلفية</span>
+                                <span class="lang-en hidden">Backend Developer</span>
+                            </p>
+                            <p class="card-text text-muted small">
+                                <span class="lang-ar">متخصصة في تطوير الواجهات الخلفية باستخدام Node.js</span>
+                                <span class="lang-en hidden">Specializes in backend development using Node.js</span>
+                            </p>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Regular Member 3 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm member-card" data-department="ai" data-aos="fade-up" data-aos-delay="200">
+                        <div class="position-relative">
+                            <img src="../assets/images/hero_image.png" alt="فاطمة علي" class="card-img-top" style="height: 250px; object-fit: cover;">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 bg-purple opacity-10"></div>
+                            <span class="badge bg-purple m-2 position-absolute top-0 end-0">
+                                <span class="lang-ar">الذكاء الاصطناعي</span>
+                                <span class="lang-en hidden">AI</span>
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">
+                                <span class="lang-ar">فاطمة علي</span>
+                                <span class="lang-en hidden">Fatima Ali</span>
+                            </h5>
+                            <p class="text-purple fw-semibold small mb-2">
+                                <span class="lang-ar">مطورة ذكاء اصطناعي</span>
+                                <span class="lang-en hidden">AI Developer</span>
+                            </p>
+                            <p class="card-text text-muted small">
+                                <span class="lang-ar">متخصصة في تطوير نماذج التعلم الآلي</span>
+                                <span class="lang-en hidden">Specializes in developing machine learning models</span>
+                            </p>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-sm btn-outline-purple rounded-circle">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="btn btn-sm btn-outline-purple rounded-circle">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Regular Member 4 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm member-card" data-department="design" data-aos="fade-up" data-aos-delay="300">
+                        <div class="position-relative">
+                            <img src="../assets/images/hero_image.png" alt="أحمد محمد" class="card-img-top" style="height: 250px; object-fit: cover;">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 bg-purple opacity-10"></div>
+                            <span class="badge bg-purple m-2 position-absolute top-0 end-0">
+                                <span class="lang-ar">التصميم</span>
+                                <span class="lang-en hidden">Design</span>
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">
+                                <span class="lang-ar">أحمد محمد</span>
+                                <span class="lang-en hidden">Ahmed Mohamed</span>
+                            </h5>
+                            <p class="text-purple fw-semibold small mb-2">
+                                <span class="lang-ar">مصمم UI/UX</span>
+                                <span class="lang-en hidden">UI/UX Designer</span>
+                            </p>
+                            <p class="card-text text-muted small">
+                                <span class="lang-ar">متخصص في تصميم واجهات المستخدم</span>
+                                <span class="lang-en hidden">Specializes in user interface design</span>
+                            </p>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-sm btn-outline-purple rounded-circle">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
+                                    <i class="fab fa-dribbble"></i>
+                                </a>
+                                <a href="#" class="btn btn-sm btn-outline-purple rounded-circle">
+                                    <i class="fas fa-envelope"></i>
                                 </a>
                             </div>
                         </div>
@@ -560,1507 +779,155 @@
             </div>
         </div>
     </section>
-    
-    <!-- Members Grid Section -->
-    <section class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">
-                <span class="lang-ar">أعضاء الفريق</span>
-                <span class="lang-en hidden">Team Members</span>
-            </h2>
-            <div class="row g-4" id="members-grid">
-                <!-- Programming Department Members -->
-                <!-- Member 1 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 member-card" data-department="programming">
-                    <div class="card h-100 border-0 shadow-sm" data-aos="fade-up">
-                        <div class="position-relative">
-                            <div class="bg-primary opacity-10 position-absolute top-0 start-0 w-100 h-100"></div>
-                            <img src="https://randomuser.me/api/portraits/men/1.jpg" class="card-img-top" alt="عمر خالد">
-                            <span class="badge bg-primary position-absolute top-0 end-0 m-2">
-                                <span class="lang-ar">البرمجة</span>
-                                <span class="lang-en hidden">Programming</span>
-                            </span>
-                        </div>
-                        <div class="card-body p-4">
-                            <h5 class="card-title fw-bold mb-1">
-                                <span class="lang-ar">عمر خالد</span>
-                                <span class="lang-en hidden">Omar Khaled</span>
-                            </h5>
-                            <p class="text-muted small mb-3">
-                                <span class="lang-ar">مطور واجهات أمامية</span>
-                                <span class="lang-en hidden">Frontend Developer</span>
-                            </p>
-                            <p class="card-text">
-                                <span class="lang-ar">متخصص في تطوير واجهات المستخدم باستخدام React وTailwind CSS، مع خبرة في بناء تطبيقات الويب التفاعلية والمتجاوبة.</span>
-                                <span class="lang-en hidden">Specializes in developing user interfaces using React and Tailwind CSS, with experience in building interactive and responsive web applications.</span>
-                            </p>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pt-0 pb-4 px-4">
-                            <div class="d-flex gap-2">
-                                <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Member 2 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 member-card" data-department="programming">
-                    <div class="card h-100 border-0 shadow-sm" data-aos="fade-up" data-aos-delay="100">
-                        <div class="position-relative">
-                            <div class="bg-primary opacity-10 position-absolute top-0 start-0 w-100 h-100"></div>
-                            <img src="https://randomuser.me/api/portraits/women/1.jpg" class="card-img-top" alt="نورا أحمد">
-                            <span class="badge bg-primary position-absolute top-0 end-0 m-2">
-                                <span class="lang-ar">البرمجة</span>
-                                <span class="lang-en hidden">Programming</span>
-                            </span>
-                        </div>
-                        <div class="card-body p-4">
-                            <h5 class="card-title fw-bold mb-1">
-                                <span class="lang-ar">نورا أحمد</span>
-                                <span class="lang-en hidden">Noura Ahmed</span>
-                            </h5>
-                            <p class="text-muted small mb-3">
-                                <span class="lang-ar">مطورة واجهات خلفية</span>
-                                <span class="lang-en hidden">Backend Developer</span>
-                            </p>
-                            <p class="card-text">
-                                <span class="lang-ar">متخصصة في تطوير الواجهات الخلفية باستخدام Node.js وExpress، مع خبرة في تصميم وبناء واجهات برمجة التطبيقات RESTful.</span>
-                                <span class="lang-en hidden">Specializes in backend development using Node.js and Express, with experience in designing and building RESTful APIs.</span>
-                            </p>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pt-0 pb-4 px-4">
-                            <div class="d-flex gap-2">
-                                <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Member 3 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 member-card" data-department="programming">
-                    <div class="card h-100 border-0 shadow-sm" data-aos="fade-up" data-aos-delay="200">
-                        <div class="position-relative">
-                            <div class="bg-primary opacity-10 position-absolute top-0 start-0 w-100 h-100"></div>
-                            <img src="https://randomuser.me/api/portraits/men/2.jpg" class="card-img-top" alt="محمد إبراهيم">
-                            <span class="badge bg-primary position-absolute top-0 end-0 m-2">
-                                <span class="lang-ar">البرمجة</span>
-                                <span class="lang-en hidden">Programming</span>
-                            </span>
-                        </div>
-                        <div class="card-body p-4">
-                            <h5 class="card-title fw-bold mb-1">
-                                <span class="lang-ar">محمد إبراهيم</span>
-                                <span class="lang-en hidden">Mohamed Ibrahim</span>
-                            </h5>
-                            <p class="text-muted small mb-3">
-                                <span class="lang-ar">مطور تطبيقات موبايل</span>
-                                <span class="lang-en hidden">Mobile App Developer</span>
-                            </p>
-                            <p class="card-text">
-                                <span class="lang-ar">متخصص في تطوير تطبيقات الموبايل باستخدام React Native وFlutter، مع خبرة في بناء تطبيقات متعددة المنصات.</span>
-                                <span class="lang-en hidden">Specializes in mobile app development using React Native and Flutter, with experience in building cross-platform applications.</span>
-                            </p>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pt-0 pb-4 px-4">
-                            <div class="d-flex gap-2">
-                                <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Member 4 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 member-card" data-department="programming">
-                    <div class="card h-100 border-0 shadow-sm" data-aos="fade-up" data-aos-delay="300">
-                        <div class="position-relative">
-                            <div class="bg-primary opacity-10 position-absolute top-0 start-0 w-100 h-100"></div>
-                            <img src="https://randomuser.me/api/portraits/women/2.jpg" class="card-img-top" alt="سارة محمود">
-                            <span class="badge bg-primary position-absolute top-0 end-0 m-2">
-                                <span class="lang-ar">البرمجة</span>
-                                <span class="lang-en hidden">Programming</span>
-                            </span>
-                        </div>
-                        <div class="card-body p-4">
-                            <h5 class="card-title fw-bold mb-1">
-                                <span class="lang-ar">سارة محمود</span>
-                                <span class="lang-en hidden">Sara Mahmoud</span>
-                            </h5>
-                            <p class="text-muted small mb-3">
-                                <span class="lang-ar">مهندسة DevOps</span>
-                                <span class="lang-en hidden">DevOps Engineer</span>
-                            </p>
-                            <p class="card-text">
-                                <span class="lang-ar">متخصصة في أتمتة عمليات التطوير والنشر، مع خبرة في Docker وKubernetes وCI/CD وإدارة البنية التحتية السحابية.</span>
-                                <span class="lang-en hidden">Specializes in automating development and deployment processes, with experience in Docker, Kubernetes, CI/CD, and cloud infrastructure management.</span>
-                            </p>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pt-0 pb-4 px-4">
-                            <div class="d-flex gap-2">
-                                <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- AI Department Members -->
-                <!-- Member 5 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 member-card" data-department="ai">
-                    <div class="card h-100 border-0 shadow-sm" data-aos="fade-up">
-                        <div class="position-relative">
-                            <div class="bg-secondary opacity-10 position-absolute top-0 start-0 w-100 h-100"></div>
-                            <img src="https://randomuser.me/api/portraits/women/3.jpg" class="card-img-top" alt="سارة مصطفى">
-                            <span class="badge bg-secondary position-absolute top-0 end-0 m-2">
-                                <span class="lang-ar">الذكاء الاصطناعي</span>
-                                <span class="lang-en hidden">AI</span>
-                            </span>
-                        </div>
-                        <div class="card-body p-4">
-                            <h5 class="card-title fw-bold mb-1">
-                                <span class="lang-ar">سارة مصطفى</span>
-                                <span class="lang-en hidden">Sara Mostafa</span>
-                            </h5>
-                            <p class="text-muted small mb-3">
-                                <span class="lang-ar">مهندسة تعلم آلي</span>
-                                <span class="lang-en hidden">ML Engineer</span>
-                            </p>
-                            <p class="card-text">
-                                <span class="lang-ar">متخصصة في تطوير نماذج التعلم الآلي باستخدام Python وTensorFlow، مع خبرة في معالجة البيانات وتحليلها.</span>
-                                <span class="lang-en hidden">Specializes in developing machine learning models using Python and TensorFlow, with experience in data processing and analysis.</span>
-                            </p>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pt-0 pb-4 px-4">
-                            <div class="d-flex gap-2">
-                                <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Member 6 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 member-card" data-department="ai">
-                    <div class="card h-100 border-0 shadow-sm" data-aos="fade-up" data-aos-delay="100">
-                        <div class="position-relative">
-                            <div class="bg-secondary opacity-10 position-absolute top-0 start-0 w-100 h-100"></div>
-                            <img src="https://randomuser.me/api/portraits/men/3.jpg" class="card-img-top" alt="أحمد فؤاد">
-                            <span class="badge bg-secondary position-absolute top-0 end-0 m-2">
-                                <span class="lang-ar">الذكاء الاصطناعي</span>
-                                <span class="lang-en hidden">AI</span>
-                            </span>
-                        </div>
-                        <div class="card-body p-4">
-                            <h5 class="card-title fw-bold mb-1">
-                                <span class="lang-ar">أحمد فؤاد</span>
-                                <span class="lang-en hidden">Ahmed Fouad</span>
-                            </h5>
-                            <p class="text-muted small mb-3">
-                                <span class="lang-ar">مهندس معالجة لغات طبيعية</span>
-                                <span class="lang-en hidden">NLP Engineer</span>
-                            </p>
-                            <p class="card-text">
-                                <span class="lang-ar">متخصص في معالجة اللغات الطبيعية وتطوير نماذج فهم النصوص، مع خبرة في تطوير روبوتات المحادثة والتحليل النصي.</span>
-                                <span class="lang-en hidden">Specializes in natural language processing and developing text understanding models, with experience in chatbot development and text analysis.</span>
-                            </p>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pt-0 pb-4 px-4">
-                            <div class="d-flex gap-2">
-                                <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Training Department Members -->
-                <!-- Member 7 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 member-card" data-department="training">
-                    <div class="card h-100 border-0 shadow-sm" data-aos="fade-up">
-                        <div class="position-relative">
-                            <div class="bg-info opacity-10 position-absolute top-0 start-0 w-100 h-100"></div>
-                            <img src="https://randomuser.me/api/portraits/men/4.jpg" class="card-img-top" alt="محمد نادر">
-                            <span class="badge bg-info position-absolute top-0 end-0 m-2">
-                                <span class="lang-ar">التدريب</span>
-                                <span class="lang-en hidden">Training</span>
-                            </span>
-                        </div>
-                        <div class="card-body p-4">
-                            <h5 class="card-title fw-bold mb-1">
-                                <span class="lang-ar">محمد نادر</span>
-                                <span class="lang-en hidden">Mohamed Nader</span>
-                            </h5>
-                            <p class="text-muted small mb-3">
-                                <span class="lang-ar">مدرب مهارات شخصية</span>
-                                <span class="lang-en hidden">Soft Skills Trainer</span>
-                            </p>
-                            <p class="card-text">
-                                <span class="lang-ar">متخصص في تدريب المهارات الشخصية مثل التواصل والعمل الجماعي والقيادة، مع خبرة في تنظيم ورش العمل التفاعلية.</span>
-                                <span class="lang-en hidden">Specializes in training soft skills such as communication, teamwork, and leadership, with experience in organizing interactive workshops.</span>
-                            </p>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pt-0 pb-4 px-4">
-                            <div class="d-flex gap-2">
-                                <a href="#" class="btn btn-sm btn-outline-info rounded-circle">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-info rounded-circle">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-info rounded-circle">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Member 8 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 member-card" data-department="training">
-                    <div class="card h-100 border-0 shadow-sm" data-aos="fade-up" data-aos-delay="100">
-                        <div class="position-relative">
-                            <div class="bg-info opacity-10 position-absolute top-0 start-0 w-100 h-100"></div>
-                            <img src="https://randomuser.me/api/portraits/women/4.jpg" class="card-img-top" alt="رنا سامي">
-                            <span class="badge bg-info position-absolute top-0 end-0 m-2">
-                                <span class="lang-ar">التدريب</span>
-                                <span class="lang-en hidden">Training</span>
-                            </span>
-                        </div>
-                        <div class="card-body p-4">
-                            <h5 class="card-title fw-bold mb-1">
-                                <span class="lang-ar">رنا سامي</span>
-                                <span class="lang-en hidden">Rana Sami</span>
-                            </h5>
-                            <p class="text-muted small mb-3">
-                                <span class="lang-ar">مدربة تطوير ويب</span>
-                                <span class="lang-en hidden">Web Development Trainer</span>
-                            </p>
-                            <p class="card-text">
-                                <span class="lang-ar">متخصصة في تدريب تقنيات تطوير الويب الحديثة، مع خبرة في إعداد المحتوى التدريبي وتنظيم الدورات التعليمية.</span>
-                                <span class="lang-en hidden">Specializes in training modern web development technologies, with experience in preparing training content and organizing educational courses.</span>
-                            </p>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pt-0 pb-4 px-4">
-                            <div class="d-flex gap-2">
-                                <a href="#" class="btn btn-sm btn-outline-info rounded-circle">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-info rounded-circle">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-info rounded-circle">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Media Department Members -->
-                <!-- Member 9 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 member-card" data-department="media">
-                    <div class="card h-100 border-0 shadow-sm" data-aos="fade-up">
-                        <div class="position-relative">
-                            <div class="bg-success opacity-10 position-absolute top-0 start-0 w-100 h-100"></div>
-                            <img src="https://randomuser.me/api/portraits/women/5.jpg" class="card-img-top" alt="آية سمير">
-                            <span class="badge bg-success position-absolute top-0 end-0 m-2">
-                                <span class="lang-ar">الإعلام</span>
-                                <span class="lang-en hidden">Media</span>
-                            </span>
-                        </div>
-                        <div class="card-body p-4">
-                            <h5 class="card-title fw-bold mb-1">
-                                <span class="lang-ar">آية سمير</span>
-                                <span class="lang-en hidden">Aya Samir</span>
-                            </h5>
-                            <p class="text-muted small mb-3">
-                                <span class="lang-ar">مصممة جرافيك</span>
-                                <span class="lang-en hidden">Graphic Designer</span>
-                            </p>
-                            <p class="card-text">
-                                <span class="lang-ar">متخصصة في التصميم الجرافيكي وتصميم واجهات المستخدم، مع خبرة في استخدام Adobe Creative Suite وتصميم الهويات البصرية.</span>
-                                <span class="lang-en hidden">Specializes in graphic design and UI design, with experience in using Adobe Creative Suite and designing visual identities.</span>
-                            </p>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pt-0 pb-4 px-4">
-                            <div class="d-flex gap-2">
-                                <a href="#" class="btn btn-sm btn-outline-success rounded-circle">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-success rounded-circle">
-                                    <i class="fab fa-behance"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-success rounded-circle">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Member 10 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 member-card" data-department="media">
-                    <div class="card h-100 border-0 shadow-sm" data-aos="fade-up" data-aos-delay="100">
-                        <div class="position-relative">
-                            <div class="bg-success opacity-10 position-absolute top-0 start-0 w-100 h-100"></div>
-                            <img src="https://randomuser.me/api/portraits/men/5.jpg" class="card-img-top" alt="كريم حسن">
-                            <span class="badge bg-success position-absolute top-0 end-0 m-2">
-                                <span class="lang-ar">الإعلام</span>
-                                <span class="lang-en hidden">Media</span>
-                            </span>
-                        </div>
-                        <div class="card-body p-4">
-                            <h5 class="card-title fw-bold mb-1">
-                                <span class="lang-ar">كريم حسن</span>
-                                <span class="lang-en hidden">Karim Hassan</span>
-                            </h5>
-                            <p class="text-muted small mb-3">
-                                <span class="lang-ar">مسؤول وسائل التواصل الاجتماعي</span>
-                                <span class="lang-en hidden">Social Media Manager</span>
-                            </p>
-                            <p class="card-text">
-                                <span class="lang-ar">متخصص في إدارة حسابات وسائل التواصل الاجتماعي وإنشاء المحتوى الرقمي، مع خبرة في التسويق الرقمي وتحليل البيانات.</span>
-                                <span class="lang-en hidden">Specializes in managing social media accounts and creating digital content, with experience in digital marketing and data analysis.</span>
-                            </p>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pt-0 pb-4 px-4">
-                            <div class="d-flex gap-2">
-                                <a href="#" class="btn btn-sm btn-outline-success rounded-circle">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-success rounded-circle">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-success rounded-circle">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Evaluation Department Members -->
-                <!-- Member 11 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 member-card" data-department="evaluation">
-                    <div class="card h-100 border-0 shadow-sm" data-aos="fade-up">
-                        <div class="position-relative">
-                            <div class="bg-warning opacity-10 position-absolute top-0 start-0 w-100 h-100"></div>
-                            <img src="https://randomuser.me/api/portraits/men/6.jpg" class="card-img-top" alt="خالد عادل">
-                            <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-2">
-                                <span class="lang-ar">التقييم</span>
-                                <span class="lang-en hidden">Evaluation</span>
-                            </span>
-                        </div>
-                        <div class="card-body p-4">
-                            <h5 class="card-title fw-bold mb-1">
-                                <span class="lang-ar">خالد عادل</span>
-                                <span class="lang-en hidden">Khaled Adel</span>
-                            </h5>
-                            <p class="text-muted small mb-3">
-                                <span class="lang-ar">مراجع جودة</span>
-                                <span class="lang-en hidden">Quality Reviewer</span>
-                            </p>
-                            <p class="card-text">
-                                <span class="lang-ar">متخصص في مراجعة جودة المشاريع والمنتجات، مع خبرة في وضع معايير الجودة وتقييم الأداء وتحسين العمليات.</span>
-                                <span class="lang-en hidden">Specializes in reviewing the quality of projects and products, with experience in setting quality standards, performance evaluation, and process improvement.</span>
-                            </p>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pt-0 pb-4 px-4">
-                            <div class="d-flex gap-2">
-                                <a href="#" class="btn btn-sm btn-outline-warning rounded-circle">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-warning rounded-circle">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-warning rounded-circle">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Member 12 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 member-card" data-department="evaluation">
-                    <div class="card h-100 border-0 shadow-sm" data-aos="fade-up" data-aos-delay="100">
-                        <div class="position-relative">
-                            <div class="bg-warning opacity-10 position-absolute top-0 start-0 w-100 h-100"></div>
-                            <img src="https://randomuser.me/api/portraits/women/6.jpg" class="card-img-top" alt="منى سعيد">
-                            <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-2">
-                                <span class="lang-ar">التقييم</span>
-                                <span class="lang-en hidden">Evaluation</span>
-                            </span>
-                        </div>
-                        <div class="card-body p-4">
-                            <h5 class="card-title fw-bold mb-1">
-                                <span class="lang-ar">منى سعيد</span>
-                                <span class="lang-en hidden">Mona Saeed</span>
-                            </h5>
-                            <p class="text-muted small mb-3">
-                                <span class="lang-ar">مختبرة برمجيات</span>
-                                <span class="lang-en hidden">Software Tester</span>
-                            </p>
-                            <p class="card-text">
-                                <span class="lang-ar">متخصصة في اختبار البرمجيات وضمان الجودة، مع خبرة في الاختبار اليدوي والآلي وتوثيق الأخطاء وتحسين جودة المنتجات.</span>
-                                <span class="lang-en hidden">Specializes in software testing and quality assurance, with experience in manual and automated testing, bug documentation, and product quality improvement.</span>
-                            </p>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pt-0 pb-4 px-4">
-                            <div class="d-flex gap-2">
-                                <a href="#" class="btn btn-sm btn-outline-warning rounded-circle">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-warning rounded-circle">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-warning rounded-circle">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Archive Department Members -->
-                <!-- Member 13 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 member-card" data-department="archive">
-                    <div class="card h-100 border-0 shadow-sm" data-aos="fade-up">
-                        <div class="position-relative">
-                            <div class="bg-danger opacity-10 position-absolute top-0 start-0 w-100 h-100"></div>
-                            <img src="https://randomuser.me/api/portraits/women/7.jpg" class="card-img-top" alt="هبة يوسف">
-                            <span class="badge bg-danger position-absolute top-0 end-0 m-2">
-                                <span class="lang-ar">الأرشيف</span>
-                                <span class="lang-en hidden">Archive</span>
-                            </span>
-                        </div>
-                        <div class="card-body p-4">
-                            <h5 class="card-title fw-bold mb-1">
-                                <span class="lang-ar">هبة يوسف</span>
-                                <span class="lang-en hidden">Heba Youssef</span>
-                            </h5>
-                            <p class="text-muted small mb-3">
-                                <span class="lang-ar">مسؤولة أرشيف</span>
-                                <span class="lang-en hidden">Data Manager</span>
-                            </p>
-                            <p class="card-text">
-                                <span class="lang-ar">متخصصة في إدارة البيانات وتنظيم المعلومات، مع خبرة في توثيق الأنشطة والفعاليات وإنشاء قواعد البيانات وفهرسة المحتوى.</span>
-                                <span class="lang-en hidden">Specializes in data management and information organization, with experience in documenting activities and events, creating databases, and content indexing.</span>
-                            </p>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pt-0 pb-4 px-4">
-                            <div class="d-flex gap-2">
-                                <a href="#" class="btn btn-sm btn-outline-danger rounded-circle">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-danger rounded-circle">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-danger rounded-circle">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Member 14 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 member-card" data-department="archive">
-                    <div class="card h-100 border-0 shadow-sm" data-aos="fade-up" data-aos-delay="100">
-                        <div class="position-relative">
-                            <div class="bg-danger opacity-10 position-absolute top-0 start-0 w-100 h-100"></div>
-                            <img src="https://randomuser.me/api/portraits/men/7.jpg" class="card-img-top" alt="طارق نبيل">
-                            <span class="badge bg-danger position-absolute top-0 end-0 m-2">
-                                <span class="lang-ar">الأرشيف</span>
-                                <span class="lang-en hidden">Archive</span>
-                            </span>
-                        </div>
-                        <div class="card-body p-4">
-                            <h5 class="card-title fw-bold mb-1">
-                                <span class="lang-ar">طارق نبيل</span>
-                                <span class="lang-en hidden">Tarek Nabil</span>
-                            </h5>
-                            <p class="text-muted small mb-3">
-                                <span class="lang-ar">مدير قواعد بيانات</span>
-                                <span class="lang-en hidden">Database Administrator</span>
-                            </p>
-                            <p class="card-text">
-                                <span class="lang-ar">متخصص في إدارة قواعد البيانات وتصميمها، مع خبرة في SQL وNoSQL وتحسين أداء قواعد البيانات وضمان أمن البيانات.</span>
-                                <span class="lang-en hidden">Specializes in database management and design, with experience in SQL and NoSQL, database performance optimization, and data security.</span>
-                            </p>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pt-0 pb-4 px-4">
-                            <div class="d-flex gap-2">
-                                <a href="#" class="btn btn-sm btn-outline-danger rounded-circle">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-danger rounded-circle">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-danger rounded-circle">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Additional Members -->
-                <!-- Member 15 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 member-card" data-department="programming">
-                    <div class="card h-100 border-0 shadow-sm" data-aos="fade-up">
-                        <div class="position-relative">
-                            <div class="bg-primary opacity-10 position-absolute top-0 start-0 w-100 h-100"></div>
-                            <img src="https://randomuser.me/api/portraits/men/8.jpg" class="card-img-top" alt="يوسف عمر">
-                            <span class="badge bg-primary position-absolute top-0 end-0 m-2">
-                                <span class="lang-ar">البرمجة</span>
-                                <span class="lang-en hidden">Programming</span>
-                            </span>
-                        </div>
-                        <div class="card-body p-4">
-                            <h5 class="card-title fw-bold mb-1">
-                                <span class="lang-ar">يوسف عمر</span>
-                                <span class="lang-en hidden">Youssef Omar</span>
-                            </h5>
-                            <p class="text-muted small mb-3">
-                                <span class="lang-ar">مطور قواعد بيانات</span>
-                                <span class="lang-en hidden">Database Developer</span>
-                            </p>
-                            <p class="card-text">
-                                <span class="lang-ar">متخصص في تطوير وإدارة قواعد البيانات، مع خبرة في SQL وNoSQL وتصميم هيكل البيانات وتحسين الأداء.</span>
-                                <span class="lang-en hidden">Specializes in database development and management, with experience in SQL and NoSQL, data structure design, and performance optimization.</span>
-                            </p>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pt-0 pb-4 px-4">
-                            <div class="d-flex gap-2">
-                                <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Member 16 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 member-card" data-department="programming">
-                    <div class="card h-100 border-0 shadow-sm" data-aos="fade-up" data-aos-delay="100">
-                        <div class="position-relative">
-                            <div class="bg-primary opacity-10 position-absolute top-0 start-0 w-100 h-100"></div>
-                            <img src="https://randomuser.me/api/portraits/women/8.jpg" class="card-img-top" alt="ليلى حسام">
-                            <span class="badge bg-primary position-absolute top-0 end-0 m-2">
-                                <span class="lang-ar">البرمجة</span>
-                                <span class="lang-en hidden">Programming</span>
-                            </span>
-                        </div>
-                        <div class="card-body p-4">
-                            <h5 class="card-title fw-bold mb-1">
-                                <span class="lang-ar">ليلى حسام</span>
-                                <span class="lang-en hidden">Laila Hossam</span>
-                            </h5>
-                            <p class="text-muted small mb-3">
-                                <span class="lang-ar">مهندسة برمجيات</span>
-                                <span class="lang-en hidden">Software Engineer</span>
-                            </p>
-                            <p class="card-text">
-                                <span class="lang-ar">متخصصة في هندسة البرمجيات وتصميم النظم، مع خبرة في تطوير البرمجيات وإدارة المشاريع وتحسين جودة الكود.</span>
-                                <span class="lang-en hidden">Specializes in software engineering and system design, with experience in software development, project management, and code quality improvement.</span>
-                            </p>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pt-0 pb-4 px-4">
-                            <div class="d-flex gap-2">
-                                <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Member 17 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 member-card" data-department="ai">
-                    <div class="card h-100 border-0 shadow-sm" data-aos="fade-up">
-                        <div class="position-relative">
-                            <div class="bg-secondary opacity-10 position-absolute top-0 start-0 w-100 h-100"></div>
-                            <img src="https://randomuser.me/api/portraits/men/9.jpg" class="card-img-top" alt="عمرو فتحي">
-                            <span class="badge bg-secondary position-absolute top-0 end-0 m-2">
-                                <span class="lang-ar">الذكاء الاصطناعي</span>
-                                <span class="lang-en hidden">AI</span>
-                            </span>
-                        </div>
-                        <div class="card-body p-4">
-                            <h5 class="card-title fw-bold mb-1">
-                                <span class="lang-ar">عمرو فتحي</span>
-                                <span class="lang-en hidden">Amr Fathy</span>
-                            </h5>
-                            <p class="text-muted small mb-3">
-                                <span class="lang-ar">مهندس رؤية حاسوبية</span>
-                                <span class="lang-en hidden">Computer Vision Engineer</span>
-                            </p>
-                            <p class="card-text">
-                                <span class="lang-ar">متخصص في الرؤية الحاسوبية ومعالجة الصور، مع خبرة في تطوير خوارزميات التعرف على الصور والفيديو وتطبيقات الواقع المعزز.</span>
-                                <span class="lang-en hidden">Specializes in computer vision and image processing, with experience in developing image and video recognition algorithms and augmented reality applications.</span>
-                            </p>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pt-0 pb-4 px-4">
-                            <div class="d-flex gap-2">
-                                <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Member 18 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 member-card" data-department="ai">
-                    <div class="card h-100 border-0 shadow-sm" data-aos="fade-up" data-aos-delay="100">
-                        <div class="position-relative">
-                            <div class="bg-secondary opacity-10 position-absolute top-0 start-0 w-100 h-100"></div>
-                            <img src="https://randomuser.me/api/portraits/women/9.jpg" class="card-img-top" alt="نور الهدى">
-                            <span class="badge bg-secondary position-absolute top-0 end-0 m-2">
-                                <span class="lang-ar">الذكاء الاصطناعي</span>
-                                <span class="lang-en hidden">AI</span>
-                            </span>
-                        </div>
-                        <div class="card-body p-4">
-                            <h5 class="card-title fw-bold mb-1">
-                                <span class="lang-ar">نور الهدى</span>
-                                <span class="lang-en hidden">Nour El-Hoda</span>
-                            </h5>
-                            <p class="text-muted small mb-3">
-                                <span class="lang-ar">باحثة ذكاء اصطناعي</span>
-                                <span class="lang-en hidden">AI Researcher</span>
-                            </p>
-                            <p class="card-text">
-                                <span class="lang-ar">متخصصة في البحث العلمي في مجال الذكاء الاصطناعي، مع خبرة في نشر الأوراق البحثية وتطوير نماذج التعلم العميق.</span>
-                                <span class="lang-en hidden">Specializes in scientific research in the field of artificial intelligence, with experience in publishing research papers and developing deep learning models.</span>
-                            </p>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pt-0 pb-4 px-4">
-                            <div class="d-flex gap-2">
-                                <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                    <!-- Footer -->
-    <footer class="footer py-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-4">
-                    <h5 class="mb-3">
-                        <span class="lang-ar">مستقبل رقمي</span>
-                        <span class="lang-en hidden">Digital Future</span>
-                    </h5>
-                    <p class="text-muted">
-                        <span class="lang-ar">فريق طلابي تقني يهدف إلى بناء جيل من المبدعين في مجالات التكنولوجيا المختلفة.</span>
-                        <span class="lang-en hidden">A student technology team aiming to build a generation of creators in various technology fields.</span>
+    <!-- Call to Action Section -->
+    <section class="py-20 bg-gradient">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-white">
+                    <span class="lang-ar">انضم إلى فريقنا</span>
+                    <span class="lang-en hidden">Join Our Team</span>
+                </h2>
+                <p class="text-xl mb-8 text-white/90">
+                    <span class="lang-ar">هل أنت مهتم بالانضمام إلى فريق مستقبل رقمي؟ نحن دائمًا نبحث عن مواهب جديدة ومتحمسة للانضمام إلى فريقنا.</span>
+                    <span class="lang-en hidden">Are you interested in joining Digital Future team? We are always looking for new and enthusiastic talents to join our team.</span>
+                </p>
+                <a href="contact.html" class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg inline-block">
+                    <span class="lang-ar">تواصل معنا</span>
+                    <span class="lang-en hidden">Contact Us</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+                <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- About Column -->
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <img src="assets/images/logo.svg" alt="DIGITAL FUTURE Logo" class="h-10">
+                        <div>
+                            <h2 class="text-lg font-bold text-blue-400 lang-ar">مستقبل رقمي</h2>
+                            <h2 class="text-lg font-bold text-blue-400 lang-en hidden">DIGITAL FUTURE</h2>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        <span class="lang-ar">فريق طلابي للتكنولوجيا يسعى لبناء مستقبل رقمي أفضل من خلال الابتكار والتعلم المستمر.</span>
+                        <span class="lang-en hidden">A student technology team striving to build a better digital future through innovation and continuous learning.</span>
                     </p>
-                    <div class="d-flex gap-2 mt-4">
-                        <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
+                    <div class="flex gap-4">
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors" aria-label="Facebook">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors" aria-label="Twitter">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors" aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
-                            <i class="fab fa-github"></i>
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-4 col-6">
-                    <h6 class="mb-3">
+                
+                <!-- Quick Links -->
+                <div class="md:col-span-1">
+                    <h3 class="text-lg font-bold mb-4">
                         <span class="lang-ar">روابط سريعة</span>
                         <span class="lang-en hidden">Quick Links</span>
-                    </h6>
-                    <ul class="list-unstyled">
-                        <li class="mb-2">
-                            <a href="../index.html" class="text-decoration-none text-muted">
+                    </h3>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="index.html" class="text-gray-400 hover:text-blue-400 transition-colors">
                                 <span class="lang-ar">الرئيسية</span>
                                 <span class="lang-en hidden">Home</span>
                             </a>
                         </li>
-                        <li class="mb-2">
-                            <a href="about.html" class="text-decoration-none text-muted">
-                                <span class="lang-ar">عن الفريق</span>
+                        <li>
+                            <a href="pages/about.html" class="text-gray-400 hover:text-blue-400 transition-colors">
+                                <span class="lang-ar">من نحن</span>
                                 <span class="lang-en hidden">About Us</span>
                             </a>
                         </li>
-                        <li class="mb-2">
-                            <a href="departments.html" class="text-decoration-none text-muted">
+                        <li>
+                            <a href="pages/departments.html" class="text-gray-400 hover:text-blue-400 transition-colors">
                                 <span class="lang-ar">الأقسام</span>
                                 <span class="lang-en hidden">Departments</span>
                             </a>
                         </li>
-                        <li class="mb-2">
-                            <a href="#" class="text-decoration-none">
+                        <li>
+                            <a href="pages/members.html" class="text-gray-400 hover:text-blue-400 transition-colors">
                                 <span class="lang-ar">الأعضاء</span>
                                 <span class="lang-en hidden">Members</span>
                             </a>
                         </li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6">
-                    <h6 class="mb-3">
-                        <span class="lang-ar">استكشف</span>
-                        <span class="lang-en hidden">Explore</span>
-                    </h6>
-                    <ul class="list-unstyled">
-                        <li class="mb-2">
-                            <a href="projects.html" class="text-decoration-none text-muted">
+                        <li>
+                            <a href="pages/projects.html" class="text-gray-400 hover:text-blue-400 transition-colors">
                                 <span class="lang-ar">المشاريع</span>
                                 <span class="lang-en hidden">Projects</span>
                             </a>
                         </li>
-                        <li class="mb-2">
-                            <a href="news.html" class="text-decoration-none text-muted">
-                                <span class="lang-ar">الأخبار والفعاليات</span>
-                                <span class="lang-en hidden">News & Events</span>
-                            </a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="contact.html" class="text-decoration-none text-muted">
-                                <span class="lang-ar">اتصل بنا</span>
-                                <span class="lang-en hidden">Contact</span>
-                            </a>
-                        </li>
                     </ul>
                 </div>
-                <div class="col-lg-4 col-md-4">
-                    <h6 class="mb-3">
-                        <span class="lang-ar">تواصل معنا</span>
-                        <span class="lang-en hidden">Contact Us</span>
-                    </h6>
-                    <ul class="list-unstyled">
-                        <li class="mb-2 d-flex align-items-center">
-                            <i class="fa-solid fa-location-dot me-2 text-primary"></i>
-                            <span class="text-muted">
+                
+                <!-- Contact Info -->
+                <div class="md:col-span-1">
+                    <h3 class="text-lg font-bold mb-4">
+                        <span class="lang-ar">معلومات الاتصال</span>
+                        <span class="lang-en hidden">Contact Info</span>
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-blue-400"></i>
+                            <span class="text-gray-400">
                                 <span class="lang-ar">القليوبية، مصر</span>
                                 <span class="lang-en hidden">Qalyubia, Egypt</span>
                             </span>
                         </li>
-                        <li class="mb-2 d-flex align-items-center">
-                            <i class="fa-solid fa-envelope me-2 text-primary"></i>
-                            <a href="mailto:info@digitalfuture.eg" class="text-decoration-none text-muted">info@digitalfuture.eg</a>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-blue-400"></i>
+                            <a href="mailto:info@digitalfuture.eg" class="text-gray-400 hover:text-blue-400 transition-colors">info@digitalfuture.eg</a>
                         </li>
-                        <li class="mb-2 d-flex align-items-center">
-                            <i class="fa-solid fa-phone me-2 text-primary"></i>
-                            <a href="tel:+201234567890" class="text-decoration-none text-muted">+20 123 456 7890</a>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-blue-400"></i>
+                            <a href="tel:+201234567890" class="text-gray-400 hover:text-blue-400 transition-colors">+20 123 456 7890</a>
                         </li>
                     </ul>
                 </div>
+                
+                <!-- Newsletter -->
+                <div class="md:col-span-1">
+                    <h3 class="text-lg font-bold mb-4">
+                        <span class="lang-ar">النشرة الإخبارية</span>
+                        <span class="lang-en hidden">Newsletter</span>
+                    </h3>
+                    <p class="text-gray-400 mb-4">
+                        <span class="lang-ar">اشترك في نشرتنا الإخبارية للحصول على آخر التحديثات</span>
+                        <span class="lang-en hidden">Subscribe to our newsletter for the latest updates</span>
+                    </p>
+                    <form class="flex">
+                        <input type="email" placeholder="البريد الإلكتروني" class="lang-ar px-4 py-2 bg-gray-800 text-white rounded-s-lg focus:outline-none focus:ring-2 focus:ring-blue-400 w-full">
+                        <input type="email" placeholder="Email Address" class="lang-en hidden px-4 py-2 bg-gray-800 text-white rounded-s-lg focus:outline-none focus:ring-2 focus:ring-blue-400 w-full">
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-e-lg transition-colors">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
             </div>
-            <hr class="my-4">
-            <div class="row align-items-center">
-                <div class="col-md-6 text-center text-md-start">
-                    <p class="small text-muted mb-0">
-                        <span class="lang-ar">© 2025 مستقبل رقمي. جميع الحقوق محفوظة.</span>
-                        <span class="lang-en hidden">© 2025 Digital Future. All rights reserved.</span>
-                    </p>
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <p class="small text-muted mb-0">
-                        <span class="lang-ar">تم التصميم بواسطة فريق مستقبل رقمي</span>
-                        <span class="lang-en hidden">Designed by Digital Future Team</span>
-                    </p>
-                </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+                <p>
+                    <span class="lang-ar">© 2025 مستقبل رقمي. جميع الحقوق محفوظة.</span>
+                    <span class="lang-en hidden">© 2025 DIGITAL FUTURE. All Rights Reserved.</span>
+                </p>
             </div>
         </div>
     </footer>
 
-    <!-- Member Details Modals -->
-    <!-- Leader Modal -->
-    <div class="modal fade" id="memberModal1" tabindex="-1" aria-labelledby="memberModal1Label" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="memberModal1Label">
-                        <span class="lang-ar">محمد إبراهيم - القائد</span>
-                        <span class="lang-en hidden">Mohamed Ibrahim - Leader</span>
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-4 mb-3 mb-md-0">
-                            <img src="https://randomuser.me/api/portraits/men/41.jpg" class="img-fluid rounded" alt="محمد إبراهيم">
-                            <div class="mt-3">
-                                <h6 class="fw-bold">
-                                    <span class="lang-ar">التواصل</span>
-                                    <span class="lang-en hidden">Contact</span>
-                                </h6>
-                                <p><i class="fa-solid fa-envelope me-2"></i> mohamed@digitalfuture.org</p>
-                                <p><i class="fa-solid fa-phone me-2"></i> +20 123 456 7890</p>
-                                <div class="d-flex gap-2 mt-3">
-                                    <a href="#" class="btn btn-sm btn-outline-dark rounded-circle">
-                                        <i class="fab fa-linkedin-in"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-sm btn-outline-dark rounded-circle">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-sm btn-outline-dark rounded-circle">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <h6 class="fw-bold">
-                                <span class="lang-ar">نبذة عن القائد</span>
-                                <span class="lang-en hidden">About the Leader</span>
-                            </h6>
-                            <p>
-                                <span class="lang-ar">مهندس برمجيات ذو خبرة واسعة تمتد لأكثر من 10 سنوات في مجال تطوير البرمجيات وإدارة المشاريع التقنية. تخرج من كلية الهندسة قسم الحاسبات والنظم بتقدير امتياز مع مرتبة الشرف، وحصل على درجة الماجستير في علوم الحاسب مع التركيز على الذكاء الاصطناعي.</span>
-                                <span class="lang-en hidden">A software engineer with extensive experience spanning over 10 years in software development and technical project management. Graduated from the Faculty of Engineering, Computer and Systems Department with honors, and obtained a Master's degree in Computer Science with a focus on Artificial Intelligence.</span>
-                            </p>
-                            
-                            <h6 class="fw-bold mt-4">
-                                <span class="lang-ar">المهارات</span>
-                                <span class="lang-en hidden">Skills</span>
-                            </h6>
-                            <div class="row mb-4">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <div class="d-flex justify-content-between">
-                                            <span>Python</span>
-                                            <span>95%</span>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-dark" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <div class="d-flex justify-content-between">
-                                            <span>JavaScript</span>
-                                            <span>90%</span>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-dark" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <div class="d-flex justify-content-between">
-                                            <span>Project Management</span>
-                                            <span>98%</span>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-dark" role="progressbar" style="width: 98%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <div class="d-flex justify-content-between">
-                                            <span>Team Leadership</span>
-                                            <span>97%</span>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-dark" role="progressbar" style="width: 97%" aria-valuenow="97" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <h6 class="fw-bold mt-4">
-                                <span class="lang-ar">الإنجازات</span>
-                                <span class="lang-en hidden">Achievements</span>
-                            </h6>
-                            <ul>
-                                <li>
-                                    <span class="lang-ar">تأسيس فريق المستقبل الرقمي عام 2018 وقيادته لتحقيق أكثر من 50 مشروعًا ناجحًا.</span>
-                                    <span class="lang-en hidden">Founded Digital Future Team in 2018 and led it to achieve more than 50 successful projects.</span>
-                                </li>
-                                <li>
-                                    <span class="lang-ar">الحصول على جائزة أفضل مشروع تقني شبابي على مستوى الجامعات عام 2020.</span>
-                                    <span class="lang-en hidden">Received the Best Youth Technical Project Award at the university level in 2020.</span>
-                                </li>
-                                <li>
-                                    <span class="lang-ar">تطوير منصة تعليمية مفتوحة المصدر تخدم أكثر من 10,000 طالب.</span>
-                                    <span class="lang-en hidden">Developed an open-source educational platform serving more than 10,000 students.</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        <span class="lang-ar">إغلاق</span>
-                        <span class="lang-en hidden">Close</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Vice Leader Modal -->
-    <div class="modal fade" id="memberModal2" tabindex="-1" aria-labelledby="memberModal2Label" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="memberModal2Label">
-                        <span class="lang-ar">سارة محمود - نائب القائد</span>
-                        <span class="lang-en hidden">Sara Mahmoud - Vice Leader</span>
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-4 mb-3 mb-md-0">
-                            <img src="https://randomuser.me/api/portraits/women/41.jpg" class="img-fluid rounded" alt="سارة محمود">
-                            <div class="mt-3">
-                                <h6 class="fw-bold">
-                                    <span class="lang-ar">التواصل</span>
-                                    <span class="lang-en hidden">Contact</span>
-                                </h6>
-                                <p><i class="fa-solid fa-envelope me-2"></i> sara@digitalfuture.org</p>
-                                <p><i class="fa-solid fa-phone me-2"></i> +20 123 456 7891</p>
-                                <div class="d-flex gap-2 mt-3">
-                                    <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
-                                        <i class="fab fa-linkedin-in"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <h6 class="fw-bold">
-                                <span class="lang-ar">نبذة عن نائب القائد</span>
-                                <span class="lang-en hidden">About the Vice Leader</span>
-                            </h6>
-                            <p>
-                                <span class="lang-ar">خبيرة في إدارة المشاريع التقنية مع خبرة 8 سنوات في تطوير استراتيجيات النمو الرقمي. حاصلة على شهادة البكالوريوس في هندسة البرمجيات وماجستير في إدارة الأعمال التقنية. انضمت للفريق منذ تأسيسه وساهمت في تطوير الهيكل التنظيمي والإداري للفريق.</span>
-                                <span class="lang-en hidden">An expert in technical project management with 8 years of experience in developing digital growth strategies. Holds a Bachelor's degree in Software Engineering and a Master's in Technical Business Administration. Joined the team since its inception and contributed to developing the team's organizational and administrative structure.</span>
-                            </p>
-                            
-                            <h6 class="fw-bold mt-4">
-                                <span class="lang-ar">المهارات</span>
-                                <span class="lang-en hidden">Skills</span>
-                            </h6>
-                            <div class="row mb-4">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <div class="d-flex justify-content-between">
-                                            <span>Project Management</span>
-                                            <span>96%</span>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-secondary" role="progressbar" style="width: 96%" aria-valuenow="96" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <div class="d-flex justify-content-between">
-                                            <span>AI & Machine Learning</span>
-                                            <span>88%</span>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-secondary" role="progressbar" style="width: 88%" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <div class="d-flex justify-content-between">
-                                            <span>Strategic Planning</span>
-                                            <span>94%</span>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-secondary" role="progressbar" style="width: 94%" aria-valuenow="94" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <div class="d-flex justify-content-between">
-                                            <span>Team Coordination</span>
-                                            <span>92%</span>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-secondary" role="progressbar" style="width: 92%" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <h6 class="fw-bold mt-4">
-                                <span class="lang-ar">الإنجازات</span>
-                                <span class="lang-en hidden">Achievements</span>
-                            </h6>
-                            <ul>
-                                <li>
-                                    <span class="lang-ar">قيادة فريق تطوير منصة التعلم الإلكتروني التي فازت بجائزة الابتكار التقني عام 2021.</span>
-                                    <span class="lang-en hidden">Led the development team for the e-learning platform that won the Technical Innovation Award in 2021.</span>
-                                </li>
-                                <li>
-                                    <span class="lang-ar">تطوير استراتيجية النمو الرقمي التي ساهمت في زيادة عدد أعضاء الفريق بنسبة 200% خلال عامين.</span>
-                                    <span class="lang-en hidden">Developed the digital growth strategy that contributed to increasing team membership by 200% over two years.</span>
-                                </li>
-                                <li>
-                                    <span class="lang-ar">إدارة مشروع تطبيق الذكاء الاصطناعي للتشخيص الطبي بالتعاون مع إحدى الجامعات المحلية.</span>
-                                    <span class="lang-en hidden">Managed the AI medical diagnosis application project in collaboration with a local university.</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        <span class="lang-ar">إغلاق</span>
-                        <span class="lang-en hidden">Close</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Board Member 1 Modal -->
-    <div class="modal fade" id="memberModal3" tabindex="-1" aria-labelledby="memberModal3Label" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="memberModal3Label">
-                        <span class="lang-ar">أحمد سمير - مدير قسم البرمجة</span>
-                        <span class="lang-en hidden">Ahmed Samir - Programming Department Manager</span>
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-4 mb-3 mb-md-0">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="img-fluid rounded" alt="أحمد سمير">
-                            <div class="mt-3">
-                                <h6 class="fw-bold">
-                                    <span class="lang-ar">التواصل</span>
-                                    <span class="lang-en hidden">Contact</span>
-                                </h6>
-                                <p><i class="fa-solid fa-envelope me-2"></i> ahmed@digitalfuture.org</p>
-                                <p><i class="fa-solid fa-phone me-2"></i> +20 123 456 7892</p>
-                                <div class="d-flex gap-2 mt-3">
-                                    <a href="#" class="btn btn-sm btn-outline-info rounded-circle">
-                                        <i class="fab fa-linkedin-in"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-sm btn-outline-info rounded-circle">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-sm btn-outline-info rounded-circle">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <h6 class="fw-bold">
-                                <span class="lang-ar">نبذة عن مدير قسم البرمجة</span>
-                                <span class="lang-en hidden">About the Programming Department Manager</span>
-                            </h6>
-                            <p>
-                                <span class="lang-ar">مطور برمجيات متمرس مع خبرة 7 سنوات في تطوير تطبيقات الويب والموبايل. حاصل على شهادة في علوم الحاسب وعدة شهادات معتمدة في تقنيات التطوير الحديثة. يقود فريق المطورين في الفريق ويشرف على جميع المشاريع البرمجية.</span>
-                                <span class="lang-en hidden">A seasoned software developer with 7 years of experience in web and mobile application development. Holds a degree in Computer Science and several certified certificates in modern development technologies. Leads the development team and oversees all programming projects.</span>
-                            </p>
-                            
-                            <h6 class="fw-bold mt-4">
-                                <span class="lang-ar">المهارات</span>
-                                <span class="lang-en hidden">Skills</span>
-                            </h6>
-                            <div class="row mb-4">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <div class="d-flex justify-content-between">
-                                            <span>Full Stack Development</span>
-                                            <span>95%</span>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-info" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <div class="d-flex justify-content-between">
-                                            <span>Mobile Development</span>
-                                            <span>90%</span>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-info" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <div class="d-flex justify-content-between">
-                                            <span>DevOps</span>
-                                            <span>85%</span>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-info" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <div class="d-flex justify-content-between">
-                                            <span>Team Management</span>
-                                            <span>88%</span>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-info" role="progressbar" style="width: 88%" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <h6 class="fw-bold mt-4">
-                                <span class="lang-ar">المشاريع البارزة</span>
-                                <span class="lang-en hidden">Notable Projects</span>
-                            </h6>
-                            <ul>
-                                <li>
-                                    <span class="lang-ar">تطوير منصة إدارة المشاريع الداخلية للفريق.</span>
-                                    <span class="lang-en hidden">Development of the team's internal project management platform.</span>
-                                </li>
-                                <li>
-                                    <span class="lang-ar">قيادة فريق تطوير تطبيق الهاتف المحمول للخدمات الطلابية.</span>
-                                    <span class="lang-en hidden">Leading the development team for the student services mobile application.</span>
-                                </li>
-                                <li>
-                                    <span class="lang-ar">إنشاء نظام أتمتة لعمليات الفريق الداخلية.</span>
-                                    <span class="lang-en hidden">Creating an automation system for the team's internal operations.</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        <span class="lang-ar">إغلاق</span>
-                        <span class="lang-en hidden">Close</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Board Member 2 Modal -->
-    <div class="modal fade" id="memberModal4" tabindex="-1" aria-labelledby="memberModal4Label" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="memberModal4Label">
-                        <span class="lang-ar">هدى كريم - مديرة قسم الإعلام</span>
-                        <span class="lang-en hidden">Hoda Kareem - Media Department Manager</span>
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-4 mb-3 mb-md-0">
-                            <img src="https://randomuser.me/api/portraits/women/32.jpg" class="img-fluid rounded" alt="هدى كريم">
-                            <div class="mt-3">
-                                <h6 class="fw-bold">
-                                    <span class="lang-ar">التواصل</span>
-                                    <span class="lang-en hidden">Contact</span>
-                                </h6>
-                                <p><i class="fa-solid fa-envelope me-2"></i> hoda@digitalfuture.org</p>
-                                <p><i class="fa-solid fa-phone me-2"></i> +20 123 456 7893</p>
-                                <div class="d-flex gap-2 mt-3">
-                                    <a href="#" class="btn btn-sm btn-outline-success rounded-circle">
-                                        <i class="fab fa-linkedin-in"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-sm btn-outline-success rounded-circle">
-                                        <i class="fab fa-behance"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-sm btn-outline-success rounded-circle">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <h6 class="fw-bold">
-                                <span class="lang-ar">نبذة عن مديرة قسم الإعلام</span>
-                                <span class="lang-en hidden">About the Media Department Manager</span>
-                            </h6>
-                            <p>
-                                <span class="lang-ar">خبيرة في التسويق الرقمي وإدارة المحتوى مع خبرة 6 سنوات في مجال الإعلام الرقمي. حاصلة على شهادة في الإعلام والاتصال وماجستير في التسويق الرقمي. تقود فريق الإعلام وتشرف على استراتيجيات التواصل والمحتوى للفريق.</span>
-                                <span class="lang-en hidden">Expert in digital marketing and content management with 6 years of experience in digital media. Holds a degree in Media and Communication and a Master's in Digital Marketing. Leads the media team and oversees the team's communication and content strategies.</span>
-                            </p>
-                            
-                            <h6 class="fw-bold mt-4">
-                                <span class="lang-ar">المهارات</span>
-                                <span class="lang-en hidden">Skills</span>
-                            </h6>
-                            <div class="row mb-4">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <div class="d-flex justify-content-between">
-                                            <span>Digital Marketing</span>
-                                            <span>94%</span>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 94%" aria-valuenow="94" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <div class="d-flex justify-content-between">
-                                            <span>Graphic Design</span>
-                                            <span>92%</span>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 92%" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <div class="d-flex justify-content-between">
-                                            <span>Content Strategy</span>
-                                            <span>96%</span>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 96%" aria-valuenow="96" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <div class="d-flex justify-content-between">
-                                            <span>Video Production</span>
-                                            <span>88%</span>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 88%" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <h6 class="fw-bold mt-4">
-                                <span class="lang-ar">الإنجازات</span>
-                                <span class="lang-en hidden">Achievements</span>
-                            </h6>
-                            <ul>
-                                <li>
-                                    <span class="lang-ar">تطوير استراتيجية المحتوى التي زادت من تفاعل الجمهور بنسبة 150% خلال عام واحد.</span>
-                                    <span class="lang-en hidden">Developed a content strategy that increased audience engagement by 150% in one year.</span>
-                                </li>
-                                <li>
-                                    <span class="lang-ar">إطلاق حملة توعية رقمية وصلت إلى أكثر من 500,000 شخص.</span>
-                                    <span class="lang-en hidden">Launched a digital awareness campaign that reached over 500,000 people.</span>
-                                </li>
-                                <li>
-                                    <span class="lang-ar">تصميم هوية بصرية جديدة للفريق حازت على إعجاب الجمهور والمتابعين.</span>
-                                    <span class="lang-en hidden">Designed a new visual identity for the team that was well-received by the audience and followers.</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        <span class="lang-ar">إغلاق</span>
-                        <span class="lang-en hidden">Close</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Board Member 3 Modal -->
-    <div class="modal fade" id="memberModal5" tabindex="-1" aria-labelledby="memberModal5Label" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="memberModal5Label">
-                        <span class="lang-ar">كريم فؤاد - مدير قسم الذكاء الاصطناعي</span>
-                        <span class="lang-en hidden">Kareem Fouad - AI Department Manager</span>
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-4 mb-3 mb-md-0">
-                            <img src="https://randomuser.me/api/portraits/men/22.jpg" class="img-fluid rounded" alt="كريم فؤاد">
-                            <div class="mt-3">
-                                <h6 class="fw-bold">
-                                    <span class="lang-ar">التواصل</span>
-                                    <span class="lang-en hidden">Contact</span>
-                                </h6>
-                                <p><i class="fa-solid fa-envelope me-2"></i> kareem@digitalfuture.org</p>
-                                <p><i class="fa-solid fa-phone me-2"></i> +20 123 456 7894</p>
-                                <div class="d-flex gap-2 mt-3">
-                                    <a href="#" class="btn btn-sm btn-outline-warning rounded-circle">
-                                        <i class="fab fa-linkedin-in"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-sm btn-outline-warning rounded-circle">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-sm btn-outline-warning rounded-circle">
-                                        <i class="fab fa-medium"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <h6 class="fw-bold">
-                                <span class="lang-ar">نبذة عن مدير قسم الذكاء الاصطناعي</span>
-                                <span class="lang-en hidden">About the AI Department Manager</span>
-                            </h6>
-                            <p>
-                                <span class="lang-ar">باحث ومطور في مجال الذكاء الاصطناعي وتعلم الآلة مع خبرة 5 سنوات. حاصل على درجة الماجستير في علوم الحاسب مع التركيز على الذكاء الاصطناعي. يقود فريق الذكاء الاصطناعي ويشرف على تطوير الحلول الذكية للمشاريع المختلفة.</span>
-                                <span class="lang-en hidden">Researcher and developer in the field of artificial intelligence and machine learning with 5 years of experience. Holds a Master's degree in Computer Science with a focus on Artificial Intelligence. Leads the AI team and oversees the development of intelligent solutions for various projects.</span>
-                            </p>
-                            
-                            <h6 class="fw-bold mt-4">
-                                <span class="lang-ar">المهارات</span>
-                                <span class="lang-en hidden">Skills</span>
-                            </h6>
-                            <div class="row mb-4">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <div class="d-flex justify-content-between">
-                                            <span>Machine Learning</span>
-                                            <span>96%</span>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 96%" aria-valuenow="96" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <div class="d-flex justify-content-between">
-                                            <span>Deep Learning</span>
-                                            <span>92%</span>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 92%" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <div class="d-flex justify-content-between">
-                                            <span>Data Science</span>
-                                            <span>94%</span>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 94%" aria-valuenow="94" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <div class="d-flex justify-content-between">
-                                            <span>Research & Development</span>
-                                            <span>90%</span>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <h6 class="fw-bold mt-4">
-                                <span class="lang-ar">المشاريع البارزة</span>
-                                <span class="lang-en hidden">Notable Projects</span>
-                            </h6>
-                            <ul>
-                                <li>
-                                    <span class="lang-ar">تطوير نظام توصيات ذكي لمنصة التعلم الإلكتروني.</span>
-                                    <span class="lang-en hidden">Development of an intelligent recommendation system for the e-learning platform.</span>
-                                </li>
-                                <li>
-                                    <span class="lang-ar">إنشاء نموذج للتنبؤ بالاحتياجات المستقبلية للمشاريع التقنية.</span>
-                                    <span class="lang-en hidden">Creating a model to predict future needs for technical projects.</span>
-                                </li>
-                                <li>
-                                    <span class="lang-ar">تطوير خوارزميات معالجة اللغة العربية الطبيعية لتحسين تجربة المستخدم.</span>
-                                    <span class="lang-en hidden">Development of Arabic natural language processing algorithms to improve user experience.</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        <span class="lang-ar">إغلاق</span>
-                        <span class="lang-en hidden">Close</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
@@ -2151,5 +1018,10 @@
             }
         });
     </script>
+
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
 </body>
 </html>

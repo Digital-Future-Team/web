@@ -38,29 +38,20 @@
     <link rel="stylesheet" href="../css/rtl.css" id="direction-stylesheet">
     <link rel="stylesheet" href="../css/light-theme.css" id="theme-stylesheet">
 </head>
-<body>
-    <!-- Language & Theme Toggles -->
-    <div class="position-fixed top-0 end-0 p-3 d-flex gap-2 z-3">
-        <button id="language-toggle" class="btn btn-sm btn-outline-primary rounded-circle" aria-label="تبديل اللغة">
-            <i class="fa-solid fa-language"></i>
-        </button>
-        <button id="theme-toggle" class="btn btn-sm btn-outline-primary rounded-circle" aria-label="تبديل المظهر">
-            <i class="fa-solid fa-moon"></i>
-        </button>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg sticky-top py-3">
+<body class="bg-pattern">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg sticky-top glass-effect">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="../index.html">
-                <span class="lang-ar">مستقبل رقمي</span>
-                <span class="lang-en hidden">Digital Future</span>
+            <!-- Logo -->
+            <a class="navbar-brand" href="../index.html">
+                <img src="../assets/images/light_theme_image.jpg" alt="DIGITAL FUTURE Logo" class="h-10 light-logo">
+                <img src="../assets/images/dark_theme_image.jpg" alt="DIGITAL FUTURE Logo" class="h-10 dark-logo hidden">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+            
+            <!-- Desktop Menu -->
+            <div class="d-none d-lg-flex align-items-center">
+                <!-- Navigation Links -->
+                <ul class="navbar-nav me-4">
                     <li class="nav-item">
                         <a class="nav-link" href="../index.html">
                             <span class="lang-ar">الرئيسية</span>
@@ -104,9 +95,99 @@
                         </a>
                     </li>
                 </ul>
+                
+                <!-- Language & Theme Toggle -->
+                <div class="d-flex align-items-center gap-3">
+                    <button id="language-toggle" class="btn btn-sm btn-outline-primary">
+                        <span class="lang-ar">EN</span>
+                        <span class="lang-en hidden">AR</span>
+                    </button>
+                    <button id="theme-toggle" class="btn btn-sm btn-outline-primary theme-toggle-icon">
+                        <i class="fa-solid fa-moon moon"></i>
+                        <i class="fa-solid fa-sun sun"></i>
+                    </button>
+                </div>
             </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="btn btn-outline-primary d-lg-none" type="button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </div>
     </nav>
+    
+    <!-- Mobile Sidebar -->
+    <div id="mobile-sidebar" class="mobile-sidebar d-lg-none">
+        <div class="mobile-sidebar-content">
+            <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
+                <h5 class="mb-0">
+                    <span class="lang-ar">القائمة</span>
+                    <span class="lang-en hidden">Menu</span>
+                </h5>
+                <button id="close-sidebar" class="btn btn-sm btn-outline-secondary">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            <div class="p-3">
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a class="nav-link" href="../index.html">
+                            <span class="lang-ar">الرئيسية</span>
+                            <span class="lang-en hidden">Home</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a class="nav-link" href="about.html">
+                            <span class="lang-ar">عن الفريق</span>
+                            <span class="lang-en hidden">About Us</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a class="nav-link" href="departments.html">
+                            <span class="lang-ar">الأقسام</span>
+                            <span class="lang-en hidden">Departments</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a class="nav-link" href="members.html">
+                            <span class="lang-ar">الأعضاء</span>
+                            <span class="lang-en hidden">Members</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a class="nav-link" href="projects.html">
+                            <span class="lang-ar">المشاريع</span>
+                            <span class="lang-en hidden">Projects</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a class="nav-link" href="news.html">
+                            <span class="lang-ar">الأخبار والفعاليات</span>
+                            <span class="lang-en hidden">News & Events</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a class="nav-link active" href="#">
+                            <span class="lang-ar">اتصل بنا</span>
+                            <span class="lang-en hidden">Contact</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <!-- Mobile Language & Theme Toggle -->
+                <div class="d-flex gap-2 mt-4">
+                    <button id="mobile-language-toggle" class="btn btn-sm btn-outline-primary flex-fill">
+                        <span class="lang-ar">EN</span>
+                        <span class="lang-en hidden">AR</span>
+                    </button>
+                    <button id="mobile-theme-toggle" class="btn btn-sm btn-outline-primary theme-toggle-icon">
+                        <i class="fa-solid fa-moon moon"></i>
+                        <i class="fa-solid fa-sun sun"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="py-5 bg-gradient">
@@ -117,36 +198,29 @@
                         <span class="lang-ar">تواصل معنا</span>
                         <span class="lang-en hidden">Contact Us</span>
                     </h1>
-                    <p class="lead mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <h2 class="h4 mb-4" data-aos="fade-up" data-aos-delay="100">
+<span class="lang-ar">فريق طلابي للتكنولوجيا - مركز التطوير التكنولوجي، القليوبية</span>
+<span class="lang-en hidden">Student Technology Team - Technology Development Center, Qalyubia</span>
+
+                    </h2>
+                    <p class="lead mb-4" data-aos="fade-up" data-aos-delay="200">
                         <span class="lang-ar">نحن هنا للإجابة على استفساراتك ومساعدتك في أي شيء تحتاجه. لا تتردد في التواصل معنا من خلال النموذج أدناه أو عبر وسائل التواصل المختلفة.</span>
                         <span class="lang-en hidden">We're here to answer your questions and help you with anything you need. Feel free to reach out to us through the form below or via our various contact channels.</span>
                     </p>
-                    <div class="d-flex gap-3" data-aos="fade-up" data-aos-delay="200">
-                        <a href="#contact-form" class="btn btn-primary">
+                    <div class="d-flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="300">
+                        <a href="#contact-form" class="btn btn-primary btn-lg">
                             <span class="lang-ar">نموذج التواصل</span>
                             <span class="lang-en hidden">Contact Form</span>
                         </a>
-                        <a href="#contact-info" class="btn btn-outline-primary">
+                        <a href="#contact-info" class="btn btn-outline-primary btn-lg">
                             <span class="lang-ar">معلومات الاتصال</span>
                             <span class="lang-en hidden">Contact Info</span>
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="position-relative">
-                        <div class="glass-effect rounded-4 p-4 text-center">
-                            <img src="../assets/images/hero_image.png" alt="Contact Digital Future" class="img-fluid rounded-3">
-                        </div>
-                        <div class="position-absolute top-0 start-0 translate-middle">
-                            <div class="floating p-3 glass-effect rounded-circle text-primary">
-                                <i class="fa-solid fa-envelope fa-2x"></i>
-                            </div>
-                        </div>
-                        <div class="position-absolute bottom-0 end-0 translate-middle">
-                            <div class="floating p-3 glass-effect rounded-circle text-primary" style="animation-delay: 0.5s">
-                                <i class="fa-solid fa-location-dot fa-2x"></i>
-                            </div>
-                        </div>
+                <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-delay="400">
+                    <img src="../assets/images/hero_image.png" alt="Contact Digital Future" class="img-fluid">
+                </div>
                     </div>
                 </div>
             </div>
@@ -273,7 +347,7 @@
                         </h2>
                         <ul class="list-unstyled">
                             <li class="d-flex align-items-center mb-4">
-                                <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-3">
+                                <div class="p-3 rounded-circle me-3">
                                     <i class="fa-solid fa-location-dot text-primary"></i>
                                 </div>
                                 <div>
@@ -288,7 +362,7 @@
                                 </div>
                             </li>
                             <li class="d-flex align-items-center mb-4">
-                                <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-3">
+                                <div class="p-3 rounded-circle me-3">
                                     <i class="fa-solid fa-envelope text-primary"></i>
                                 </div>
                                 <div>
@@ -302,7 +376,7 @@
                                 </div>
                             </li>
                             <li class="d-flex align-items-center mb-4">
-                                <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-3">
+                                <div class="p-3 rounded-circle me-3">
                                     <i class="fa-solid fa-phone text-primary"></i>
                                 </div>
                                 <div>
@@ -316,7 +390,7 @@
                                 </div>
                             </li>
                             <li class="d-flex align-items-center">
-                                <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-3">
+                                <div class="p-3 rounded-circle me-3">
                                     <i class="fa-solid fa-clock text-primary"></i>
                                 </div>
                                 <div>
@@ -379,7 +453,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-5 bg-light">
+    <section class="py-5 bg-gradient">
         <div class="container">
             <h2 class="display-6 fw-bold mb-4 text-center" data-aos="fade-up">
                 <span class="lang-ar">الأسئلة الشائعة</span>
