@@ -32,8 +32,20 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/style.css">
-    <link id="direction-style" rel="stylesheet" href="../css/rtl.css">
+    <link id="direction-stylesheet" rel="stylesheet" href="../css/rtl.css">
     <link id="theme-stylesheet" rel="stylesheet" href="../css/light-theme.css">
+    
+    <!-- Custom styles for header text visibility -->
+    <style>
+        .dark .nav-link.active {
+            color: white !important;
+            font-weight: 700;
+            text-shadow: 0 0 1px rgba(255, 255, 255, 0.8);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+    </style>
 </head>
 <body class="bg-pattern">
     <!-- Navigation Bar -->
@@ -186,7 +198,6 @@
             </div>
         </div>
     </div>
-    </nav>
 
     <!-- Hero Section -->
     <section class="py-5 bg-gradient">
@@ -211,14 +222,36 @@
                             <span class="lang-ar">تصفح الأعضاء</span>
                             <span class="lang-en hidden">Browse Members</span>
                         </a>
-                        <a href="contact.html" class="btn btn-outline-primary btn-lg">
-                            <span class="lang-ar">انضم إلينا</span>
-                            <span class="lang-en hidden">Join Us</span>
+                        <a href="contact.html" class="btn btn-lg" style="background-color: blue; color: white;">
+                            <span class="lang-ar">انضم إلى فريقنا</span>
+                            <span class="lang-en hidden">Join Our Team</span>
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-delay="400">
                     <img src="../assets/images/hero_image.png" alt="Digital Future Team" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Us Section -->
+    <section class="py-4" style="background-color: blue;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h3 class="text-white mb-3">
+                        <span class="lang-ar">انضم إلى فريقنا</span>
+                        <span class="lang-en hidden">Join Our Team</span>
+                    </h3>
+                    <p class="text-white mb-4">
+                        <span class="lang-ar">هل أنت مهتم بالانضمام إلى فريق مستقبل رقمي؟ نحن دائمًا نبحث عن مواهب جديدة ومتحمسة للانضمام إلى فريقنا.</span>
+                        <span class="lang-en hidden">Are you interested in joining Digital Future team? We are always looking for new and enthusiastic talents to join our team.</span>
+                    </p>
+                    <a href="contact.html" class="btn btn-light btn-lg">
+                        <span class="lang-ar">تواصل معنا الآن</span>
+                        <span class="lang-en hidden">Contact Us Now</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -884,8 +917,8 @@
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-location-dot mt-1 text-blue-400"></i>
                             <span class="text-gray-400">
-                                <span class="lang-ar">القليوبية، مصر</span>
-                                <span class="lang-en hidden">Qalyubia, Egypt</span>
+                                <span class="lang-ar">مديرية التربية والتعليم، القليوبية، مصر</span>
+                                <span class="lang-en hidden">Education Directorate, Qalyubia, Egypt</span>
                             </span>
                         </li>
                         <li class="flex items-center gap-3">
@@ -894,7 +927,7 @@
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fa-solid fa-phone text-blue-400"></i>
-                            <a href="tel:+201234567890" class="text-gray-400 hover:text-blue-400 transition-colors">+20 123 456 7890</a>
+                            <a href="tel:+201066480958" class="text-gray-400 hover:text-blue-400 transition-colors">+201066480958</a>
                         </li>
                     </ul>
                 </div>
@@ -918,7 +951,6 @@
                     </form>
                 </div>
             </div>
-            
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
                 <p>
                     <span class="lang-ar">© 2025 مستقبل رقمي. جميع الحقوق محفوظة.</span>
@@ -1018,10 +1050,131 @@
             }
         });
     </script>
-
     </footer>
-
-    <!-- Scripts -->
+    
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
     <script src="../js/main.js"></script>
+    
+    <!-- Inline Script for Language and Theme Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get toggle buttons
+            const languageToggle = document.getElementById('language-toggle');
+            const themeToggle = document.getElementById('theme-toggle');
+            const mobileLanguageToggle = document.getElementById('mobile-language-toggle');
+            const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+            const htmlElement = document.documentElement;
+            
+            // Language toggle function
+            function toggleLanguage() {
+                // Toggle language classes
+                document.querySelectorAll('.lang-ar, .lang-en').forEach(el => {
+                    el.classList.toggle('hidden');
+                });
+                
+                // Toggle HTML direction attribute
+                if (htmlElement.getAttribute('dir') === 'rtl') {
+                    htmlElement.setAttribute('dir', 'ltr');
+                    htmlElement.setAttribute('lang', 'en');
+                } else {
+                    htmlElement.setAttribute('dir', 'rtl');
+                    htmlElement.setAttribute('lang', 'ar');
+                }
+                
+                // Toggle direction stylesheet
+                const directionStylesheet = document.getElementById('direction-stylesheet');
+                if (directionStylesheet) {
+                    if (directionStylesheet.getAttribute('href').includes('rtl.css')) {
+                        directionStylesheet.setAttribute('href', directionStylesheet.getAttribute('href').replace('rtl.css', 'ltr.css'));
+                    } else {
+                        directionStylesheet.setAttribute('href', directionStylesheet.getAttribute('href').replace('ltr.css', 'rtl.css'));
+                    }
+                }
+                
+                // Save language preference
+                const currentLang = htmlElement.getAttribute('lang');
+                localStorage.setItem('preferredLanguage', currentLang);
+            }
+            
+            // Theme toggle function
+            function toggleTheme() {
+                // Toggle dark class on html element
+                document.documentElement.classList.toggle('dark');
+                
+                // Toggle theme stylesheet
+                const themeStylesheet = document.getElementById('theme-stylesheet');
+                if (themeStylesheet) {
+                    const currentPath = themeStylesheet.getAttribute('href');
+                    if (currentPath.includes('light-theme.css')) {
+                        themeStylesheet.setAttribute('href', '../css/dark-theme.css');
+                    } else {
+                        themeStylesheet.setAttribute('href', '../css/light-theme.css');
+                    }
+                }
+                
+                // Toggle logo visibility
+                const lightLogos = document.querySelectorAll('.light-logo');
+                const darkLogos = document.querySelectorAll('.dark-logo');
+                
+                lightLogos.forEach(logo => {
+                    logo.classList.toggle('hidden');
+                });
+                
+                darkLogos.forEach(logo => {
+                    logo.classList.toggle('hidden');
+                });
+                
+                // Save theme preference
+                const isDarkMode = document.documentElement.classList.contains('dark');
+                localStorage.setItem('darkMode', isDarkMode ? 'true' : 'false');
+            }
+            
+            // Add event listeners to buttons
+            if (languageToggle) {
+                languageToggle.addEventListener('click', toggleLanguage);
+            }
+            
+            if (themeToggle) {
+                themeToggle.addEventListener('click', toggleTheme);
+            }
+            
+            if (mobileLanguageToggle) {
+                mobileLanguageToggle.addEventListener('click', toggleLanguage);
+            }
+            
+            if (mobileThemeToggle) {
+                mobileThemeToggle.addEventListener('click', toggleTheme);
+            }
+            
+            // Apply saved preferences on page load
+            function applyUserPreferences() {
+                // Apply language preference
+                const savedLang = localStorage.getItem('preferredLanguage');
+                if (savedLang) {
+                    if ((savedLang === 'en' && htmlElement.getAttribute('lang') === 'ar') ||
+                        (savedLang === 'ar' && htmlElement.getAttribute('lang') === 'en')) {
+                        toggleLanguage();
+                    }
+                }
+                
+                // Apply theme preference
+                const savedDarkMode = localStorage.getItem('darkMode');
+                if (savedDarkMode) {
+                    const isDarkMode = savedDarkMode === 'true';
+                    const currentIsDarkMode = document.documentElement.classList.contains('dark');
+                    
+                    if (isDarkMode !== currentIsDarkMode) {
+                        toggleTheme();
+                    }
+                }
+            }
+            
+            // Apply user preferences immediately
+            applyUserPreferences();
+        });
+    </script>
 </body>
 </html>

@@ -34,6 +34,18 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/rtl.css" id="direction-style">
     <link rel="stylesheet" href="css/light-theme.css" id="theme-stylesheet">
+    
+    <!-- Custom styles for header text visibility -->
+    <style>
+        .dark .nav-link.active {
+            color: white !important;
+            font-weight: 700;
+            text-shadow: 0 0 1px rgba(255, 255, 255, 0.8);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+    </style>
 </head>
 <body class="bg-pattern">
     <!-- Navigation Bar -->
@@ -433,7 +445,7 @@
                 <!-- Project 1 -->
                 <div class="bg-gray-50 dark:bg-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
                     <div class="aspect-video bg-gray-200 dark:bg-gray-600 overflow-hidden">
-                        <img src="assets/images/project1.jpg" alt="Project 1" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                        <img src="assets/images/hero_image.png" alt="Project 1" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
@@ -461,7 +473,7 @@
                 <!-- Project 2 -->
                 <div class="bg-gray-50 dark:bg-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
                     <div class="aspect-video bg-gray-200 dark:bg-gray-600 overflow-hidden">
-                        <img src="assets/images/project1.jpg" alt="Project 1" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                        <img src="assets/images/hero_image.png" alt="Project 1" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
@@ -489,7 +501,7 @@
                 <!-- Project 3 -->
                 <div class="bg-gray-50 dark:bg-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
                     <div class="aspect-video bg-gray-200 dark:bg-gray-600 overflow-hidden">
-                        <img src="assets/images/project1.jpg" alt="Project 1" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                        <img src="assets/images/hero_image.png" alt="Project 1" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
@@ -542,7 +554,7 @@
                 <!-- News 1 -->
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
                     <div class="aspect-video bg-gray-200 dark:bg-gray-600 overflow-hidden">
-                        <img src="assets/images/news1.jpg" alt="News 1" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                        <img src="assets/images/hero_image.png" alt="News 1" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-3">
@@ -576,7 +588,7 @@
                 <!-- News 2 -->
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
                     <div class="aspect-video bg-gray-200 dark:bg-gray-600 overflow-hidden">
-                        <img src="assets/images/news2.jpg" alt="News 2" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                        <img src="assets/images/hero_image.png" alt="News 2" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-3">
@@ -610,7 +622,7 @@
                 <!-- News 3 -->
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden" data-aos="fade-up" data-aos-delay="300">
                     <div class="aspect-video bg-gray-200 dark:bg-gray-600 overflow-hidden">
-                        <img src="assets/images/news3.jpg" alt="News 3" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                        <img src="assets/images/hero_image.png" alt="News 3" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-3">
@@ -683,7 +695,7 @@
                 <!-- About Column -->
                 <div class="md:col-span-1">
                     <div class="flex items-center gap-2 mb-4">
-                        <img src="assets/images/logo.svg" alt="DIGITAL FUTURE Logo" class="h-10">
+                        <img src="assets/images/hero_image.png" alt="DIGITAL FUTURE Logo" class="h-10">
                         <div>
                             <h2 class="text-lg font-bold text-blue-400 lang-ar">مستقبل رقمي</h2>
                             <h2 class="text-lg font-bold text-blue-400 lang-en hidden">DIGITAL FUTURE</h2>
@@ -759,8 +771,8 @@
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-location-dot mt-1 text-blue-400"></i>
                             <span class="text-gray-400">
-                                <span class="lang-ar">القليوبية، مصر</span>
-                                <span class="lang-en hidden">Qalyubia, Egypt</span>
+                                <span class="lang-ar">مديرية التربية والتعليم، القليوبية، مصر</span>
+                                <span class="lang-en hidden">Education Directorate, Qalyubia, Egypt</span>
                             </span>
                         </li>
                         <li class="flex items-center gap-3">
@@ -769,7 +781,7 @@
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fa-solid fa-phone text-blue-400"></i>
-                            <a href="tel:+201234567890" class="text-gray-400 hover:text-blue-400 transition-colors">+20 123 456 7890</a>
+                            <a href="tel:+201066480958" class="text-gray-400 hover:text-blue-400 transition-colors">+201066480958</a>
                         </li>
                     </ul>
                 </div>

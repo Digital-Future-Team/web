@@ -260,7 +260,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Apply user preferences after a short delay to avoid flash of incorrect theme/language
+    // Apply user preferences immediately and after a short delay to avoid flash of incorrect theme/language
+    applyUserPreferences();
     setTimeout(applyUserPreferences, 100);
 
     // Animated counters
