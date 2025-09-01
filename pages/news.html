@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الأخبار والفعاليات | مستقبل رقمي</title>
+    <meta
+      name="description"
+      content="آخر أخبار وفعاليات فريق مستقبل رقمي، بما في ذلك الإعلانات والمسابقات والجداول الزمنية"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml" />
+
+    <!-- Bootstrap 5 RTL -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- AOS - Animate On Scroll -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/rtl.css" id="direction-stylesheet" />
+    <link
+      rel="stylesheet"
+      href="../css/light-theme.css"
+      id="theme-stylesheet"
+    />
+    
+    <!-- Custom styles for header text visibility -->
+    <style>
+        .dark .nav-link.active {
+            color: white !important;
+            font-weight: 700;
+            text-shadow: 0 0 1px rgba(255, 255, 255, 0.8);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+    </style>
+  </head>
+  <body class="bg-pattern">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg sticky-top glass-effect">
+      <div class="container">
+        <!-- Logo -->
+        <a class="navbar-brand" href="../index.html">
+          <img
+            src="../assets/images/light_theme_image.jpg"
+            alt="DIGITAL FUTURE Logo"
+            class="h-10 light-logo"
+          />
+          <img
+            src="../assets/images/dark_theme_image.jpg"
+            alt="DIGITAL FUTURE Logo"
+            class="h-10 dark-logo hidden"
+          />
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="d-none d-lg-flex align-items-center">
+          <!-- Navigation Links -->
+          <ul class="navbar-nav me-4">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">
+                <span class="lang-ar">الرئيسية</span>
+                <span class="lang-en hidden">Home</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">
+                <span class="lang-ar">عن الفريق</span>
+                <span class="lang-en hidden">About Us</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="departments.html">
+                <span class="lang-ar">الأقسام</span>
+                <span class="lang-en hidden">Departments</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="members.html">
+                <span class="lang-ar">الأعضاء</span>
+                <span class="lang-en hidden">Members</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="projects.html">
+                <span class="lang-ar">المشاريع</span>
+                <span class="lang-en hidden">Projects</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">
+                <span class="lang-ar">الأخبار والفعاليات</span>
+                <span class="lang-en hidden">News & Events</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">
+                <span class="lang-ar">اتصل بنا</span>
+                <span class="lang-en hidden">Contact</span>
+              </a>
+            </li>
+          </ul>
+
+          <!-- Language & Theme Toggle -->
+          <div class="d-flex align-items-center gap-3">
+            <button id="language-toggle" class="btn btn-sm btn-outline-primary">
+              <span class="lang-ar">EN</span>
+              <span class="lang-en hidden">AR</span>
+            </button>
+            <button
+              id="theme-toggle"
+              class="btn btn-sm btn-outline-primary theme-toggle-icon"
+            >
+              <i class="fa-solid fa-moon moon"></i>
+              <i class="fa-solid fa-sun sun"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobile-menu-button"
+          class="btn btn-outline-primary d-lg-none"
+          type="button"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div id="mobile-sidebar" class="mobile-sidebar d-lg-none">
+      <div class="mobile-sidebar-content">
+        <div
+          class="d-flex justify-content-between align-items-center p-3 border-bottom"
+        >
+          <h5 class="mb-0">
+            <span class="lang-ar">القائمة</span>
+            <span class="lang-en hidden">Menu</span>
+          </h5>
+          <button id="close-sidebar" class="btn btn-sm btn-outline-secondary">
+            <i class="fa-solid fa-times"></i>
+          </button>
+        </div>
+        <div class="p-3">
+          <ul class="list-unstyled">
+            <li class="mb-2">
+              <a class="nav-link" href="../index.html">
+                <span class="lang-ar">الرئيسية</span>
+                <span class="lang-en hidden">Home</span>
+              </a>
+            </li>
+            <li class="mb-2">
+              <a class="nav-link" href="about.html">
+                <span class="lang-ar">عن الفريق</span>
+                <span class="lang-en hidden">About Us</span>
+              </a>
+            </li>
+            <li class="mb-2">
+              <a class="nav-link" href="departments.html">
+                <span class="lang-ar">الأقسام</span>
+                <span class="lang-en hidden">Departments</span>
+              </a>
+            </li>
+            <li class="mb-2">
+              <a class="nav-link" href="members.html">
+                <span class="lang-ar">الأعضاء</span>
+                <span class="lang-en hidden">Members</span>
+              </a>
+            </li>
+            <li class="mb-2">
+              <a class="nav-link" href="projects.html">
+                <span class="lang-ar">المشاريع</span>
+                <span class="lang-en hidden">Projects</span>
+              </a>
+            </li>
+            <li class="mb-2">
+              <a class="nav-link active" href="#">
+                <span class="lang-ar">الأخبار والفعاليات</span>
+                <span class="lang-en hidden">News & Events</span>
+              </a>
+            </li>
+            <li class="mb-2">
+              <a class="nav-link" href="contact.html">
+                <span class="lang-ar">اتصل بنا</span>
+                <span class="lang-en hidden">Contact</span>
+              </a>
+            </li>
+          </ul>
+
+          <!-- Mobile Language & Theme Toggle -->
+          <div class="d-flex gap-2 mt-4">
+            <button
+              id="mobile-language-toggle"
+              class="btn btn-sm btn-outline-primary flex-fill"
+            >
+              <span class="lang-ar">EN</span>
+              <span class="lang-en hidden">AR</span>
+            </button>
+            <button
+              id="mobile-theme-toggle"
+              class="btn btn-sm btn-outline-primary theme-toggle-icon"
+            >
+              <i class="fa-solid fa-moon moon"></i>
+              <i class="fa-solid fa-sun sun"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="py-5 bg-gradient">
+      <div class="container py-5">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <h1 class="display-4 fw-bold mb-4" data-aos="fade-up">
+              <span class="lang-ar">الأخبار والفعاليات</span>
+              <span class="lang-en hidden">News & Events</span>
+            </h1>
+            <h2 class="h4 mb-4" data-aos="fade-up" data-aos-delay="100">
+<span class="lang-ar">فريق طلابي للتكنولوجيا - مركز التطوير التكنولوجي، القليوبية</span>
+<span class="lang-en hidden">Student Technology Team - Technology Development Center, Qalyubia</span>
+
+            </h2>
+            <p class="lead mb-4" data-aos="fade-up" data-aos-delay="200">
+              <span class="lang-ar"
+                >تابع آخر أخبار وفعاليات فريق مستقبل رقمي، بما في ذلك الإعلانات
+                والمسابقات والجداول الزمنية للأحداث القادمة.</span
+              >
+              <span class="lang-en hidden"
+                >Follow the latest news and events of Digital Future team,
+                including announcements, competitions, and schedules for
+                upcoming events.</span
+              >
+            </p>
+            <div class="d-flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="300">
+              <a href="#latest-news" class="btn btn-primary btn-lg">
+                <span class="lang-ar">آخر الأخبار</span>
+                <span class="lang-en hidden">Latest News</span>
+              </a>
+              <a href="#upcoming-events" class="btn btn-outline-primary btn-lg">
+                <span class="lang-ar">الفعاليات القادمة</span>
+                <span class="lang-en hidden">Upcoming Events</span>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-delay="400">
+            <img
+              src="../assets/images/hero_image.png"
+              alt="Digital Future News"
+              class="img-fluid"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- News Filter -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row justify-content-between align-items-center mb-4">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <h2 class="h3 mb-0" id="latest-news">
+              <span class="lang-ar">آخر الأخبار</span>
+              <span class="lang-en hidden">Latest News</span>
+            </h2>
+          </div>
+          <div class="col-md-6">
+            <div class="d-flex flex-wrap gap-2 justify-content-md-end">
+              <button
+                class="btn btn-sm btn-primary filter-btn active"
+                data-filter="all"
+              >
+                <span class="lang-ar">الكل</span>
+                <span class="lang-en hidden">All</span>
+              </button>
+              <button
+                class="btn btn-sm btn-outline-primary filter-btn"
+                data-filter="announcement"
+              >
+                <span class="lang-ar">إعلانات</span>
+                <span class="lang-en hidden">Announcements</span>
+              </button>
+              <button
+                class="btn btn-sm btn-outline-primary filter-btn"
+                data-filter="achievement"
+              >
+                <span class="lang-ar">إنجازات</span>
+                <span class="lang-en hidden">Achievements</span>
+              </button>
+              <button
+                class="btn btn-sm btn-outline-primary filter-btn"
+                data-filter="event"
+              >
+                <span class="lang-ar">فعاليات</span>
+                <span class="lang-en hidden">Events</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- News Grid -->
+        <div class="row g-4">
+          <!-- News Item 1 -->
+          <div
+            class="col-lg-4 col-md-6 news-item"
+            data-category="announcement"
+            data-aos="fade-up"
+          >
+            <div
+              class="card h-100 glass-effect border-0 rounded-4 overflow-hidden"
+            >
+              <img
+                src="../assets/images/hero_image.png"
+                class="card-img-top"
+                alt="News Image"
+              />
+              <div class="card-body p-4">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-2"
+                >
+                  <span class="badge bg-primary rounded-pill">
+                    <span class="lang-ar">إعلان</span>
+                    <span class="lang-en hidden">Announcement</span>
+                  </span>
+                  <span class="text-muted small">15 مايو 2025</span>
+                </div>
+                <h3 class="h5 mb-3">
+                  <span class="lang-ar"
+                    >إطلاق الموقع الرسمي لفريق مستقبل رقمي</span
+                  >
+                  <span class="lang-en hidden"
+                    >Launch of Digital Future Team's Official Website</span
+                  >
+                </h3>
+                <p class="text-muted mb-3">
+                  <span class="lang-ar"
+                    >يسعدنا الإعلان عن إطلاق الموقع الرسمي لفريق مستقبل رقمي،
+                    والذي يهدف إلى توفير منصة للتواصل مع المهتمين بمجالات
+                    التكنولوجيا المختلفة.</span
+                  >
+                  <span class="lang-en hidden"
+                    >We are pleased to announce the launch of Digital Future
+                    Team's official website, which aims to provide a platform
+                    for communication with those interested in various
+                    technology fields.</span
+                  >
+                </p>
+                <a href="#" class="btn btn-sm btn-outline-primary">
+                  <span class="lang-ar">اقرأ المزيد</span>
+                  <span class="lang-en hidden">Read More</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- News Item 2 -->
+          <div
+            class="col-lg-4 col-md-6 news-item"
+            data-category="achievement"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div
+              class="card h-100 glass-effect border-0 rounded-4 overflow-hidden"
+            >
+              <img
+                src="../assets/images/hero_image.png"
+                class="card-img-top"
+                alt="News Image"
+              />
+              <div class="card-body p-4">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-2"
+                >
+                  <span class="badge bg-success rounded-pill">
+                    <span class="lang-ar">إنجاز</span>
+                    <span class="lang-en hidden">Achievement</span>
+                  </span>
+                  <span class="text-muted small">10 مايو 2025</span>
+                </div>
+                <h3 class="h5 mb-3">
+                  <span class="lang-ar"
+                    >فوز فريق البرمجة بالمركز الأول في مسابقة هاكاثون مصر</span
+                  >
+                  <span class="lang-en hidden"
+                    >Programming Team Wins First Place in Egypt Hackathon</span
+                  >
+                </h3>
+                <p class="text-muted mb-3">
+                  <span class="lang-ar"
+                    >حقق فريق البرمجة إنجازًا مميزًا بالفوز بالمركز الأول في
+                    مسابقة هاكاثون مصر 2025 عن مشروع منصة التعلم الإلكترونية
+                    المبتكرة.</span
+                  >
+                  <span class="lang-en hidden"
+                    >The programming team achieved a remarkable achievement by
+                    winning first place in Egypt Hackathon 2025 for the
+                    innovative e-learning platform project.</span
+                  >
+                </p>
+                <a href="#" class="btn btn-sm btn-outline-primary">
+                  <span class="lang-ar">اقرأ المزيد</span>
+                  <span class="lang-en hidden">Read More</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- News Item 3 -->
+          <div
+            class="col-lg-4 col-md-6 news-item"
+            data-category="event"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div
+              class="card h-100 glass-effect border-0 rounded-4 overflow-hidden"
+            >
+              <img
+                src="../assets/images/hero_image.png"
+                class="card-img-top"
+                alt="News Image"
+              />
+              <div class="card-body p-4">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-2"
+                >
+                  <span class="badge bg-info rounded-pill">
+                    <span class="lang-ar">فعالية</span>
+                    <span class="lang-en hidden">Event</span>
+                  </span>
+                  <span class="text-muted small">5 مايو 2025</span>
+                </div>
+                <h3 class="h5 mb-3">
+                  <span class="lang-ar"
+                    >ورشة عمل تطوير تطبيقات الويب التفاعلية</span
+                  >
+                  <span class="lang-en hidden"
+                    >Interactive Web Applications Development Workshop</span
+                  >
+                </h3>
+                <p class="text-muted mb-3">
+                  <span class="lang-ar"
+                    >ينظم قسم البرمجة ورشة عمل حول تطوير تطبيقات الويب التفاعلية
+                    باستخدام أحدث التقنيات مثل React وNode.js.</span
+                  >
+                  <span class="lang-en hidden"
+                    >The programming department organizes a workshop on
+                    developing interactive web applications using the latest
+                    technologies such as React and Node.js.</span
+                  >
+                </p>
+                <a href="#" class="btn btn-sm btn-outline-primary">
+                  <span class="lang-ar">اقرأ المزيد</span>
+                  <span class="lang-en hidden">Read More</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- News Item 4 -->
+          <div
+            class="col-lg-4 col-md-6 news-item"
+            data-category="announcement"
+            data-aos="fade-up"
+          >
+            <div
+              class="card h-100 glass-effect border-0 rounded-4 overflow-hidden"
+            >
+              <img
+                src="../assets/images/hero_image.png"
+                class="card-img-top"
+                alt="News Image"
+              />
+              <div class="card-body p-4">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-2"
+                >
+                  <span class="badge bg-primary rounded-pill">
+                    <span class="lang-ar">إعلان</span>
+                    <span class="lang-en hidden">Announcement</span>
+                  </span>
+                  <span class="text-muted small">1 مايو 2025</span>
+                </div>
+                <h3 class="h5 mb-3">
+                  <span class="lang-ar"
+                    >فتح باب التقديم للانضمام لفريق مستقبل رقمي</span
+                  >
+                  <span class="lang-en hidden"
+                    >Applications Open to Join Digital Future Team</span
+                  >
+                </h3>
+                <p class="text-muted mb-3">
+                  <span class="lang-ar"
+                    >يعلن فريق مستقبل رقمي عن فتح باب التقديم للانضمام للفريق في
+                    مختلف الأقسام: البرمجة، الذكاء الاصطناعي، التدريب، الإعلام،
+                    التقييم، والأرشيف.</span
+                  >
+                  <span class="lang-en hidden"
+                    >Digital Future team announces the opening of applications
+                    to join the team in various departments: Programming, AI,
+                    Training, Media, Evaluation, and Archive.</span
+                  >
+                </p>
+                <a href="#" class="btn btn-sm btn-outline-primary">
+                  <span class="lang-ar">اقرأ المزيد</span>
+                  <span class="lang-en hidden">Read More</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- News Item 5 -->
+          <div
+            class="col-lg-4 col-md-6 news-item"
+            data-category="achievement"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div
+              class="card h-100 glass-effect border-0 rounded-4 overflow-hidden"
+            >
+              <img
+                src="../assets/images/hero_image.png"
+                class="card-img-top"
+                alt="News Image"
+              />
+              <div class="card-body p-4">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-2"
+                >
+                  <span class="badge bg-success rounded-pill">
+                    <span class="lang-ar">إنجاز</span>
+                    <span class="lang-en hidden">Achievement</span>
+                  </span>
+                  <span class="text-muted small">25 أبريل 2025</span>
+                </div>
+                <h3 class="h5 mb-3">
+                  <span class="lang-ar"
+                    >تكريم فريق الذكاء الاصطناعي في مؤتمر التكنولوجيا
+                    العربي</span
+                  >
+                  <span class="lang-en hidden"
+                    >AI Team Honored at Arab Technology Conference</span
+                  >
+                </h3>
+                <p class="text-muted mb-3">
+                  <span class="lang-ar"
+                    >تم تكريم فريق الذكاء الاصطناعي في مؤتمر التكنولوجيا العربي
+                    لمساهمتهم في تطوير نظام ذكي لمساعدة المزارعين في اكتشاف
+                    أمراض النباتات.</span
+                  >
+                  <span class="lang-en hidden"
+                    >The AI team was honored at the Arab Technology Conference
+                    for their contribution to developing an intelligent system
+                    to help farmers detect plant diseases.</span
+                  >
+                </p>
+                <a href="#" class="btn btn-sm btn-outline-primary">
+                  <span class="lang-ar">اقرأ المزيد</span>
+                  <span class="lang-en hidden">Read More</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- News Item 6 -->
+          <div
+            class="col-lg-4 col-md-6 news-item"
+            data-category="event"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div
+              class="card h-100 glass-effect border-0 rounded-4 overflow-hidden"
+            >
+              <img
+                src="../assets/images/hero_image.png"
+                class="card-img-top"
+                alt="News Image"
+              />
+              <div class="card-body p-4">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-2"
+                >
+                  <span class="badge bg-info rounded-pill">
+                    <span class="lang-ar">فعالية</span>
+                    <span class="lang-en hidden">Event</span>
+                  </span>
+                  <span class="text-muted small">20 أبريل 2025</span>
+                </div>
+                <h3 class="h5 mb-3">
+                  <span class="lang-ar">مؤتمر مستقبل التكنولوجيا في مصر</span>
+                  <span class="lang-en hidden"
+                    >Future of Technology in Egypt Conference</span
+                  >
+                </h3>
+                <p class="text-muted mb-3">
+                  <span class="lang-ar"
+                    >ينظم فريق مستقبل رقمي مؤتمرًا حول مستقبل التكنولوجيا في مصر
+                    بمشاركة خبراء ومتخصصين من مختلف المجالات التقنية.</span
+                  >
+                  <span class="lang-en hidden"
+                    >Digital Future team organizes a conference on the future of
+                    technology in Egypt with the participation of experts and
+                    specialists from various technical fields.</span
+                  >
+                </p>
+                <a href="#" class="btn btn-sm btn-outline-primary">
+                  <span class="lang-ar">اقرأ المزيد</span>
+                  <span class="lang-en hidden">Read More</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="d-flex justify-content-center mt-5">
+          <nav aria-label="Page navigation">
+            <ul class="pagination">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upcoming Events -->
+    <section class="py-5 bg-gradient" id="upcoming-events">
+      <div class="container">
+        <h2 class="display-6 fw-bold mb-4" data-aos="fade-up">
+          <span class="lang-ar">الفعاليات القادمة</span>
+          <span class="lang-en hidden">Upcoming Events</span>
+        </h2>
+
+        <div class="row g-4">
+          <!-- Event 1 -->
+          <div class="col-lg-6" data-aos="fade-up">
+            <div class="card h-100 glass-effect border-0 rounded-4">
+              <div class="card-body p-4">
+                <div class="row">
+                  <div class="col-md-3 mb-3 mb-md-0">
+                    <div
+                      class="text-center p-3 rounded-4"
+                    >
+                      <h3 class="h2 mb-0">25</h3>
+                      <p class="mb-0">
+                        <span class="lang-ar">مايو</span>
+                        <span class="lang-en hidden">May</span>
+                      </p>
+                      <p class="small mb-0">2025</p>
+                    </div>
+                  </div>
+                  <div class="col-md-9">
+                    <h3 class="h5 mb-3">
+                      <span class="lang-ar"
+                        >معسكر تدريبي: أساسيات الذكاء الاصطناعي</span
+                      >
+                      <span class="lang-en hidden"
+                        >Bootcamp: AI Fundamentals</span
+                      >
+                    </h3>
+                    <p class="text-muted mb-3">
+                      <span class="lang-ar"
+                        >معسكر تدريبي مكثف لمدة 3 أيام حول أساسيات الذكاء
+                        الاصطناعي وتطبيقاته العملية.</span
+                      >
+                      <span class="lang-en hidden"
+                        >Intensive 3-day bootcamp on AI fundamentals and
+                        practical applications.</span
+                      >
+                    </p>
+                    <div class="d-flex align-items-center mb-3">
+                      <i class="fa-solid fa-location-dot me-2 text-primary"></i>
+                      <span class="text-muted">
+                        <span class="lang-ar">قاعة المؤتمرات، جامعة بنها</span>
+                        <span class="lang-en hidden"
+                          >Conference Hall, Benha University</span
+                        >
+                      </span>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                      <i class="fa-solid fa-clock me-2 text-primary"></i>
+                      <span class="text-muted">
+                        <span class="lang-ar">9:00 صباحًا - 5:00 مساءً</span>
+                        <span class="lang-en hidden">9:00 AM - 5:00 PM</span>
+                      </span>
+                    </div>
+                    <a href="#" class="btn btn-sm btn-outline-primary">
+                      <span class="lang-ar">التسجيل</span>
+                      <span class="lang-en hidden">Register</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 2 -->
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="card h-100 glass-effect border-0 rounded-4">
+              <div class="card-body p-4">
+                <div class="row">
+                  <div class="col-md-3 mb-3 mb-md-0">
+                    <div
+                      class="text-center p-3 rounded-4"
+                    >
+                      <h3 class="h2 mb-0">10</h3>
+                      <p class="mb-0">
+                        <span class="lang-ar">يونيو</span>
+                        <span class="lang-en hidden">June</span>
+                      </p>
+                      <p class="small mb-0">2025</p>
+                    </div>
+                  </div>
+                  <div class="col-md-9">
+                    <h3 class="h5 mb-3">
+                      <span class="lang-ar">مسابقة البرمجة السنوية</span>
+                      <span class="lang-en hidden"
+                        >Annual Coding Competition</span
+                      >
+                    </h3>
+                    <p class="text-muted mb-3">
+                      <span class="lang-ar"
+                        >مسابقة برمجية سنوية للطلاب من مختلف الجامعات المصرية
+                        للتنافس في حل المشكلات البرمجية.</span
+                      >
+                      <span class="lang-en hidden"
+                        >Annual coding competition for students from various
+                        Egyptian universities to compete in solving programming
+                        problems.</span
+                      >
+                    </p>
+                    <div class="d-flex align-items-center mb-3">
+                      <i class="fa-solid fa-location-dot me-2 text-primary"></i>
+                      <span class="text-muted">
+                        <span class="lang-ar"
+                          >كلية الحاسبات والمعلومات، جامعة القاهرة</span
+                        >
+                        <span class="lang-en hidden"
+                          >Faculty of Computers and Information, Cairo
+                          University</span
+                        >
+                      </span>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                      <i class="fa-solid fa-clock me-2 text-primary"></i>
+                      <span class="text-muted">
+                        <span class="lang-ar">10:00 صباحًا - 6:00 مساءً</span>
+                        <span class="lang-en hidden">10:00 AM - 6:00 PM</span>
+                      </span>
+                    </div>
+                    <a href="#" class="btn btn-sm btn-outline-primary">
+                      <span class="lang-ar">التسجيل</span>
+                      <span class="lang-en hidden">Register</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 3 -->
+          <div class="col-lg-6" data-aos="fade-up">
+            <div class="card h-100 glass-effect border-0 rounded-4">
+              <div class="card-body p-4">
+                <div class="row">
+                  <div class="col-md-3 mb-3 mb-md-0">
+                    <div
+                      class="text-center p-3 bg-primary bg-opacity-10 rounded-4"
+                    >
+                      <h3 class="h2 mb-0">15</h3>
+                      <p class="mb-0">
+                        <span class="lang-ar">يونيو</span>
+                        <span class="lang-en hidden">June</span>
+                      </p>
+                      <p class="small mb-0">2025</p>
+                    </div>
+                  </div>
+                  <div class="col-md-9">
+                    <h3 class="h5 mb-3">
+                      <span class="lang-ar"
+                        >ورشة عمل: تصميم واجهات المستخدم</span
+                      >
+                      <span class="lang-en hidden">Workshop: UI Design</span>
+                    </h3>
+                    <p class="text-muted mb-3">
+                      <span class="lang-ar"
+                        >ورشة عمل تفاعلية حول تصميم واجهات المستخدم الحديثة
+                        باستخدام أدوات مثل Figma وAdobe XD.</span
+                      >
+                      <span class="lang-en hidden"
+                        >Interactive workshop on modern UI design using tools
+                        like Figma and Adobe XD.</span
+                      >
+                    </p>
+                    <div class="d-flex align-items-center mb-3">
+                      <i class="fa-solid fa-location-dot me-2 text-primary"></i>
+                      <span class="text-muted">
+                        <span class="lang-ar"
+                          >مقر فريق مستقبل رقمي، القليوبية</span
+                        >
+                        <span class="lang-en hidden"
+                          >Digital Future Team HQ, Qalyubia</span
+                        >
+                      </span>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                      <i class="fa-solid fa-clock me-2 text-primary"></i>
+                      <span class="text-muted">
+                        <span class="lang-ar">1:00 ظهرًا - 4:00 مساءً</span>
+                        <span class="lang-en hidden">1:00 PM - 4:00 PM</span>
+                      </span>
+                    </div>
+                    <a href="#" class="btn btn-sm btn-outline-primary">
+                      <span class="lang-ar">التسجيل</span>
+                      <span class="lang-en hidden">Register</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 4 -->
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="card h-100 glass-effect border-0 rounded-4">
+              <div class="card-body p-4">
+                <div class="row">
+                  <div class="col-md-3 mb-3 mb-md-0">
+                    <div
+                      class="text-center p-3 bg-primary bg-opacity-10 rounded-4"
+                    >
+                      <h3 class="h2 mb-0">20</h3>
+                      <p class="mb-0">
+                        <span class="lang-ar">يونيو</span>
+                        <span class="lang-en hidden">June</span>
+                      </p>
+                      <p class="small mb-0">2025</p>
+                    </div>
+                  </div>
+                  <div class="col-md-9">
+                    <h3 class="h5 mb-3">
+                      <span class="lang-ar"
+                        >ندوة: مستقبل التكنولوجيا في مصر</span
+                      >
+                      <span class="lang-en hidden"
+                        >Seminar: Future of Technology in Egypt</span
+                      >
+                    </h3>
+                    <p class="text-muted mb-3">
+                      <span class="lang-ar"
+                        >ندوة نقاشية حول مستقبل التكنولوجيا في مصر والفرص
+                        المتاحة للشباب في هذا المجال.</span
+                      >
+                      <span class="lang-en hidden"
+                        >Discussion seminar on the future of technology in Egypt
+                        and opportunities available for youth in this
+                        field.</span
+                      >
+                    </p>
+                    <div class="d-flex align-items-center mb-3">
+                      <i class="fa-solid fa-location-dot me-2 text-primary"></i>
+                      <span class="text-muted">
+                        <span class="lang-ar">مكتبة مصر العامة، القليوبية</span>
+                        <span class="lang-en hidden"
+                          >Egypt Public Library, Qalyubia</span
+                        >
+                      </span>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                      <i class="fa-solid fa-clock me-2 text-primary"></i>
+                      <span class="text-muted">
+                        <span class="lang-ar">6:00 مساءً - 8:00 مساءً</span>
+                        <span class="lang-en hidden">6:00 PM - 8:00 PM</span>
+                      </span>
+                    </div>
+                    <a href="#" class="btn btn-sm btn-outline-primary">
+                      <span class="lang-ar">التسجيل</span>
+                      <span class="lang-en hidden">Register</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Subscription -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div
+              class="glass-effect rounded-4 p-4 p-md-5 text-center"
+              data-aos="fade-up"
+            >
+              <h2 class="h3 mb-4">
+                <span class="lang-ar">اشترك في نشرتنا الإخبارية</span>
+                <span class="lang-en hidden">Subscribe to Our Newsletter</span>
+              </h2>
+              <p class="text-muted mb-4">
+                <span class="lang-ar"
+                  >احصل على آخر الأخبار والتحديثات عن فعاليات ومشاريع فريق
+                  مستقبل رقمي مباشرة إلى بريدك الإلكتروني.</span
+                >
+                <span class="lang-en hidden"
+                  >Get the latest news and updates about Digital Future team's
+                  events and projects directly to your email.</span
+                >
+              </p>
+              <div class="row justify-content-center">
+                <div class="col-md-8">
+                  <form>
+                    <div class="input-group mb-3">
+                      <input
+                        type="email"
+                        class="form-control"
+                        placeholder="البريد الإلكتروني"
+                        aria-label="Email"
+                      />
+                      <button class="btn btn-primary" type="submit">
+                        <span class="lang-ar">اشتراك</span>
+                        <span class="lang-en hidden">Subscribe</span>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-5 bg-gradient">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-8">
+            <h2 class="display-5 fw-bold mb-4" data-aos="fade-up">
+              <span class="lang-ar">هل تريد المشاركة في فعالياتنا؟</span>
+              <span class="lang-en hidden"
+                >Want to Participate in Our Events?</span
+              >
+            </h2>
+            <p class="lead mb-4" data-aos="fade-up" data-aos-delay="100">
+              <span class="lang-ar"
+                >انضم إلينا في فعالياتنا القادمة وكن جزءًا من مجتمع تقني متنامي
+                يهدف إلى بناء مستقبل رقمي أفضل.</span
+              >
+              <span class="lang-en hidden"
+                >Join us in our upcoming events and be part of a growing tech
+                community aiming to build a better digital future.</span
+              >
+            </p>
+            <div
+              class="d-flex justify-content-center gap-3"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <a href="contact.html" class="btn btn-lg btn-primary">
+                <span class="lang-ar">تواصل معنا</span>
+                <span class="lang-en hidden">Contact Us</span>
+              </a>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Logo & About -->
+                <div class="col-lg-4">
+                    <h4 class="fw-bold mb-3">
+                        <div style="display: flex; align-items:center ;">
+                        <img src="D:\Digital_Future\assets\images\hero_image.png" alt="Digital_Future_Logo" srcset="" width="50" height="50">
+                        <span class="lang-ar">مستقبل رقمي</span>
+                        <span class="lang-en hidden">Digital Future</span>
+                        </div>
+                    </h4>
+                    <p>
+                        <span class="lang-ar">فريق طلابي تقني متخصص في مجالات البرمجة والذكاء الاصطناعي والتدريب والإعلام.</span>
+                        <span class="lang-en hidden">A student technology team specialized in programming, artificial intelligence, training, and media.</span>
+                    </p>
+                    <div class="d-flex gap-2 mt-3">
+                        <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="fw-bold mb-3">
+                        <span class="lang-ar">روابط سريعة</span>
+                        <span class="lang-en hidden">Quick Links</span>
+                    </h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="../index.html" class="text-decoration-none text-secondary">
+                                <span class="lang-ar">الرئيسية</span>
+                                <span class="lang-en hidden">Home</span>
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-decoration-none text-secondary">
+                                <span class="lang-ar">عن الفريق</span>
+                                <span class="lang-en hidden">About Us</span>
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="departments.html" class="text-decoration-none text-secondary">
+                                <span class="lang-ar">الأقسام</span>
+                                <span class="lang-en hidden">Departments</span>
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="members.html" class="text-decoration-none text-secondary">
+                                <span class="lang-ar">الأعضاء</span>
+                                <span class="lang-en hidden">Members</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- More Links -->
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="fw-bold mb-3">
+                        <span class="lang-ar">المزيد</span>
+                        <span class="lang-en hidden">More</span>
+                    </h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="projects.html" class="text-decoration-none text-secondary">
+                                <span class="lang-ar">المشاريع</span>
+                                <span class="lang-en hidden">Projects</span>
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="news.html" class="text-decoration-none text-secondary">
+                                <span class="lang-ar">الأخبار والفعاليات</span>
+                                <span class="lang-en hidden">News & Events</span>
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="contact.html" class="text-decoration-none text-secondary">
+                                <span class="lang-ar">اتصل بنا</span>
+                                <span class="lang-en hidden">Contact</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="fw-bold mb-3">
+                        <span class="lang-ar">معلومات الاتصال</span>
+                        <span class="lang-en hidden">Contact Info</span>
+                    </h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <i class="fa-solid fa-location-dot me-2 text-primary"></i>
+                            <span class="lang-ar">مديرية التربية والتعليم، القليوبية، مصر</span>
+                            <span class="lang-en hidden">Education Directorate, Qalyubia, Egypt</span>
+                        </li>
+                        <li class="mb-2">
+                            <i class="fa-solid fa-envelope me-2 text-primary"></i>
+                            <a href="mailto:info@digitalfuture.eg" class="text-decoration-none text-secondary">info@digitalfuture.eg</a>
+                        </li>
+                        <li class="mb-2">
+                            <i class="fa-solid fa-phone me-2 text-primary"></i>
+                            <a href="tel:+201066480958" class="text-decoration-none text-secondary">+201066480958</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-4">
+            
+            <!-- Copyright -->
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        <span class="lang-ar">© 2025 مستقبل رقمي. جميع الحقوق محفوظة.</span>
+                        <span class="lang-en hidden">© 2025 Digital Future. All rights reserved.</span>
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">
+                        <span class="lang-ar">تم التصميم بواسطة فريق مستقبل رقمي</span>
+                        <span class="lang-en hidden">Designed by Digital Future Team</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="../js/main.js"></script>
+
+    <!-- News Page Specific JS -->
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        easing: "ease-in-out",
+        once: true,
+        mirror: false,
+      });
+
+      // News Filter Functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const newsItems = document.querySelectorAll(".news-item");
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const filterValue = this.getAttribute("data-filter");
+
+            // Update active button
+            filterButtons.forEach((btn) =>
+              btn.classList.remove("active", "btn-primary")
+            );
+            filterButtons.forEach((btn) =>
+              btn.classList.add("btn-outline-primary")
+            );
+            this.classList.add("active", "btn-primary");
+            this.classList.remove("btn-outline-primary");
+
+            // Filter news items
+            newsItems.forEach((item) => {
+              const category = item.getAttribute("data-category");
+
+              if (filterValue === "all" || category === filterValue) {
+                item.style.display = "block";
+              } else {
+                item.style.display = "none";
+              }
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
