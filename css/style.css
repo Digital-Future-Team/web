@@ -67,12 +67,36 @@ html[lang="en"] body {
 }
 
 /* Common Elements */
-body {
+html, body {
     min-height: 100vh;
+    max-width: 100%;
     overflow-x: hidden;
     color: var(--text-primary);
     background-color: var(--bg-primary);
     transition: var(--transition-default);
+}
+
+/* Ensure all embedded content is responsive */
+iframe, embed, object, video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fix for tables to prevent horizontal scroll */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Fix for all pages to prevent horizontal scroll */
+.container-fluid, .container {
+    width: 100%;
+    max-width: 100%;
+    padding-right: var(--bs-gutter-x, 0.75rem);
+    padding-left: var(--bs-gutter-x, 0.75rem);
+    margin-right: auto;
+    margin-left: auto;
+    overflow-x: hidden;
 }
 
 /* Enhanced Glassmorphism Effect */
@@ -491,6 +515,113 @@ body {
     text-shadow: 0 0 10px rgba(79, 70, 229, 0.5);
 }
 
+/* Card Styles */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Improve card responsiveness */
+@media (max-width: 767.98px) {
+    .card {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    
+    .card-img-top {
+        max-height: 200px;
+        object-fit: cover;
+        width: 100%;
+    }
+    
+    /* Improve department cards on mobile */
+    #departments-section .card {
+        height: auto;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Improve stats section on mobile */
+    #stats-section .chart-container {
+        height: 220px;
+        width: 100%;
+    }
+    
+    /* Improve collaboration section on mobile */
+    #collaboration-section img {
+        margin-top: 1.5rem;
+        max-width: 100%;
+    }
+    
+    /* Fix container padding */
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    /* Fix table overflow */
+    table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .card-title {
+        font-size: 1.25rem;
+    }
+    
+    .card-text {
+        font-size: 0.9rem;
+    }
+    
+    /* Improve CTA section on small devices */
+    #cta-section {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    
+    /* Fix images on small screens */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Fix navbar on small screens */
+    .navbar-brand img {
+        height: 30px;
+    }
+    
+    /* Fix container padding */
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    /* Fix font sizes for better readability */
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
+}
+
 /* Dark Mode Cards */
 .dark .card {
     background: linear-gradient(145deg, var(--bg-secondary), var(--bg-tertiary));
@@ -525,6 +656,113 @@ body {
     background: var(--bg-secondary);
 }
 
+/* Responsive Styles */
+@media (max-width: 1199.98px) {
+    .container {
+        max-width: 95%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    /* Prevent horizontal overflow */
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    /* Fix grid columns */
+    [class*="col-"] {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    /* Fix grid system */
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    h1 {
+        font-size: 2.25rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+    
+    .hero-section {
+        padding: 80px 0;
+    }
+    
+    .section-padding {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 767.98px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
+    }
+    
+    .hero-section {
+        padding: 60px 0;
+    }
+    
+    .section-padding {
+        padding: 40px 0;
+    }
+    
+    .card {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    h2 {
+        font-size: 1.35rem;
+    }
+    
+    h3 {
+        font-size: 1.15rem;
+    }
+    
+    p {
+        font-size: 0.95rem;
+    }
+    
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+    
+    .navbar-brand img {
+        max-height: 40px;
+    }
+}
+
 @media (max-width: 480px) {
     .mobile-sidebar {
         width: 100%;
@@ -533,5 +771,36 @@ body {
     
     .mobile-sidebar.active {
         right: 0;
+    }
+    
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    /* Fix for small mobile devices */
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+    
+    /* Adjust padding for small screens */
+    .container, .container-fluid {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    
+    /* Fix navbar on very small screens */
+    .navbar-brand {
+        max-width: 50%;
+    }
+    
+    /* Ensure text doesn't overflow */
+    p, h1, h2, h3, h4, h5, h6, span, a {
+        word-wrap: break-word;
     }
 }

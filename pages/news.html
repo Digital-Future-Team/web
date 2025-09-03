@@ -139,96 +139,87 @@
           </div>
         </div>
 
-        <!-- Mobile Menu Button -->
-        <button
-          id="mobile-menu-button"
-          class="btn btn-outline-primary d-lg-none"
-          type="button"
-        >
-          <i class="fa-solid fa-bars"></i>
-        </button>
-      </div>
+             <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="btn btn-outline-primary d-lg-none" type="button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
     </nav>
-
+            
+        </div>
+    </nav>
+    
     <!-- Mobile Sidebar -->
     <div id="mobile-sidebar" class="mobile-sidebar d-lg-none">
-      <div class="mobile-sidebar-content">
-        <div
-          class="d-flex justify-content-between align-items-center p-3 border-bottom"
-        >
-          <h5 class="mb-0">
-            <span class="lang-ar">القائمة</span>
-            <span class="lang-en hidden">Menu</span>
-          </h5>
-          <button id="close-sidebar" class="btn btn-sm btn-outline-secondary">
-            <i class="fa-solid fa-times"></i>
-          </button>
+        <div class="mobile-sidebar-content">
+            <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
+                <h5 class="mb-0">
+                    <span class="lang-ar">القائمة</span>
+                    <span class="lang-en hidden">Menu</span>
+                </h5>
+                <button id="close-sidebar" class="btn btn-sm btn-outline-secondary">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            <div class="p-3">
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a class="nav-link" href="../index.html">
+                            <span class="lang-ar">الرئيسية</span>
+                            <span class="lang-en hidden">Home</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a class="nav-link" href="about.html">
+                            <span class="lang-ar">عن الفريق</span>
+                            <span class="lang-en hidden">About Us</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a class="nav-link" href="departments.html">
+                            <span class="lang-ar">الأقسام</span>
+                            <span class="lang-en hidden">Departments</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a class="nav-link" href="members.html">
+                            <span class="lang-ar">الأعضاء</span>
+                            <span class="lang-en hidden">Members</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a class="nav-link" href="projects.html">
+                            <span class="lang-ar">المشاريع</span>
+                            <span class="lang-en hidden">Projects</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a class="nav-link active" href="news.html">
+                            <span class="lang-ar">الأخبار والفعاليات</span>
+                            <span class="lang-en hidden">News & Events</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a class="nav-link" href="contact.html">
+                            <span class="lang-ar">اتصل بنا</span>
+                            <span class="lang-en hidden">Contact</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <!-- Mobile Language & Theme Toggle -->
+                <div class="d-flex gap-2 mt-4">
+                    <button id="mobile-language-toggle" class="btn btn-sm btn-outline-primary flex-fill">
+                        <span class="lang-ar">EN</span>
+                        <span class="lang-en hidden">AR</span>
+                    </button>
+                    <button id="mobile-theme-toggle" class="btn btn-sm btn-outline-primary theme-toggle-icon">
+                        <i class="fa-solid fa-moon moon"></i>
+                        <i class="fa-solid fa-sun sun"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="p-3">
-          <ul class="list-unstyled">
-            <li class="mb-2">
-              <a class="nav-link" href="../index.html">
-                <span class="lang-ar">الرئيسية</span>
-                <span class="lang-en hidden">Home</span>
-              </a>
-            </li>
-            <li class="mb-2">
-              <a class="nav-link" href="about.html">
-                <span class="lang-ar">عن الفريق</span>
-                <span class="lang-en hidden">About Us</span>
-              </a>
-            </li>
-            <li class="mb-2">
-              <a class="nav-link" href="departments.html">
-                <span class="lang-ar">الأقسام</span>
-                <span class="lang-en hidden">Departments</span>
-              </a>
-            </li>
-            <li class="mb-2">
-              <a class="nav-link" href="members.html">
-                <span class="lang-ar">الأعضاء</span>
-                <span class="lang-en hidden">Members</span>
-              </a>
-            </li>
-            <li class="mb-2">
-              <a class="nav-link" href="projects.html">
-                <span class="lang-ar">المشاريع</span>
-                <span class="lang-en hidden">Projects</span>
-              </a>
-            </li>
-            <li class="mb-2">
-              <a class="nav-link active" href="#">
-                <span class="lang-ar">الأخبار والفعاليات</span>
-                <span class="lang-en hidden">News & Events</span>
-              </a>
-            </li>
-            <li class="mb-2">
-              <a class="nav-link" href="contact.html">
-                <span class="lang-ar">اتصل بنا</span>
-                <span class="lang-en hidden">Contact</span>
-              </a>
-            </li>
-          </ul>
-
-          <!-- Mobile Language & Theme Toggle -->
-          <div class="d-flex gap-2 mt-4">
-            <button
-              id="mobile-language-toggle"
-              class="btn btn-sm btn-outline-primary flex-fill"
-            >
-              <span class="lang-ar">EN</span>
-              <span class="lang-en hidden">AR</span>
-            </button>
-            <button
-              id="mobile-theme-toggle"
-              class="btn btn-sm btn-outline-primary theme-toggle-icon"
-            >
-              <i class="fa-solid fa-moon moon"></i>
-              <i class="fa-solid fa-sun sun"></i>
-            </button>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- Hero Section -->
